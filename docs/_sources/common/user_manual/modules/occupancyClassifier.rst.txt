@@ -42,6 +42,8 @@ The predictions look like this:
     Image :  image_examples/Occupancy/RES3/65883.png     Class : RES3 (98.67%)
     Results written in file occupancy_preds.csv 
 
+The images used in this example are:
+
 .. list-table::
 
     * - .. figure:: ../../../images/image_examples/Occupancy/RES1/51563.png 

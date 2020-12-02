@@ -45,6 +45,7 @@ The predictions look like this:
     Image :  image_examples/Roof/flat/94.png     Class : flat (97.68%)
     Results written in file roofType_preds.csv
 
+The images used in this example are:
 
 .. list-table::
 
@@ -55,6 +56,10 @@ The predictions look like this:
       - .. figure:: ../../../images/image_examples/Roof/hipped/54.png 
 
            image_examples/Roof/hipped/54.png  Hipped
+
+      - .. figure:: ../../../images/image_examples/Roof/flat/94.png 
+
+           image_examples/Roof/flat/94.png  Flat
 
 
 
