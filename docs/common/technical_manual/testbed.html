@@ -1,0 +1,402 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.2. Testbed &mdash; SURF 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1. How to Extend" href="../developer_manual/how_to_extend/how_to_extend.html" />
+    <link rel="prev" title="2.1. Modules" href="modules.html" />
+<script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
+<style media="screen">.vega-actions a {margin-right: 5px;}</style>
+<link href="../../_static/css/bootstrap.css" rel="stylesheet">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F2F2F2" >
+          
+<a href="https://simcenter.designsafe-ci.org/" style="margin-bottom: 0px;">
+  <img src="../../_static/SimCenter_logo.png" class="logo" alt="Org-Logo" />
+</a>
+<hr style="margin: 0px;">
+
+  <a href="../../index.html">
+
+
+  <img src="../../_static/SimCenter_BRAILS_logo_solo.png" class="logo" alt="Logo"/>
+</a>
+
+
+  
+  
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/acknowledgments.html">1. Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/about.html">2. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/installation.html">3. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/userGuide.html">4. User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/troubleshooting.html">5. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/examples.html">6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="theory.html">1. Theory and Implementation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="vnv.html">2. Verification and Validation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="modules.html">2.1. Modules</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Testbed</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#application-example-atlantic-city-testbed">Application example: Atlantic City Testbed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_manual/how_to_extend/how_to_extend.html">1. How to Extend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_manual/coding_style/coding_style.html">2. Coding Style</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">SURF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="vnv.html"><span class="section-number">2. </span>Verification and Validation</a> &raquo;</li>
+        
+      <li><span class="section-number">2.2. </span>Testbed</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/common/technical_manual/testbed.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testbed">
+<span id="lbl-vnv-testbed"></span><h1><span class="section-number">2.2. </span>Testbed<a class="headerlink" href="#testbed" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="application-example-atlantic-city-testbed">
+<h2>Application example: Atlantic City Testbed<a class="headerlink" href="#application-example-atlantic-city-testbed" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To repeat this example, please follow <a class="reference internal" href="../user_manual/userGuide.html#lbl-tutorial"><span class="std std-numref">Section 4</span></a>.</p>
+</div>
+<p>At the end of the workflow described in the previous sections,
+a regional building information database can be created.
+As a demonstration, this framework is applied to create a building inventory
+covering several coastal cities that are historically threatened by hurricanes in New Jersey.</p>
+<div class="align-center figure" id="id6">
+<span id="fig-tax-record"></span><img alt="../../_images/tax_record.png" src="../../_images/tax_record.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.1 </span><span class="caption-text">Building information inferred from tax assessment record</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>In this implementation, three sources of data are fused to form a hybrid initial database of buildings.
+The first source is the tax assessment records which are scraped from the administrative website of
+<a class="reference external" href="https://www.state.nj.us/treasury/taxation/lpt/TaxListSearchPublicWebpage.shtml">the Department of Treasure of New Jersey</a>
+as shown in <a class="reference internal" href="#fig-tax-record"><span class="std std-numref">Fig. 2.2.1</span></a>,
+including number of stories, year of construction, structure type, occupancy.
+The second source is the United State Building Footprint dataset <a class="bibtex reference internal" href="#msfootprint" id="id1">[Mic]</a>.
+The third source is satellite images, which can be download by calling Google Maps API.
+When evaluating the loss caused by hurricanes, the roof type (flat, gabled, or hipped) is an important parameter to be considered.
+To obtain the roof type of every building in these coastal cities,
+the authors trained a ConvNet classifier, which takes a satellite image of a building as
+input and predict the roof type as the output, as shown in <a class="reference internal" href="#fig-roofclassifier"><span class="std std-numref">Fig. 2.2.2</span></a>.
+The training data contains 6,000 satellite images (2,000 for each roof type).
+The ConvNet architecture used here is InceptionV3 <a class="bibtex reference internal" href="#szegedy2016rethinking" id="id2">[SVI+16]</a>,
+which is a widely-used image recognition model that has been shown to attain greater than 78.1% accuracy on the ImageNet dataset.
+The model is the culmination of many ideas developed by multiple researchers over the years.
+The model itself is made up of symmetric and asymmetric building blocks,
+including convolutions, average pooling, max pooling, concats, dropouts, and fully connected layers.
+Batchnorm is used extensively throughout the model and applied to activation inputs.
+Loss is computed via Softmax. By using the InceptionV3 model pretrained on the large scale dataset ImageNet as a startpoint,
+transfer learning is performed to train a roof classifier based on the satellite images.
+The accuracy of the trained classifier tested on a ground truth dataset <a class="bibtex reference internal" href="#charles-wang-2019-3521067" id="id3">[Wan19]</a> is 85%.</p>
+<div class="align-center figure" id="id7">
+<span id="fig-roofclassifier"></span><img alt="../../_images/roofCNN.png" src="../../_images/roofCNN.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">Convolutional neural network for roof type classification</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>Using the proposed framework, the above data are fused and enhanced to form the regional BIM database.
+As shown in <a class="reference internal" href="#fig-demo"><span class="std std-numref">Fig. 2.2.3</span></a>, about 20,000 buildings are modeled within this region and
+the BIM of a typical building is shown on the right side of <a class="reference internal" href="#fig-demo"><span class="std std-numref">Fig. 2.2.3</span></a>,
+in which several attributes are included: structure type, roof type, occupancy,
+number of stories, year of construction, footprint geometry.</p>
+<div class="align-center figure" id="id8">
+<span id="fig-demo"></span><img alt="../../_images/BIM.png" src="../../_images/BIM.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.3 </span><span class="caption-text">Regional scale BIM database</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<p>During the data enhancement period, the prediction errors for building attributes
+(using number of stories and year built as examples) are shown in <a class="reference internal" href="#fig-stories-error"><span class="std std-numref">Fig. 2.2.4</span></a> and <a class="reference internal" href="#fig-yearbuilt-error"><span class="std std-numref">Fig. 2.2.5</span></a>.
+It can be seen that for the number of stories,
+the majority of the prediction errors are zero.
+For the year of construction, the majority of prediction errors are less than 10 years.
+Therefore, the prediction errors are considered as insignificant and the performance of SURF is believed to be satisfying.</p>
+<div class="align-center figure" id="id9">
+<span id="fig-stories-error"></span><img alt="../../_images/stories_Predictions_classification_error.png" src="../../_images/stories_Predictions_classification_error.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.4 </span><span class="caption-text">Prediction error plot against 45 degree line &amp; Histogram plot of prediction error (Number of stories)</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id10">
+<span id="fig-yearbuilt-error"></span><img alt="../../_images/yearBuilt-prediction-error.png" src="../../_images/yearBuilt-prediction-error.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.5 </span><span class="caption-text">Prediction error plot against 45 degree line &amp; Histogram plot of prediction error (Year of construction)</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<p>As shown in <a class="reference internal" href="#fig-stories-error-correlation"><span class="std std-numref">Fig. 2.2.6</span></a> and <a class="reference internal" href="#fig-yearbuilt-error-correlation"><span class="std std-numref">Fig. 2.2.7</span></a>, the semivariograms of the predicted building attributes are calculated and plotted against the observed values. The curves agree with each other very well, indicating that the spatial variation in the original dataset are preserved during the simulations.</p>
+<div class="align-center figure" id="id11">
+<span id="fig-stories-error-correlation"></span><img alt="../../_images/correlation_numofstories_compare.png" src="../../_images/correlation_numofstories_compare.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.6 </span><span class="caption-text">Comparison of semivariograms between original data and simulated data (Number of stories)</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id12">
+<span id="fig-yearbuilt-error-correlation"></span><img alt="../../_images/correlation_yearbuilt_compare.png" src="../../_images/correlation_yearbuilt_compare.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.7 </span><span class="caption-text">Comparison of semivariograms between original data and simulated data (Year of construction)</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<p>It should be noted that, following the framework described in this documentation,
+one can add more building attributes of interests
+(e.g., window area, facade material, first floor elevation, and other features that are
+crucial to natural hazard loss estimation.) into the database by training ConvNets
+for each attribute as long as these attributes are visually comprehensible by the ConvNets.
+In addition to the semantic representations, geometric features (such as building outlines)
+can also be extracted from images using ConvNets-based segmentation <a class="bibtex reference internal" href="#bischke2019multi" id="id4">[BHF+19]</a>.
+However, segmentation is not the focus of this study, therefore not elaborated here.
+The code, data, pre-trained ConvNets, and BIM database created by the implementation can be found in <a class="bibtex reference internal" href="#brails" id="id5">[WYM+19]</a>.</p>
+<p>The BIM information shown in <a class="reference internal" href="#fig-demo"><span class="std std-numref">Fig. 2.2.3</span></a> is enough for describing a building
+when it comes to regional loss estimation of natural hazards, such as hurricanes.</p>
+<p id="bibtex-bibliography-common/technical_manual/testbed-0"><table class="bibtex docutils citation" frame="void" id="bischke2019multi" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[BHF+19]</a></td><td>Benjamin Bischke, Patrick Helber, Joachim Folz, Damian Borth, and Andreas Dengel. Multi-task learning for segmentation of building footprints with deep neural networks. <em>2019 IEEE International Conference on Image Processing (ICIP)</em>, pages 1480–1484, 2019.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="goovaerts1997geostatistics" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Goo97]</td><td>Pierre Goovaerts. <em>Geostatistics for natural resources evaluation</em>. Oxford University Press on Demand, 1997.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="hubel1968receptive" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[HW68]</td><td>David&nbsp;H Hubel and Torsten&nbsp;N Wiesel. Receptive fields and functional architecture of monkey striate cortex. <em>The Journal of physiology</em>, 195(1):215–243, 1968.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="li2019semantic" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[LHF+19]</td><td>Weijia Li, Conghui He, Jiarui Fang, Juepeng Zheng, Haohuan Fu, and Le&nbsp;Yu. Semantic segmentation-based building footprint extraction using very high-resolution satellite images and multi-source gis data. <em>Remote Sensing</em>, 11(4):403, 2019.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="msfootprint" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Mic]</a></td><td>Microsoft. US Building Footprints. URL: <a class="reference external" href="https://github.com/microsoft/USBuildingFootprints">https://github.com/microsoft/USBuildingFootprints</a>.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="szegedy2016rethinking" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[SVI+16]</a></td><td>Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew Wojna. Rethinking the inception architecture for computer vision. <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em>, pages 2818–2826, 2016.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="vanmarcke2010random" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Van10]</td><td>Erik Vanmarcke. <em>Random fields: analysis and synthesis</em>. World Scientific, 2010.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="wang2017hybrid" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[WC18]</td><td>C&nbsp;Wang and Q&nbsp;Chen. A hybrid geotechnical and geological data-based framework for multiscale regional liquefaction hazard mapping. <em>Géotechnique</em>, 68(7):614–625, 2018.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="wang2017spatial" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[WCSJ17]</td><td>Chaofeng Wang, Qiushi Chen, Mengfen Shen, and C&nbsp;Hsein Juang. On the spatial variability of cpt-based geotechnical parameters for regional liquefaction evaluation. <em>Soil Dynamics and Earthquake Engineering</em>, 95:153–166, 2017.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="charles-wang-2019-3521067" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[Wan19]</a></td><td>Charles Wang. Random satellite images of buildings. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">https://doi.org/10.5281/zenodo.3521067</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">doi:10.5281/zenodo.3521067</a>.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="brails" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[WYM+19]</a></td><td>Charles Wang, Qian Yu, Frank McKenna, Barbaros Cetiner, Stella&nbsp;X. Yu, Ertugrul Taciroglu, and Kincho&nbsp;H. Law. Nheri-simcenter/brails: v1.0.1. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">https://doi.org/10.5281/zenodo.3483208</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">doi:10.5281/zenodo.3483208</a>.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="zhao2018building" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[ZKJS18]</td><td>Kang Zhao, Jungwon Kang, Jaewook Jung, and Gunho Sohn. Building extraction from satellite images using mask r-cnn with building boundary regularization. <em>CVPR Workshops</em>, pages 247–251, 2018.</td></tr>
+</tbody>
+</table>
+</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../developer_manual/how_to_extend/how_to_extend.html" class="btn btn-neutral float-right" title="1. How to Extend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="modules.html" class="btn btn-neutral float-left" title="2.1. Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NHERI SimCenter
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>

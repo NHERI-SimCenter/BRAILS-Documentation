@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Theory and Implementation &mdash; SURF 1.0 documentation</title>
+  <title>Occupancy Classifier &mdash; SURF 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.1. Framework" href="framework.html" />
-    <link rel="prev" title="8. Copyright and License" href="../license.html" />
+    <link rel="next" title="Soft-story Building Classifier" href="softstory.html" />
+    <link rel="prev" title="Roof Classifier" href="roof.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -104,12 +104,17 @@
 </ul>
 <p class="caption"><span class="caption-text">Technical Manual</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Theory and Implementation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="framework.html">1.1. Framework</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulesTheory.html">1.2. Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="theory.html">1. Theory and Implementation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="vnv.html">2. Verification and Validation</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="modules.html">2.1. Modules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="roof.html">Roof Classifier</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Occupancy Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="softstory.html">Soft-story Building Classifier</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="vnv.html">2. Verification and Validation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testbed.html">2.2. Testbed</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Manual</span></p>
 <ul>
@@ -160,13 +165,17 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li><span class="section-number">1. </span>Theory and Implementation</li>
+          <li><a href="vnv.html"><span class="section-number">2. </span>Verification and Validation</a> &raquo;</li>
+        
+          <li><a href="modules.html"><span class="section-number">2.1. </span>Modules</a> &raquo;</li>
+        
+      <li>Occupancy Classifier</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/common/technical_manual/theory.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/common/technical_manual/occupancy.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -179,23 +188,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="theory-and-implementation">
-<span id="lbl-theory"></span><h1><span class="section-number">1. </span>Theory and Implementation<a class="headerlink" href="#theory-and-implementation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="framework.html">1.1. Framework</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="framework.html#extracting-building-information-from-images">Extracting building information from images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="framework.html#data-fusion">Data fusion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="framework.html#data-enhancement">Data enhancement</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="modulesTheory.html">1.2. Modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="roofTheory.html">Roof</a></li>
-<li class="toctree-l2"><a class="reference internal" href="softstoryTheory.html">Soft-story</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <div class="section" id="occupancy-classifier">
+<span id="lbl-occupancyclassifier-vnv"></span><h1>Occupancy Classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this headline">¶</a></h1>
+<p>The Occupancy Classifier is validated here.</p>
 </div>
 
 
@@ -206,10 +201,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="framework.html" class="btn btn-neutral float-right" title="1.1. Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="softstory.html" class="btn btn-neutral float-right" title="Soft-story Building Classifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../license.html" class="btn btn-neutral float-left" title="8. Copyright and License" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="roof.html" class="btn btn-neutral float-left" title="Roof Classifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

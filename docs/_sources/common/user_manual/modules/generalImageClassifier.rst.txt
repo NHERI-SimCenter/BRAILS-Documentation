@@ -96,7 +96,7 @@ This model takes a satellite image as input and predicts roof types (flat/gabled
             --classNames flat gabled hipped
 
 Note that a module named Roof Classifier is shipped as a module in BRAILS, which is much more convenient to use.
-Check how to use it :ref:`lbl-roofClassifier`.
+Check how to use it here: :ref:`lbl-roofClassifier`.
 
 
 
