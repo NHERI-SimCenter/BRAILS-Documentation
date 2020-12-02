@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7. Bugs &amp; Feauture Requests &mdash; SURF 1.0 documentation</title>
+  <title>4.3. Make predictions &mdash; SURF 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Copyright and License" href="../license.html" />
-    <link rel="prev" title="6. Examples" href="examples.html" />
+    <link rel="next" title="4.4. Enhance the data" href="enhance.html" />
+    <link rel="prev" title="4.2. Train a model" href="train.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -96,10 +96,20 @@
 <li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">1. Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">2. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">3. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="userGuide.html">4. User Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="userGuide.html">4. User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="preparedata.html">4.1. Prepare and fuse data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="train.html">4.2. Train a model</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4.3. Make predictions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#predict">Predict</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="enhance.html">4.4. Enhance the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/modules.html">4.5. Modules</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">6. Examples</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feauture Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical Manual</span></p>
@@ -156,13 +166,15 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li><span class="section-number">7. </span>Bugs &amp; Feauture Requests</li>
+          <li><a href="userGuide.html"><span class="section-number">4. </span>User Guide</a> &raquo;</li>
+        
+      <li><span class="section-number">4.3. </span>Make predictions</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/common/user_manual/bugs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/common/user_manual/predict.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -175,22 +187,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="bugs-feauture-requests">
-<span id="lblbugs"></span><h1><span class="section-number">7. </span>Bugs &amp; Feauture Requests<a class="headerlink" href="#bugs-feauture-requests" title="Permalink to this headline">¶</a></h1>
-<p>If you have any bugs, feauture requests, or questions about how to
-install or use the application please post on the <a class="reference external" href="https://simcenter-messageboard.designsafe-ci.org/smf/index.php?board=10.0">Message board</a>.
-To avoid duplication try the <cite>Search</cite> feature before creating a <cite>New Topic</cite>.
-When creating a <cite>New Topic</cite> to report a bug or new feature request it would be helpful
-if you could place in the <cite>Subject</cite> area, as shown in <a class="reference internal" href="#figbugreport"><span class="std std-numref">Fig. 7.1</span></a>, an indication of what the post is about:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><strong>BUG</strong>, for bugs, i.e. BUG: Program crashes when starting</li>
-<li><strong>FEATURE</strong>, for new feature requests, i.e. FEATURE: Incorporate OpenSeesPy</li>
-</ol>
-</div></blockquote>
-<div class="align-center figure" id="id1">
-<span id="figbugreport"></span><img alt="../../_images/bugReport.png" src="../../_images/bugReport.png" />
-<p class="caption"><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Example of Submitting a Bug Report to Message Board</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+  <div class="section" id="make-predictions">
+<span id="lbl-train"></span><h1><span class="section-number">4.3. </span>Make predictions<a class="headerlink" href="#make-predictions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="predict">
+<h2>Predict<a class="headerlink" href="#predict" title="Permalink to this headline">¶</a></h2>
+<p>Now we can use the trained model to predict on new images.</p>
+<p>We show a example here: predict roof type based on satellite images.</p>
+<p>Firstly we need to download those satellite images by calling Google API (will cost $).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd src/predicting
+python downloadRoofImages.py
+</pre></div>
+</div>
+<p>To save $, instead of running the above command, you can just get them from
+<a class="reference external" href="https://berkeley.box.com/shared/static/n8l9kusi9eszsnnkefq37fofz22680t2.zip">here</a>. that are prepared by SimCenter.</p>
+<p>Predictions can now be made using the trained model:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cd src/predicting
+python predict.py --image_dir &lt;IMAGE_DIRECTORY&gt; --model_path &lt;MODEL_PATH&gt;
+</pre></div>
+</div>
+<p>IMAGE_DIRECTORY is the directory of your images. MODEL_PATH is the folder where you have your trained model saved.</p>
 </div>
 </div>
 
@@ -202,10 +217,10 @@ if you could place in the <cite>Subject</cite> area, as shown in <a class="refer
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../license.html" class="btn btn-neutral float-right" title="8. Copyright and License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="enhance.html" class="btn btn-neutral float-right" title="4.4. Enhance the data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="examples.html" class="btn btn-neutral float-left" title="6. Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="train.html" class="btn btn-neutral float-left" title="4.2. Train a model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

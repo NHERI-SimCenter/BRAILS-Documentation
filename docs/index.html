@@ -37,7 +37,13 @@
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Copyright and license" href="common/license.html" /> 
+    <link rel="next" title="1. Acknowledgments" href="common/user_manual/acknowledgments.html" />
+<script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
+<style media="screen">.vega-actions a {margin-right: 5px;}</style>
+<link href="_static/css/bootstrap.css" rel="stylesheet">
+
 </head>
 
 <body class="wy-body-for-nav">
@@ -49,23 +55,23 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #F2F2F2" >
           
+<a href="https://simcenter.designsafe-ci.org/" style="margin-bottom: 0px;">
+  <img src="_static/SimCenter_logo.png" class="logo" alt="Org-Logo" />
+</a>
+<hr style="margin: 0px;">
 
-          
-            <a href="#">
-          
+  <a href="#">
 
-          
-            
-            <img src="_static/SimCenter_BRAILS_logo.png" class="logo" alt="Logo"/>
-          
-          </a>
 
-          
-            
-            
-          
+  <img src="_static/SimCenter_BRAILS_logo_solo.png" class="logo" alt="Logo"/>
+</a>
 
-          
+
+  
+  
+
+
+
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,7 +80,7 @@
   </form>
 </div>
 
-          
+
         </div>
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
@@ -86,10 +92,14 @@
             
               <p class="caption"><span class="caption-text">User Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="common/license.html">1. Copyright and license</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/user_manual/installation/installation.html">2. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/user_manual/usage/tutorial.html">3. Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">4. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/acknowledgments.html">1. Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/about.html">2. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/installation.html">3. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/userGuide.html">4. User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/troubleshooting.html">5. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/examples.html">6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/license.html">8. Copyright and License</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical Manual</span></p>
 <ul>
@@ -169,25 +179,19 @@
 <a class="reference internal image-reference" href="_images/brails-demo.gif"><img alt="BRAILS" src="_images/brails-demo.gif" style="width: 700px;" /></a>
 <div class="section" id="what-is-brailsname">
 <h2>What is BRAILS<a class="headerlink" href="#what-is-brailsname" title="Permalink to this headline">¶</a></h2>
-<p>BRAILS is the acronym for Building Recognition using AI at Large-Scale, which is an AI-Based pipeline for city-scale building information modeling (BIM).</p>
-<p>BRAILS helps users create regional-scale database of building inventory, where buildings properties are extracted from satellite or street view images using deep learning.</p>
-<p>BIM, as an efficient way for describing buildings, gives architecture, engineering, and construction (AEC) professionals the insight and tools to more efficiently plan, design, construct, and manage buildings and infrastructure.</p>
-<p>Natural disasters cause losses to human society by damaging or destroying buildings,
-which consequently endangers lives and goods. Buildings are the major components of a human built environment,
-hence are of the major considerations in planning for, responding to and recovering from disasters.
-BIM contains information showing building geometry, components, material, usage, etc,
-which makes it an ideal source for generation and running of simulations of building behavior under both normal and emergency scenarios.
-For example, based on BIM, structure engineers can create numerical models for dynamic simulations of seismic loading conditions.</p>
-<p>In addition to semantic descriptions of basic attributes of buildings,
-BRAILS can also detect attributes that are critical to natural hazards evaluation.
-For example, there are pretrained convolutional neural networks shipped with BRAILS for detecting soft-story buildings that are vulnerable to earthquakes.</p>
+<p>BRAILS is the acronym for Building Recognition using AI at Large-Scale, which is an AI-Based software for city information modeling.</p>
+<p>BRAILS uses deep learning technologies to extract information from satellite or street view images, providing the architecture, engineering, and construction (AEC) professionals the insight and tools to more efficiently plan, design, construct, and manage buildings and infrastructure systems.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">User Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="common/license.html">1. Copyright and license</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/user_manual/installation/installation.html">2. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/user_manual/usage/tutorial.html">3. Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">4. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/acknowledgments.html">1. Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/about.html">2. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/installation.html">3. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/userGuide.html">4. User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/troubleshooting.html">5. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/examples.html">6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/license.html">8. Copyright and License</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound" id="lbl-technical-manual">
@@ -197,8 +201,8 @@ For example, there are pretrained convolutional neural networks shipped with BRA
 <li class="toctree-l1"><a class="reference internal" href="common/technical_manual/vnv.html">2. Verification and Validation</a></li>
 </ul>
 </div>
-<div class="toctree-wrapper compound" id="lbl-developer-manual">
-<p class="caption"><span class="caption-text">Developer Manual</span><a class="headerlink" href="#lbl-developer-manual" title="Permalink to this toctree">¶</a></p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Developer Manual</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="common/developer_manual/how_to_extend/how_to_extend.html">1. How to Extend</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/developer_manual/coding_style/coding_style.html">2. Coding Style</a></li>
@@ -208,16 +212,6 @@ For example, there are pretrained convolutional neural networks shipped with BRA
 <div class="section" id="how-to-cite">
 <h2>How to cite<a class="headerlink" href="#how-to-cite" title="Permalink to this headline">¶</a></h2>
 <p>Charles Wang, Qian Yu, Frank McKenna, Barbaros Cetiner, Stella X. Yu, Ertugrul Taciroglu &amp; Kincho H. Law. (2019, October 11). NHERI-SimCenter/BRAILS: v1.0.1 (Version v1.0.1). Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.3483208">http://doi.org/10.5281/zenodo.3483208</a></p>
-</div>
-<div class="section" id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
-<p>The BRAILS application is distributed under the BSD 3-Clause license, see <a class="reference internal" href="common/license.html#lbl-license"><span class="std std-ref">Copyright and license</span></a> for details.</p>
-</div>
-<div class="section" id="acknowledgement">
-<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permalink to this headline">¶</a></h2>
-<p>This material is based upon work supported by the National Science Foundation under Grant No. 1612843.
-Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do
-not necessarily reflect the views of the National Science Foundation.</p>
 </div>
 <div class="section" id="contact">
 <h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
@@ -233,7 +227,7 @@ not necessarily reflect the views of the National Science Foundation.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="common/license.html" class="btn btn-neutral float-right" title="1. Copyright and license" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="common/user_manual/acknowledgments.html" class="btn btn-neutral float-right" title="1. Acknowledgments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -269,7 +263,13 @@ not necessarily reflect the views of the National Science Foundation.</p>
   
   
     
-   
+    
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
 
 </body>
 </html>
