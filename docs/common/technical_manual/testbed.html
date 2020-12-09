@@ -38,7 +38,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. How to Extend" href="../developer_manual/how_to_extend/how_to_extend.html" />
-    <link rel="prev" title="2.1. Modules" href="modules.html" />
+    <link rel="prev" title="Soft-story Building Classifier" href="softstory.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -205,14 +205,14 @@ The first source is the tax assessment records which are scraped from the admini
 <a class="reference external" href="https://www.state.nj.us/treasury/taxation/lpt/TaxListSearchPublicWebpage.shtml">the Department of Treasure of New Jersey</a>
 as shown in <a class="reference internal" href="#fig-tax-record"><span class="std std-numref">Fig. 2.2.1</span></a>,
 including number of stories, year of construction, structure type, occupancy.
-The second source is the United State Building Footprint dataset <a class="bibtex reference internal" href="#msfootprint" id="id1">[Mic]</a>.
+The second source is the United State Building Footprint dataset <a class="bibtex reference internal" href="../../index.html#msfootprint" id="id1">[Mic]</a>.
 The third source is satellite images, which can be download by calling Google Maps API.
 When evaluating the loss caused by hurricanes, the roof type (flat, gabled, or hipped) is an important parameter to be considered.
 To obtain the roof type of every building in these coastal cities,
 the authors trained a ConvNet classifier, which takes a satellite image of a building as
 input and predict the roof type as the output, as shown in <a class="reference internal" href="#fig-roofclassifier"><span class="std std-numref">Fig. 2.2.2</span></a>.
 The training data contains 6,000 satellite images (2,000 for each roof type).
-The ConvNet architecture used here is InceptionV3 <a class="bibtex reference internal" href="#szegedy2016rethinking" id="id2">[SVI+16]</a>,
+The ConvNet architecture used here is InceptionV3 <a class="bibtex reference internal" href="../../index.html#szegedy2016rethinking" id="id2">[SVI+16]</a>,
 which is a widely-used image recognition model that has been shown to attain greater than 78.1% accuracy on the ImageNet dataset.
 The model is the culmination of many ideas developed by multiple researchers over the years.
 The model itself is made up of symmetric and asymmetric building blocks,
@@ -220,7 +220,7 @@ including convolutions, average pooling, max pooling, concats, dropouts, and ful
 Batchnorm is used extensively throughout the model and applied to activation inputs.
 Loss is computed via Softmax. By using the InceptionV3 model pretrained on the large scale dataset ImageNet as a startpoint,
 transfer learning is performed to train a roof classifier based on the satellite images.
-The accuracy of the trained classifier tested on a ground truth dataset <a class="bibtex reference internal" href="#charles-wang-2019-3521067" id="id3">[Wan19]</a> is 85%.</p>
+The accuracy of the trained classifier tested on a ground truth dataset <a class="bibtex reference internal" href="../../index.html#charles-wang-2019-3521067" id="id3">[Wan19]</a> is 85%.</p>
 <div class="align-center figure" id="id7">
 <span id="fig-roofclassifier"></span><img alt="../../_images/roofCNN.png" src="../../_images/roofCNN.png" />
 <p class="caption"><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">Convolutional neural network for roof type classification</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
@@ -263,84 +263,11 @@ one can add more building attributes of interests
 crucial to natural hazard loss estimation.) into the database by training ConvNets
 for each attribute as long as these attributes are visually comprehensible by the ConvNets.
 In addition to the semantic representations, geometric features (such as building outlines)
-can also be extracted from images using ConvNets-based segmentation <a class="bibtex reference internal" href="#bischke2019multi" id="id4">[BHF+19]</a>.
+can also be extracted from images using ConvNets-based segmentation <a class="bibtex reference internal" href="../../index.html#bischke2019multi" id="id4">[BHF+19]</a>.
 However, segmentation is not the focus of this study, therefore not elaborated here.
-The code, data, pre-trained ConvNets, and BIM database created by the implementation can be found in <a class="bibtex reference internal" href="#brails" id="id5">[WYM+19]</a>.</p>
+The code, data, pre-trained ConvNets, and BIM database created by the implementation can be found in <a class="bibtex reference internal" href="../../index.html#brails" id="id5">[WYM+19]</a>.</p>
 <p>The BIM information shown in <a class="reference internal" href="#fig-demo"><span class="std std-numref">Fig. 2.2.3</span></a> is enough for describing a building
 when it comes to regional loss estimation of natural hazards, such as hurricanes.</p>
-<p id="bibtex-bibliography-common/technical_manual/testbed-0"><table class="bibtex docutils citation" frame="void" id="bischke2019multi" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[BHF+19]</a></td><td>Benjamin Bischke, Patrick Helber, Joachim Folz, Damian Borth, and Andreas Dengel. Multi-task learning for segmentation of building footprints with deep neural networks. <em>2019 IEEE International Conference on Image Processing (ICIP)</em>, pages 1480–1484, 2019.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="goovaerts1997geostatistics" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[Goo97]</td><td>Pierre Goovaerts. <em>Geostatistics for natural resources evaluation</em>. Oxford University Press on Demand, 1997.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="hubel1968receptive" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[HW68]</td><td>David&nbsp;H Hubel and Torsten&nbsp;N Wiesel. Receptive fields and functional architecture of monkey striate cortex. <em>The Journal of physiology</em>, 195(1):215–243, 1968.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="li2019semantic" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[LHF+19]</td><td>Weijia Li, Conghui He, Jiarui Fang, Juepeng Zheng, Haohuan Fu, and Le&nbsp;Yu. Semantic segmentation-based building footprint extraction using very high-resolution satellite images and multi-source gis data. <em>Remote Sensing</em>, 11(4):403, 2019.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="msfootprint" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[Mic]</a></td><td>Microsoft. US Building Footprints. URL: <a class="reference external" href="https://github.com/microsoft/USBuildingFootprints">https://github.com/microsoft/USBuildingFootprints</a>.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="szegedy2016rethinking" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[SVI+16]</a></td><td>Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew Wojna. Rethinking the inception architecture for computer vision. <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em>, pages 2818–2826, 2016.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="vanmarcke2010random" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[Van10]</td><td>Erik Vanmarcke. <em>Random fields: analysis and synthesis</em>. World Scientific, 2010.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="wang2017hybrid" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[WC18]</td><td>C&nbsp;Wang and Q&nbsp;Chen. A hybrid geotechnical and geological data-based framework for multiscale regional liquefaction hazard mapping. <em>Géotechnique</em>, 68(7):614–625, 2018.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="wang2017spatial" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[WCSJ17]</td><td>Chaofeng Wang, Qiushi Chen, Mengfen Shen, and C&nbsp;Hsein Juang. On the spatial variability of cpt-based geotechnical parameters for regional liquefaction evaluation. <em>Soil Dynamics and Earthquake Engineering</em>, 95:153–166, 2017.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="charles-wang-2019-3521067" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[Wan19]</a></td><td>Charles Wang. Random satellite images of buildings. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">https://doi.org/10.5281/zenodo.3521067</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">doi:10.5281/zenodo.3521067</a>.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="brails" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[WYM+19]</a></td><td>Charles Wang, Qian Yu, Frank McKenna, Barbaros Cetiner, Stella&nbsp;X. Yu, Ertugrul Taciroglu, and Kincho&nbsp;H. Law. Nheri-simcenter/brails: v1.0.1. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">https://doi.org/10.5281/zenodo.3483208</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">doi:10.5281/zenodo.3483208</a>.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="zhao2018building" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[ZKJS18]</td><td>Kang Zhao, Jungwon Kang, Jaewook Jung, and Gunho Sohn. Building extraction from satellite images using mask r-cnn with building boundary regularization. <em>CVPR Workshops</em>, pages 247–251, 2018.</td></tr>
-</tbody>
-</table>
-</p>
 </div>
 </div>
 
@@ -355,7 +282,7 @@ when it comes to regional loss estimation of natural hazards, such as hurricanes
         <a href="../developer_manual/how_to_extend/how_to_extend.html" class="btn btn-neutral float-right" title="1. How to Extend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="modules.html" class="btn btn-neutral float-left" title="2.1. Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="softstory.html" class="btn btn-neutral float-left" title="Soft-story Building Classifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

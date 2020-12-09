@@ -207,7 +207,7 @@ so you don’t have to install it standalone if you’ve installed BRAILS follow
 <p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
 <p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
-from brails.SoftstoryClassifier import SoftstoryClassifier
+from brails.RoofTypeClassifier import RoofClassifier
 
 # initialize a roof classifier
 roofModel = RoofClassifier()
@@ -237,23 +237,29 @@ Results written in file roofType_preds.csv
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><div class="first last figure align-default" id="id1">
-<img alt="../../../_images/76.png" src="../../../_images/76.png" />
+<img alt="../../../_images/761.png" src="../../../_images/761.png" />
 <p class="caption"><span class="caption-number">Fig. 4.5.1 </span><span class="caption-text">image_examples/Roof/gabled/76.png Gabled</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 <td><div class="first last figure align-default" id="id2">
-<img alt="../../../_images/54.png" src="../../../_images/54.png" />
+<img alt="../../../_images/541.png" src="../../../_images/541.png" />
 <p class="caption"><span class="caption-number">Fig. 4.5.2 </span><span class="caption-text">image_examples/Roof/hipped/54.png  Hipped</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 <td><div class="first last figure align-default" id="id3">
-<img alt="../../../_images/94.png" src="../../../_images/94.png" />
+<img alt="../../../_images/941.png" src="../../../_images/941.png" />
 <p class="caption"><span class="caption-number">Fig. 4.5.3 </span><span class="caption-text">image_examples/Roof/flat/94.png  Flat</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The classifier takes an image as the input and will always produce a prediction.
+Since the classifier is trained to classify only a specific category of images,
+its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
+</div>
 </div>
 </div>
 

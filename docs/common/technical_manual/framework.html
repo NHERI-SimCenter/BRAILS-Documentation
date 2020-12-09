@@ -37,7 +37,7 @@
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1.2. Theory and Implementation" href="modulesTheory.html" />
+    <link rel="next" title="1.2. Modules" href="modulesTheory.html" />
     <link rel="prev" title="1. Theory and Implementation" href="theory.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
@@ -111,7 +111,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#data-enhancement">Data enhancement</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modulesTheory.html">1.2. Theory and Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulesTheory.html">1.2. Modules</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vnv.html">2. Verification and Validation</a></li>
@@ -222,7 +222,7 @@ Based on the indexing information, satellite or street view images of each build
 Then, the deep learning technique ConvNet is utilized to extract building features
 (that don’t exist in the initial database) from these images.
 ConvNet is a class of deep neural networks inspired by biological processes in that the connectivity pattern
-between neurons resembles the organization of the animal visual cortex <a class="bibtex reference internal" href="#hubel1968receptive" id="id1">[HW68]</a> and
+between neurons resembles the organization of the animal visual cortex <a class="bibtex reference internal" href="../../index.html#hubel1968receptive" id="id1">[HW68]</a> and
 is most commonly applied to analyzing images.
 Individual cortical neurons respond to stimuli only in a restricted region of the visual field known as the receptive field.
 The receptive fields of different neurons partially overlap such that they cover the entire visual field.</p>
@@ -261,9 +261,9 @@ There are two starting points of the data flow pipeline: one is the address list
 Once raw data is fetched from these sources, it will be filtered and cleaned to remove duplicated properties and then merged while missing values represented by place holders.</p>
 <p>The building footprint is an important supporting data the framework relies on.
 The method that is commonly used to get building footprints at a large scale is semantic segmentation on high-resolution
-satellite maps <a class="bibtex reference internal" href="#li2019semantic" id="id2">[LHF+19]</a><a class="bibtex reference internal" href="#zhao2018building" id="id3">[ZKJS18]</a><a class="bibtex reference internal" href="#bischke2019multi" id="id4">[BHF+19]</a>.
+satellite maps <a class="bibtex reference internal" href="../../index.html#li2019semantic" id="id2">[LHF+19]</a><a class="bibtex reference internal" href="../../index.html#zhao2018building" id="id3">[ZKJS18]</a><a class="bibtex reference internal" href="../../index.html#bischke2019multi" id="id4">[BHF+19]</a>.
 Since it is out of the focus of this study, instead of performing segmentation in the proposed framework on the fly,
-the framework retrieves footprints from a dataset released by <a class="bibtex reference internal" href="#msfootprint" id="id5">[Mic]</a>.
+the framework retrieves footprints from a dataset released by <a class="bibtex reference internal" href="../../index.html#msfootprint" id="id5">[Mic]</a>.
 This dataset contains footprints for almost all buildings in the United States extracted from high-resolution satellite maps.
 For regions outside of the United States, footprints can be inferred from satellite images using semantic segmentation methods in aforementioned  references.
 Each geotagged address has a unique coordinate, therefore can be merged with corresponding building footprints.</p>
@@ -317,7 +317,7 @@ As such, statistics of spatial semivariogram provide a useful indicator of spati
 Semivariogram is essentially  a meassure of the degree of dissimilarity between
 observations as a function of distance. It equals to half the variance of two
 random variables separated by a vector distance <span class="math notranslate nohighlight">\(\boldsymbol{h}\)</span>
-<a class="bibtex reference internal" href="#goovaerts1997geostatistics" id="id6">[Goo97]</a><a class="bibtex reference internal" href="#vanmarcke2010random" id="id7">[Van10]</a><a class="bibtex reference internal" href="#wang2017spatial" id="id8">[WCSJ17]</a><a class="bibtex reference internal" href="#wang2017hybrid" id="id9">[WC18]</a>.</p>
+<a class="bibtex reference internal" href="../../index.html#goovaerts1997geostatistics" id="id6">[Goo97]</a><a class="bibtex reference internal" href="../../index.html#vanmarcke2010random" id="id7">[Van10]</a><a class="bibtex reference internal" href="../../index.html#wang2017spatial" id="id8">[WCSJ17]</a><a class="bibtex reference internal" href="../../index.html#wang2017hybrid" id="id9">[WC18]</a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-gamma">
 <span class="eqno">(1.1.1)<a class="headerlink" href="#equation-eq-gamma" title="Permalink to this equation">¶</a></span>\[\gamma (\boldsymbol{h})= \frac{1}{2}Var[Z(\boldsymbol{\mu}) - Z(\boldsymbol{\mu}+\boldsymbol{h})]\]</div>
 <p>where <span class="math notranslate nohighlight">\(Z(\boldsymbol{\mu})\)</span> is the observation at a spatial location <span class="math notranslate nohighlight">\(\mu\)</span>;
@@ -409,12 +409,6 @@ Details about how to do this can be found in the documentation of <a class="refe
 <tr><td class="label"><a class="fn-backref" href="#id5">[Mic]</a></td><td>Microsoft. US Building Footprints. URL: <a class="reference external" href="https://github.com/microsoft/USBuildingFootprints">https://github.com/microsoft/USBuildingFootprints</a>.</td></tr>
 </tbody>
 </table>
-<table class="bibtex docutils citation" frame="void" id="szegedy2016rethinking" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[SVI+16]</td><td>Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew Wojna. Rethinking the inception architecture for computer vision. <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em>, pages 2818–2826, 2016.</td></tr>
-</tbody>
-</table>
 <table class="bibtex docutils citation" frame="void" id="vanmarcke2010random" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -431,18 +425,6 @@ Details about how to do this can be found in the documentation of <a class="refe
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id8">[WCSJ17]</a></td><td>Chaofeng Wang, Qiushi Chen, Mengfen Shen, and C&nbsp;Hsein Juang. On the spatial variability of cpt-based geotechnical parameters for regional liquefaction evaluation. <em>Soil Dynamics and Earthquake Engineering</em>, 95:153–166, 2017.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="charles-wang-2019-3521067" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[Wan19]</td><td>Charles Wang. Random satellite images of buildings. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">https://doi.org/10.5281/zenodo.3521067</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">doi:10.5281/zenodo.3521067</a>.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="brails" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[WYM+19]</td><td>Charles Wang, Qian Yu, Frank McKenna, Barbaros Cetiner, Stella&nbsp;X. Yu, Ertugrul Taciroglu, and Kincho&nbsp;H. Law. Nheri-simcenter/brails: v1.0.1. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">https://doi.org/10.5281/zenodo.3483208</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">doi:10.5281/zenodo.3483208</a>.</td></tr>
 </tbody>
 </table>
 <table class="bibtex docutils citation" frame="void" id="zhao2018building" rules="none">
@@ -463,7 +445,7 @@ Details about how to do this can be found in the documentation of <a class="refe
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="modulesTheory.html" class="btn btn-neutral float-right" title="1.2. Theory and Implementation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="modulesTheory.html" class="btn btn-neutral float-right" title="1.2. Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="theory.html" class="btn btn-neutral float-left" title="1. Theory and Implementation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
