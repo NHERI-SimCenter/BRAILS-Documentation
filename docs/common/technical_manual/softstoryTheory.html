@@ -189,6 +189,45 @@
             
   <div class="section" id="soft-story">
 <span id="softstorytheory"></span><h1>Soft-story<a class="headerlink" href="#soft-story" title="Permalink to this headline">¶</a></h1>
+<p>Structural deficiencies identification is a crucial task in seismic risk evaluation of buildings.
+In case of multi-story structures, abrupt vertical variations of story stiffness are known to significantly increase the likelihood of collapse during earthquakes.
+These buildings are called soft story buildings.
+Identifying these buildings is vital in earthquake loss estimation and mitigation.</p>
+<p>One example of soft-story failure is shown in <a class="reference internal" href="#ssexample"><span class="std std-numref">Table 1.2.3</span></a>.</p>
+<table border="1" class="docutils" id="ssexample">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><div class="first last figure align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/ss.png"><img alt="../../_images/ss.png" src="../../_images/ss.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.2.8 </span><span class="caption-text">Soft-story collapse</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="first last figure align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/ss-frame.png"><img alt="../../_images/ss-frame.png" src="../../_images/ss-frame.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.2.9 </span><span class="caption-text">Failure mechanism</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Street view images are a scalable source for inferring soft-story information.
+In the attempt to screen soft-story buildings in a region,
+a ConvNet classifier
+is trained to take a street-view image of a building and classify it as soft-story or non-soft-story.
+The training data set contains 1,302 satellite images (566 soft-story and 736 non-soft-story).
+Specifically,  InceptionV3 <a class="bibtex reference internal" href="../../index.html#szegedy2016rethinking" id="id1">[SVI+16]</a>, which is a widely-used ConvNet architecture for image feature recognition that has been shown to attain good results with an accuracy greater than 78.1% on the ImageNet dataset, is employed.</p>
+<p>The InceptionV3 is made up of a series of symmetric and asymmetric building blocks,
+including convolutions, average pooling, max pooling, concats, dropouts, and fully connected layers.
+Batchnorm is used extensively throughout the model and applied to activation inputs.
+Loss is computed via Softmax.
+The architecture of the model is shown in <a class="reference internal" href="#fig-inceptionv3"><span class="std std-numref">Fig. 1.2.10</span></a>.</p>
+<div class="figure align-default" id="id4">
+<span id="fig-inceptionv3"></span><a class="reference internal image-reference" href="../../_images/inceptionv3.png"><img alt="InceptionV3" src="../../_images/inceptionv3.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.2.10 </span><span class="caption-text">InceptionV3</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 
 

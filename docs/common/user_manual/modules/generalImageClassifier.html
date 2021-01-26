@@ -103,9 +103,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../enhance.html">4.4. Enhance the data</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modules.html">4.5. Modules</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">General Image Classifier</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#get-the-code">Get the code</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#train-a-model">Train a model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#predict">Predict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#construct-the-image-classifier">Construct the image classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#train-the-model">Train the model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-the-model">Use the model</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="roofClassifier.html">Roof Classifier</a></li>
@@ -200,25 +200,17 @@
             
   <div class="section" id="general-image-classifier">
 <span id="lbl-generalimageclassifier"></span><h1>General Image Classifier<a class="headerlink" href="#general-image-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The General Image Classifier module takes a list of images as the input, and predicts the classes of the images.</p>
-<p>In BRAILS, building attributes that can be inferred using this module include: Roof type, Occupancy class, Soft-story.</p>
-<div class="section" id="get-the-code">
-<h2>Get the code<a class="headerlink" href="#get-the-code" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NHERI-SimCenter/BRAILS.git
-
-cd BRAILS/brails/modules/General_Image_Classifier
-
-pip install -r requirements.txt
-</pre></div>
-</div>
-</div>
-<div class="section" id="train-a-model">
-<h2>Train a model<a class="headerlink" href="#train-a-model" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python train.py --imgDir &lt;IMAGE_DIRECTORY&gt; --modelDir &lt;MODEL_DIRECTORY&gt;
-</pre></div>
-</div>
-<p>IMAGE_DIRECTORY is the directory where you have your images for training</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_DIRECTORY
+<p>The General Image Classifier is a module that can be used for creating user defined classifier.</p>
+<p>The user provides categorized images to this module.</p>
+<p>An image classifier will be built automatically based on the images provided.</p>
+<p>The classifier is then trained and saved locally.</p>
+<p>The trained classifier can be used for inference readily and can be shared with other users.</p>
+<p>During the inference stage, the classifier takes a list of images as the input, and predicts the classes of the images.</p>
+<p>The following is an example, in which a classifier is created and trained.</p>
+<p>The image dataset for this example contains street view images categorized according to construction materials.</p>
+<p>The dataset can be downloaded <a class="reference external" href="https://zenodo.org/record/4416845/files/building_materials.zip">here</a>.</p>
+<p>When unzipped, the file gives the ‘building_materials’ which is a directory where you have your images for training:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>building_materials
 │── class_1
 │       └── *.png
 │── class_2
@@ -229,35 +221,44 @@ pip install -r requirements.txt
        └── *.png
 </pre></div>
 </div>
-<p>An image dataset for test that contains images of different rooves can be downloaded <a class="reference external" href="https://zenodo.org/record/3986721/files/Roof_Satellite_Images.zip">here</a>.</p>
-<p>MODEL_DIRECTORY is the directory where the trained model will be saved.</p>
-<p>It is better to run the above code on a GPU machine.</p>
+<div class="section" id="construct-the-image-classifier">
+<h2>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
+from brails.GeneralImageClassifier import ImageClassifier
+
+# initialize the classifier, give it a name
+materialClassifier = ImageClassifier(modelName=&#39;materialClassifierV0.1&#39;)
+
+# load data
+materialClassifier.loadData(&#39;building_materials&#39;)
+</pre></div>
 </div>
-<div class="section" id="predict">
-<h2>Predict<a class="headerlink" href="#predict" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="train-the-model">
+<h2>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># train the base model for 50 epochs and then fine tune for 200 epochs
+materialClassifier.train(initial_epochs=50,fine_tune_epochs=200)
+</pre></div>
+</div>
+<p>It is better to run the above example on a GPU machine.</p>
+</div>
+<div class="section" id="use-the-model">
+<h2>Use the model<a class="headerlink" href="#use-the-model" title="Permalink to this headline">¶</a></h2>
 <p>Now you can use the trained model to predict on given images.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python predict.py --imageDir &lt;IMAGE_DIRECTORY&gt; --modelDir &lt;MODEL_DIRECTORY&gt;
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># If you are running the inference from another place, you need to initialize the classifier firstly:
+from brails.GeneralImageClassifier import ImageClassifier
+materialClassifier = ImageClassifier(modelName=&#39;materialClassifierV0.1&#39;)
+
+# define the paths of images in a list
+imgs = [&#39;building_materials/concrete/469 VAN BUREN AVE Oakland2.jpg&#39;,
+        &#39;building_materials/masonry/101 FAIRMOUNT AVE Oakland2.jpg&#39;,
+        &#39;building_materials/wood/41 MOSS AVE Oakland2.jpg&#39;]
+
+# use the model to predict
+predictions = materialClassifier.predict(imgs)
 </pre></div>
 </div>
 <p>The predictions will be written in preds.csv under the current directory.</p>
-<p>IMAGE_DIRECTORY is the directory of your images.</p>
-<p>MODEL_DIRECTORY is the folder where you have your trained model saved.</p>
-<p>You need also to specify the name of your model file by –modelFile &lt;MODEL_FILE_NAME&gt; if the name of your model file is not the default “classifier.h5”.</p>
-<p>You can specify the name of classes like this –classNames &lt;CLASS_A&gt; &lt;CLASS_B&gt; …</p>
-<p>Example: Roof type classification</p>
-<p>A pre-trained model for roof type classification can be downloaded from <a class="reference external" href="https://doi.org/10.5281/zenodo.4059083">here</a>.</p>
-<p>This model takes a satellite image as input and predicts roof types (flat/gabled/hipped). To test it:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wget https://zenodo.org/record/4059084/files/roof_classifier_v0.1.h5
-
-python predict.py
-        --imageDir &lt;IMAGE_DIRECTORY&gt;
-        --modelDir .
-        --modelFile roof_classifier_v0.1.h5
-        --classNames flat gabled hipped
-</pre></div>
-</div>
-<p>Note that a module named Roof Classifier is shipped as a module in BRAILS, which is much more convenient to use.
-Check how to use it here: <a class="reference internal" href="roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Classifier</span></a>.</p>
 </div>
 </div>
 
