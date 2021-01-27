@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Roof Classifier &mdash; SURF 1.0 documentation</title>
+  <title>Generic Image Classifier &mdash; SURF 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Occupancy Classifier" href="occupancyClassifier.html" />
-    <link rel="prev" title="Generic Image Classifier" href="genericImageClassifier.html" />
+    <link rel="next" title="Roof Classifier" href="roofClassifier.html" />
+    <link rel="prev" title="4.5. Modules" href="modules.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -102,11 +102,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../predict.html">4.3. Make predictions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../enhance.html">4.4. Enhance the data</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modules.html">4.5. Modules</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="genericImageClassifier.html">Generic Image Classifier</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Roof Classifier</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#use-the-module">Use the module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Generic Image Classifier</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#construct-the-image-classifier">Construct the image classifier</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#train-the-model">Train the model</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#use-the-model">Use the model</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="roofClassifier.html">Roof Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="occupancyClassifier.html">Occupancy Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="softstoryClassifier.html">Soft-story Building Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="foundationElevationClassifier.html">Raised Foundation Classification</a></li>
@@ -177,13 +179,13 @@
         
           <li><a href="modules.html"><span class="section-number">4.5. </span>Modules</a> &raquo;</li>
         
-      <li>Roof Classifier</li>
+      <li>Generic Image Classifier</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../../_sources/common/user_manual/modules/roofClassifier.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/common/user_manual/modules/genericImageClassifier.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,70 +198,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="roof-classifier">
-<span id="lbl-roofclassifier"></span><h1>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Roof Classifier is a module that wraps the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a>.</p>
-<p>The module is shipped with BRAILS,
-so you don’t have to install it standalone if you’ve installed BRAILS following the <a class="reference internal" href="../installation.html#lbl-install"><span class="std std-ref">Installation</span></a> instruction.</p>
-<p>It takes a list of satellite images of roof tops as the input, and classify the roof types into three categories: gabled, hipped, and flat.</p>
-<div class="section" id="use-the-module">
-<h2>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
-<p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
-<p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
+  <div class="section" id="generic-image-classifier">
+<span id="lbl-genericimageclassifier"></span><h1>Generic Image Classifier<a class="headerlink" href="#generic-image-classifier" title="Permalink to this headline">¶</a></h1>
+<p>The Generic Image Classifier is a module that can be used for creating user defined classifier.</p>
+<p>The user provides categorized images to this module.</p>
+<p>An image classifier will be built automatically based on the images provided.</p>
+<p>The classifier is then trained and saved locally.</p>
+<p>The trained classifier can be used for inference readily and can be shared with other users.</p>
+<p>During the inference stage, the classifier takes a list of images as the input, and predicts the classes of the images.</p>
+<p>The following is an example, in which a classifier is created and trained.</p>
+<p>The image dataset for this example contains street view images categorized according to construction materials.</p>
+<p>The dataset can be downloaded <a class="reference external" href="https://zenodo.org/record/4416845/files/building_materials.zip">here</a>.</p>
+<p>When unzipped, the file gives the ‘building_materials’ which is a directory where you have your images for training:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>building_materials
+│── class_1
+│       └── *.png
+│── class_2
+|      └── *.png
+│── ...
+|
+└── class_n
+       └── *.png
+</pre></div>
+</div>
+<div class="section" id="construct-the-image-classifier">
+<h2>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
-from brails.RoofTypeClassifier import RoofClassifier
+from brails.GenericImageClassifier import ImageClassifier
 
-# initialize a roof classifier
-roofModel = RoofClassifier()
+# initialize the classifier, give it a name
+materialClassifier = ImageClassifier(modelName=&#39;materialClassifierV0.1&#39;)
+
+# load data
+materialClassifier.loadData(&#39;building_materials&#39;)
+</pre></div>
+</div>
+</div>
+<div class="section" id="train-the-model">
+<h2>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># train the base model for 50 epochs and then fine tune for 200 epochs
+materialClassifier.train(initial_epochs=50,fine_tune_epochs=200)
+</pre></div>
+</div>
+<p>It is better to run the above example on a GPU machine.</p>
+</div>
+<div class="section" id="use-the-model">
+<h2>Use the model<a class="headerlink" href="#use-the-model" title="Permalink to this headline">¶</a></h2>
+<p>Now you can use the trained model to predict on given images.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># If you are running the inference from another place, you need to initialize the classifier firstly:
+from brails.GenericImageClassifier import ImageClassifier
+materialClassifier = ImageClassifier(modelName=&#39;materialClassifierV0.1&#39;)
 
 # define the paths of images in a list
-imgs = [&#39;image_examples/Roof/gabled/76.png&#39;,
-        &#39;image_examples/Roof/hipped/54.png&#39;,
-        &#39;image_examples/Roof/flat/94.png&#39;]
+imgs = [&#39;building_materials/concrete/469 VAN BUREN AVE Oakland2.jpg&#39;,
+        &#39;building_materials/masonry/101 FAIRMOUNT AVE Oakland2.jpg&#39;,
+        &#39;building_materials/wood/41 MOSS AVE Oakland2.jpg&#39;]
 
 # use the model to predict
-predictions = roofModel.predict(imgs)
+predictions = materialClassifier.predict(imgs)
 </pre></div>
 </div>
-<p>The predictions look like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Image :  image_examples/Roof/gabled/76.png     Class : gabled (83.21%)
-Image :  image_examples/Roof/hipped/54.png     Class : hipped (100.0%)
-Image :  image_examples/Roof/flat/94.png     Class : flat (97.68%)
-Results written in file roofType_preds.csv
-</pre></div>
-</div>
-<p>The images used in this example are:</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><div class="first last figure align-default" id="id1">
-<img alt="../../../_images/761.png" src="../../../_images/761.png" />
-<p class="caption"><span class="caption-number">Fig. 4.5.1 </span><span class="caption-text">image_examples/Roof/gabled/76.png Gabled</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="first last figure align-default" id="id2">
-<img alt="../../../_images/541.png" src="../../../_images/541.png" />
-<p class="caption"><span class="caption-number">Fig. 4.5.2 </span><span class="caption-text">image_examples/Roof/hipped/54.png  Hipped</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="first last figure align-default" id="id3">
-<img alt="../../../_images/941.png" src="../../../_images/941.png" />
-<p class="caption"><span class="caption-number">Fig. 4.5.3 </span><span class="caption-text">image_examples/Roof/flat/94.png  Flat</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The classifier takes an image as the input and will always produce a prediction.
-Since the classifier is trained to classify only a specific category of images,
-its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
-</div>
+<p>The predictions will be written in preds.csv under the current directory.</p>
 </div>
 </div>
 
@@ -271,10 +270,10 @@ its prediction is meaningful only if the input image belongs to the category the
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="occupancyClassifier.html" class="btn btn-neutral float-right" title="Occupancy Classifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="roofClassifier.html" class="btn btn-neutral float-right" title="Roof Classifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="genericImageClassifier.html" class="btn btn-neutral float-left" title="Generic Image Classifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-left" title="4.5. Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
