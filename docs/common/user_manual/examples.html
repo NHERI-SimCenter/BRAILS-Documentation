@@ -98,7 +98,11 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">3. Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="userGuide.html">4. User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-1">6.1. Example 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-2">6.2. Example 2</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feauture Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
@@ -177,6 +181,8 @@
             
   <div class="section" id="examples">
 <span id="lbl-examples"></span><h1><span class="section-number">6. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="example-1">
+<h2><span class="section-number">6.1. </span>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
 <p>The following is an example showing how to call pretrained models to predict on images.</p>
 <p>The images used in the example can be downloaded from here: <a class="reference external" href="https://zenodo.org/record/4095668/files/image_examples.zip">image_examples.zip</a>.</p>
 <blockquote>
@@ -218,6 +224,50 @@
 </pre></div>
 </div>
 </div></blockquote>
+</div>
+<div class="section" id="example-2">
+<h2><span class="section-number">6.2. </span>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<p>The following is an example showing how to create a building inventory for a city.</p>
+<p>You need to provide the Google maps API key for downloading street view and satellite images.</p>
+<p>Instructions on obtaining the API key can be found here: <a class="reference external" href="https://developers.google.com/maps/documentation/embed/get-api-key">https://developers.google.com/maps/documentation/embed/get-api-key</a>.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">brails.CityBuilder</span> <span class="kn">import</span> <span class="n">CityBuilder</span>
+
+<span class="n">CityBuilder</span> <span class="o">=</span> <span class="n">CityBuilder</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;story&#39;</span><span class="p">,</span><span class="s1">&#39;occupancy&#39;</span><span class="p">,</span><span class="s1">&#39;roofshape&#39;</span><span class="p">],</span>
+               <span class="n">numBldg</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">place</span><span class="o">=</span><span class="s1">&#39;Lake Charles&#39;</span><span class="p">,</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;LA&#39;</span><span class="p">,</span>
+               <span class="n">GoogleMapAPIKey</span><span class="o">=</span><span class="s1">&#39;put-your-API-key-here&#39;</span><span class="p">)</span>
+
+<span class="n">BIM</span> <span class="o">=</span> <span class="n">CityBuilder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+</pre></div>
+</div>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">attributes:</th><td class="field-body"><p class="first">List. A list of attributes you intend to infer for each building</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">numBldg:</th><td class="field-body"><p class="first">Integer. number of buildings to be included. Use a small number for testing.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">random:</th><td class="field-body"><p class="first">Bool. If True, numBldg buildings will be randomly selected from the region of interest.</p>
+<p>If False, the fist numBldg buildings will be selected from the region of interest.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">place:</th><td class="field-body"><p class="first">Str. The name of a place, such as city, county, etc.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">state:</th><td class="field-body"><p class="first">Str. The name of a state. Could be empty.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">GoogleMapAPIKey:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first last">Str. Google API key.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 

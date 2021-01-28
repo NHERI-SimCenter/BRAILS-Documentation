@@ -4,6 +4,9 @@
 Examples
 ********
 
+Example 1
+==========
+
 The following is an example showing how to call pretrained models to predict on images.
 
 The images used in the example can be downloaded from here: `image_examples.zip <https://zenodo.org/record/4095668/files/image_examples.zip>`_.
@@ -47,6 +50,64 @@ The images used in the example can be downloaded from here: `image_examples.zip 
     predictions = ssModel.predict(imgs)
 
 
+Example 2
+==========
 
+The following is an example showing how to create a building inventory for a city.
+
+You need to provide the Google maps API key for downloading street view and satellite images.
+
+Instructions on obtaining the API key can be found here: `<https://developers.google.com/maps/documentation/embed/get-api-key>`_.
+
+
+
+  .. code-block:: python
+
+    from brails.CityBuilder import CityBuilder
+
+    CityBuilder = CityBuilder(attributes=['story','occupancy','roofshape'], 
+                   numBldg=10,random=False, place='Lake Charles',state='LA', 
+                   GoogleMapAPIKey='put-your-API-key-here')
+
+    BIM = CityBuilder.build()
+
+
+:attributes:
+    List. A list of attributes you intend to infer for each building
+
+:numBldg:
+    Integer. number of buildings to be included. Use a small number for testing.
+
+:random:
+    Bool. If True, numBldg buildings will be randomly selected from the region of interest.
+
+    If False, the fist numBldg buildings will be selected from the region of interest.
+
+:place:
+    Str. The name of a place, such as city, county, etc.
+
+:state:
+    Str. The name of a state. Could be empty.
+
+:GoogleMapAPIKey:
+    Str. Google API key.
+    
+
+    
+
+
+    
+
+    
+
+
+    
+
+
+    
+
+
+    
+    
 
 
