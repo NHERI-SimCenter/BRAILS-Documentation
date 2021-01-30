@@ -65,7 +65,8 @@ Instructions on obtaining the API key can be found here: `<https://developers.go
 
     CityBuilder = CityBuilder(attributes=['story','occupancy','roofshape'], 
                    numBldg=10,random=False, place='Lake Charles',state='LA', 
-                   GoogleMapAPIKey='put-your-API-key-here')
+                   GoogleMapAPIKey='put-your-API-key-here',
+                   overwrite=True)
 
     BIM = CityBuilder.build()
 
@@ -89,13 +90,38 @@ Instructions on obtaining the API key can be found here: `<https://developers.go
 
 :GoogleMapAPIKey:
     Str. Google API key.
-    
+
+:overwrite:
+    Bool. True: Overwrite existing BIM json in the working directory (./tmp by default).
+
 
     
+Example 3
+==========
+
+The following is an example showing how to create a building inventory for a region defined using a bounding box.
+
+You need to provide the Google maps API key for downloading street view and satellite images.
+
+Instructions on obtaining the API key can be found here: `<https://developers.google.com/maps/documentation/embed/get-api-key>`_.
+
+
+
+  .. code-block:: python
+
+    from brails.CityBuilder import CityBuilder
+
+    CityBuilder = CityBuilder(attributes=['story','occupancy','roofshape'], 
+                   numBldg=10,random=False, bbox=[37.872187, -122.282178,37.870629, -122.279765], 
+                   GoogleMapAPIKey='put-your-API-key-here',
+                   overwrite=True)
+
+    BIM = CityBuilder.build()
 
 
     
-
+:bbox:
+    List. bbox=[north, west, south, east]
     
 
 

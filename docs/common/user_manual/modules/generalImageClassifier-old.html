@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Generic Image Classifier &mdash; SURF 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+<script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
+<style media="screen">.vega-actions a {margin-right: 5px;}</style>
+<link href="../../../_static/css/bootstrap.css" rel="stylesheet">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #F2F2F2" >
+          
+<a href="https://simcenter.designsafe-ci.org/" style="margin-bottom: 0px;">
+  <img src="../../../_static/SimCenter_logo.png" class="logo" alt="Org-Logo" />
+</a>
+<hr style="margin: 0px;">
+
+  <a href="../../../index.html">
+
+
+  <img src="../../../_static/SimCenter_BRAILS_logo_solo.png" class="logo" alt="Logo"/>
+</a>
+
+
+  
+  
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">1. Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">2. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userGuide.html">4. User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">5. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../license.html">8. Copyright and License</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../technical_manual/theory.html">1. Theory and Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical_manual/vnv.html">2. Verification and Validation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_manual/how_to_extend/how_to_extend.html">1. How to Extend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_manual/coding_style/coding_style.html">2. Coding Style</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">SURF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Generic Image Classifier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/common/user_manual/modules/generalImageClassifier-old.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="generic-image-classifier">
+<span id="lbl-genericimageclassifier"></span><h1>Generic Image Classifier<a class="headerlink" href="#generic-image-classifier" title="Permalink to this headline">¶</a></h1>
+<p>The Generic Image Classifier module takes a list of images as the input, and predicts the classes of the images.</p>
+<p>In BRAILS, building attributes that can be inferred using this module include: Roof type, Occupancy class, Soft-story.</p>
+<div class="section" id="get-the-code">
+<h2>Get the code<a class="headerlink" href="#get-the-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NHERI-SimCenter/BRAILS.git
+
+cd BRAILS/brails/modules/Generic_Image_Classifier
+
+pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="train-a-model">
+<h2>Train a model<a class="headerlink" href="#train-a-model" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python train.py --imgDir &lt;IMAGE_DIRECTORY&gt; --modelDir &lt;MODEL_DIRECTORY&gt;
+</pre></div>
+</div>
+<p>IMAGE_DIRECTORY is the directory where you have your images for training</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_DIRECTORY
+│── class_1
+│       └── *.png
+│── class_2
+|      └── *.png
+│── ...
+|
+└── class_n
+       └── *.png
+</pre></div>
+</div>
+<p>An image dataset for test that contains images of different rooves can be downloaded <a class="reference external" href="https://zenodo.org/record/3986721/files/Roof_Satellite_Images.zip">here</a>.</p>
+<p>MODEL_DIRECTORY is the directory where the trained model will be saved.</p>
+<p>It is better to run the above code on a GPU machine.</p>
+</div>
+<div class="section" id="predict">
+<h2>Predict<a class="headerlink" href="#predict" title="Permalink to this headline">¶</a></h2>
+<p>Now you can use the trained model to predict on given images.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python predict.py --imageDir &lt;IMAGE_DIRECTORY&gt; --modelDir &lt;MODEL_DIRECTORY&gt;
+</pre></div>
+</div>
+<p>The predictions will be written in preds.csv under the current directory.</p>
+<p>IMAGE_DIRECTORY is the directory of your images.</p>
+<p>MODEL_DIRECTORY is the folder where you have your trained model saved.</p>
+<p>You need also to specify the name of your model file by –modelFile &lt;MODEL_FILE_NAME&gt; if the name of your model file is not the default “classifier.h5”.</p>
+<p>You can specify the name of classes like this –classNames &lt;CLASS_A&gt; &lt;CLASS_B&gt; …</p>
+<p>Example: Roof type classification</p>
+<p>A pre-trained model for roof type classification can be downloaded from <a class="reference external" href="https://doi.org/10.5281/zenodo.4059083">here</a>.</p>
+<p>This model takes a satellite image as input and predicts roof types (flat/gabled/hipped). To test it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wget https://zenodo.org/record/4059084/files/roof_classifier_v0.1.h5
+
+python predict.py
+        --imageDir &lt;IMAGE_DIRECTORY&gt;
+        --modelDir .
+        --modelFile roof_classifier_v0.1.h5
+        --classNames flat gabled hipped
+</pre></div>
+</div>
+<p>Note that a module named Roof Classifier is shipped as a module in BRAILS, which is much more convenient to use.
+Check how to use it here: <a class="reference internal" href="roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Classifier</span></a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, NHERI SimCenter
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+    
+
+  <style>
+         .wy-nav-content { max-width: none; }
+  </style>
+
+
+
+</body>
+</html>
