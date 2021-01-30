@@ -187,9 +187,7 @@
 <p>The images used in the example can be downloaded from here: <a class="reference external" href="https://zenodo.org/record/4095668/files/image_examples.zip">image_examples.zip</a>.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import modules</span>
-<span class="kn">from</span> <span class="nn">brails.RoofTypeClassifier</span> <span class="kn">import</span> <span class="n">RoofClassifier</span>
-<span class="kn">from</span> <span class="nn">brails.OccupancyClassClassifier</span> <span class="kn">import</span> <span class="n">OccupancyClassifier</span>
-<span class="kn">from</span> <span class="nn">brails.SoftstoryClassifier</span> <span class="kn">import</span> <span class="n">SoftstoryClassifier</span>
+<span class="kn">from</span> <span class="nn">brails.modules</span> <span class="kn">import</span> <span class="n">RoofClassifier</span><span class="p">,</span> <span class="n">OccupancyClassifier</span><span class="p">,</span> <span class="n">SoftstoryClassifier</span>
 
 <span class="c1"># initilize a roof classifier</span>
 <span class="n">roofModel</span> <span class="o">=</span> <span class="n">RoofClassifier</span><span class="p">()</span>

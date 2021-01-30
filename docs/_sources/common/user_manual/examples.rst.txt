@@ -14,9 +14,7 @@ The images used in the example can be downloaded from here: `image_examples.zip 
   .. code-block:: python
 
     # import modules
-    from brails.RoofTypeClassifier import RoofClassifier
-    from brails.OccupancyClassClassifier import OccupancyClassifier
-    from brails.SoftstoryClassifier import SoftstoryClassifier
+    from brails.modules import RoofClassifier, OccupancyClassifier, SoftstoryClassifier
 
     # initilize a roof classifier
     roofModel = RoofClassifier()
