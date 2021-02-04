@@ -1,40 +1,44 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>6. Examples &mdash; SURF 1.0 documentation</title>
+  <title>6. Examples &mdash; BRAILS 2.0 documentation</title>
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="7. Bugs &amp; Feauture Requests" href="bugs.html" />
@@ -84,6 +88,7 @@
 
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -99,9 +104,9 @@
 <li class="toctree-l1"><a class="reference internal" href="userGuide.html">4. User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">6. Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#example-1">6.1. Example 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-2">6.2. Example 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#example-3">6.3. Example 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-1-modules">6.1. Example 1: Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-2-workflow">6.2. Example 2: Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-3-workflow">6.3. Example 3: Workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feauture Requests</a></li>
@@ -121,6 +126,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -130,7 +136,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">SURF</a>
+          <a href="../../index.html">BRAILS</a>
         
       </nav>
 
@@ -155,18 +161,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li><span class="section-number">6. </span>Examples</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/common/user_manual/examples.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -182,9 +190,10 @@
             
   <div class="section" id="examples">
 <span id="lbl-examples"></span><h1><span class="section-number">6. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="example-1">
-<h2><span class="section-number">6.1. </span>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-1-modules">
+<h2><span class="section-number">6.1. </span>Example 1: Modules<a class="headerlink" href="#example-1-modules" title="Permalink to this headline">¶</a></h2>
 <p>The following is an example showing how to call pretrained models to predict on images.</p>
+<p>You can run this example on your computer or in this notebook on <a class="reference external" href="https://colab.research.google.com/drive/1zspDwK-rGA1gYcHZDnrQr_3Z27JL-ooS?usp=sharing">Google Colab</a>.</p>
 <p>The images used in the example can be downloaded from here: <a class="reference external" href="https://zenodo.org/record/4095668/files/image_examples.zip">image_examples.zip</a>.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import modules</span>
@@ -224,75 +233,223 @@
 </div>
 </div></blockquote>
 </div>
-<div class="section" id="example-2">
-<h2><span class="section-number">6.2. </span>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-2-workflow">
+<h2><span class="section-number">6.2. </span>Example 2: Workflow<a class="headerlink" href="#example-2-workflow" title="Permalink to this headline">¶</a></h2>
 <p>The following is an example showing how to create a building inventory for a city.</p>
+<p>You can run this example on your computer or in this notebook on <a class="reference external" href="https://colab.research.google.com/drive/1tG6xVRCmDyi6K8TWgoNd_31vV034VcSO?usp=sharing">Google Colab</a>.</p>
 <p>You need to provide the Google maps API key for downloading street view and satellite images.</p>
 <p>Instructions on obtaining the API key can be found here: <a class="reference external" href="https://developers.google.com/maps/documentation/embed/get-api-key">https://developers.google.com/maps/documentation/embed/get-api-key</a>.</p>
+<p>Use should limit the number of buildings (numBldg) because of <a class="reference internal" href="workflow.html#limitthenumber"><span class="std std-ref">this</span></a>.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">brails.CityBuilder</span> <span class="kn">import</span> <span class="n">CityBuilder</span>
 
-<span class="n">CityBuilder</span> <span class="o">=</span> <span class="n">CityBuilder</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;story&#39;</span><span class="p">,</span><span class="s1">&#39;occupancy&#39;</span><span class="p">,</span><span class="s1">&#39;roofshape&#39;</span><span class="p">],</span>
-               <span class="n">numBldg</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">place</span><span class="o">=</span><span class="s1">&#39;Lake Charles&#39;</span><span class="p">,</span><span class="n">state</span><span class="o">=</span><span class="s1">&#39;LA&#39;</span><span class="p">,</span>
+<span class="n">cityBuilder</span> <span class="o">=</span> <span class="n">CityBuilder</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;occupancy&#39;</span><span class="p">,</span><span class="s1">&#39;roofshape&#39;</span><span class="p">],</span>
+               <span class="n">numBldg</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">place</span><span class="o">=</span><span class="s1">&#39;Lake Charles, LA&#39;</span><span class="p">,</span>
                <span class="n">GoogleMapAPIKey</span><span class="o">=</span><span class="s1">&#39;put-your-API-key-here&#39;</span><span class="p">,</span>
                <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">BIM</span> <span class="o">=</span> <span class="n">CityBuilder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="n">BIM</span> <span class="o">=</span> <span class="n">cityBuilder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 </pre></div>
 </div>
 </div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">attributes:</th><td class="field-body"><p class="first">List. A list of attributes you intend to infer for each building</p>
-</td>
+<dl class="field-list simple">
+<dt class="field-odd">attributes (list)</dt>
+<dd class="field-odd"><p>A list of building attributes, such as [‘story’, ‘occupancy’, ‘roofshape’], which are available in the current version.</p>
+</dd>
+<dt class="field-even">numBldg (int)</dt>
+<dd class="field-even"><p>Number of buildings to generate.</p>
+</dd>
+<dt class="field-odd">random (bool)</dt>
+<dd class="field-odd"><p>Randomly select numBldg buildings from the database if random is True.</p>
+</dd>
+<dt class="field-even">place (str)</dt>
+<dd class="field-even"><p>The region of interest, e.g., Berkeley, California.</p>
+</dd>
+<dt class="field-odd">GoogleMapAPIKey (str)</dt>
+<dd class="field-odd"><p>Google API Key.</p>
+</dd>
+<dt class="field-even">overwrite (bool)</dt>
+<dd class="field-even"><p>Overwrite existing tmp files. Default value is False.</p>
+</dd>
+</dl>
+<div class="align-center figure" id="num-building-city" style="width: 90%">
+<img alt="../../_images/Berkeley.png" src="../../_images/Berkeley.png" />
+<p class="caption"><span class="caption-number">Fig. 6.2.1 </span><span class="caption-text">Generated Buildings</span><a class="headerlink" href="#num-building-city" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils align-center" id="bldg-inv">
+<caption><span class="caption-number">Table 6.2.1 </span><span class="caption-text">Generated BIM File</span><a class="headerlink" href="#bldg-inv" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>geometry</p></th>
+<th class="head"><p>ID</p></th>
+<th class="head"><p>softStory</p></th>
+<th class="head"><p>softStoryProb</p></th>
+<th class="head"><p>occupancy</p></th>
+<th class="head"><p>occupancyProb</p></th>
+<th class="head"><p>roofShape</p></th>
+<th class="head"><p>roofShapeProb</p></th>
 </tr>
-<tr class="field-even field"><th class="field-name">numBldg:</th><td class="field-body"><p class="first">Integer. number of buildings to be included. Use a small number for testing.</p>
-</td>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>POLYGON ((-122.28425 37.893205, -122.284283 37.893193, -122.284229 37.893098, -122.284111 37.893141, -122.284184 37.893267, -122.284268 37.893236, -122.28425 37.893205))</p></td>
+<td><p>0</p></td>
+<td><p>others</p></td>
+<td><p>0.884251654</p></td>
+<td><p>RES1</p></td>
+<td><p>0.997940361</p></td>
+<td><p>hipped</p></td>
+<td><p>0.901893497</p></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">random:</th><td class="field-body"><p class="first">Bool. If True, numBldg buildings will be randomly selected from the region of interest.</p>
-<p>If False, the fist numBldg buildings will be selected from the region of interest.</p>
-</td>
+<tr class="row-odd"><td><p>POLYGON ((-122.281309 37.893283, -122.281408 37.893416, -122.281502 37.893373, -122.281403 37.89324, -122.281309 37.893283))</p></td>
+<td><p>1</p></td>
+<td><p>softstory</p></td>
+<td><p>0.818908155</p></td>
+<td><p>RES3</p></td>
+<td><p>0.999334514</p></td>
+<td><p>hipped</p></td>
+<td><p>0.99905473</p></td>
 </tr>
-<tr class="field-even field"><th class="field-name">place:</th><td class="field-body"><p class="first">Str. The name of a place, such as city, county, etc.</p>
-</td>
+<tr class="row-even"><td><p>POLYGON ((-122.28172 37.893669, -122.281687 37.893564, -122.281566 37.893588, -122.2816 37.893693, -122.28172 37.893669))</p></td>
+<td><p>2</p></td>
+<td><p>softstory</p></td>
+<td><p>0.964413881</p></td>
+<td><p>RES3</p></td>
+<td><p>0.949093223</p></td>
+<td><p>hipped</p></td>
+<td><p>0.986970901</p></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">state:</th><td class="field-body"><p class="first">Str. The name of a state. Could be empty.</p>
-</td>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">GoogleMapAPIKey:</th></tr>
-<tr class="field-even field"><td>&#160;</td><td class="field-body"><p class="first">Str. Google API key.</p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">overwrite:</th><td class="field-body"><p class="first last">Bool. True: Overwrite existing BIM json in the working directory (./tmp by default).</p>
-</td>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="example-3">
-<h2><span class="section-number">6.3. </span>Example 3<a class="headerlink" href="#example-3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-3-workflow">
+<h2><span class="section-number">6.3. </span>Example 3: Workflow<a class="headerlink" href="#example-3-workflow" title="Permalink to this headline">¶</a></h2>
 <p>The following is an example showing how to create a building inventory for a region defined using a bounding box.</p>
+<p>You can run this example on your computer or in this notebook on <a class="reference external" href="https://colab.research.google.com/drive/1tG6xVRCmDyi6K8TWgoNd_31vV034VcSO?usp=sharing">Google Colab</a>.</p>
 <p>You need to provide the Google maps API key for downloading street view and satellite images.</p>
 <p>Instructions on obtaining the API key can be found here: <a class="reference external" href="https://developers.google.com/maps/documentation/embed/get-api-key">https://developers.google.com/maps/documentation/embed/get-api-key</a>.</p>
+<p>Use should limit the number of buildings (numBldg) because of <a class="reference internal" href="workflow.html#limitthenumber"><span class="std std-ref">this</span></a>.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">brails.CityBuilder</span> <span class="kn">import</span> <span class="n">CityBuilder</span>
 
-<span class="n">CityBuilder</span> <span class="o">=</span> <span class="n">CityBuilder</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;story&#39;</span><span class="p">,</span><span class="s1">&#39;occupancy&#39;</span><span class="p">,</span><span class="s1">&#39;roofshape&#39;</span><span class="p">],</span>
+<span class="n">cityBuilder</span> <span class="o">=</span> <span class="n">CityBuilder</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;softstory&#39;</span><span class="p">,</span><span class="s1">&#39;occupancy&#39;</span><span class="p">,</span><span class="s1">&#39;roofshape&#39;</span><span class="p">],</span>
                <span class="n">numBldg</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">random</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="p">[</span><span class="mf">37.872187</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.282178</span><span class="p">,</span><span class="mf">37.870629</span><span class="p">,</span> <span class="o">-</span><span class="mf">122.279765</span><span class="p">],</span>
                <span class="n">GoogleMapAPIKey</span><span class="o">=</span><span class="s1">&#39;put-your-API-key-here&#39;</span><span class="p">,</span>
                <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">BIM</span> <span class="o">=</span> <span class="n">CityBuilder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="n">BIM</span> <span class="o">=</span> <span class="n">cityBuilder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
 </pre></div>
 </div>
 </div></blockquote>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">bbox:</th><td class="field-body">List. bbox=[north, west, south, east]</td>
+<dl class="field-list simple">
+<dt class="field-odd">attributes (list)</dt>
+<dd class="field-odd"><p>A list of building attributes, such as [‘story’, ‘occupancy’, ‘roofshape’], which are available in the current version.</p>
+</dd>
+<dt class="field-even">numBldg (int)</dt>
+<dd class="field-even"><p>Number of buildings to generate.</p>
+</dd>
+<dt class="field-odd">random (bool)</dt>
+<dd class="field-odd"><p>Randomly select numBldg buildings from the database if random is True.</p>
+</dd>
+<dt class="field-even">bbox (list)</dt>
+<dd class="field-even"><p>[north, west, south, east], which defines a region of interest.</p>
+</dd>
+<dt class="field-odd">GoogleMapAPIKey (str)</dt>
+<dd class="field-odd"><p>Google API Key.</p>
+</dd>
+<dt class="field-even">overwrite (bool)</dt>
+<dd class="field-even"><p>Overwrite existing tmp files. Default value is False.</p>
+</dd>
+</dl>
+<div class="align-center figure" id="id4" style="width: 90%">
+<img alt="../../_images/Christchurch.png" src="../../_images/Christchurch.png" />
+<p class="caption"><span class="caption-number">Fig. 6.3.1 </span><span class="caption-text">Generated Buildings</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<table class="docutils align-center" id="id5">
+<caption><span class="caption-number">Table 6.3.1 </span><span class="caption-text">Generated BIM File</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>geometry</p></th>
+<th class="head"><p>ID</p></th>
+<th class="head"><p>softStory</p></th>
+<th class="head"><p>softStoryProb</p></th>
+<th class="head"><p>occupancy</p></th>
+<th class="head"><p>occupancyProb</p></th>
+<th class="head"><p>roofShape</p></th>
+<th class="head"><p>roofShapeProb</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>POLYGON ((172.6511771 -43.5284542, 172.6511784 -43.5283969, 172.6512398 -43.5283977, 172.6512385 -43.5284549, 172.6511771 -43.5284542))</p></td>
+<td><p>0</p></td>
+<td><p>others</p></td>
+<td><p>0.999716461</p></td>
+<td><p>RES1</p></td>
+<td><p>0.999994993</p></td>
+<td><p>gabled</p></td>
+<td><p>0.549040675</p></td>
+</tr>
+<tr class="row-odd"><td><p>POLYGON ((172.6526413 -43.5280566, 172.6524643 -43.5280545, 172.6524647 -43.5280356, 172.6524423 -43.5280354, 172.6524436 -43.527975, 172.6524959 -43.5279757, 172.6524954 -43.527996, 172.6525252 -43.5279964, 172.6525256 -43.527976, 172.6526431 -43.5279774, 172.6526413 -43.5280566))</p></td>
+<td><p>1</p></td>
+<td><p>others</p></td>
+<td><p>0.997607112</p></td>
+<td><p>RES1</p></td>
+<td><p>0.999310851</p></td>
+<td><p>gabled</p></td>
+<td><p>0.529587984</p></td>
+</tr>
+<tr class="row-even"><td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
+<td><p>.</p></td>
 </tr>
 </tbody>
 </table>
@@ -304,29 +461,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="bugs.html" class="btn btn-neutral float-right" title="7. Bugs &amp; Feauture Requests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="5. Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="bugs.html" class="btn btn-neutral float-right" title="7. Bugs &amp; Feauture Requests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="5. Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NHERI SimCenter
+        &#169; Copyright 2020, NHERI SimCenter.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -334,7 +491,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

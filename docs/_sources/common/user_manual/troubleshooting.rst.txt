@@ -32,12 +32,14 @@ For example, if you are using Python3.8:
 
 Then you'll be able to:
 
-pip3 install BRAILS
+pip3 install BRAILSs
 
 
 Internet connection
 ^^^^^^^^^^^^^^^^^^^^^
 
 The trained models and accompanying datasets, when called the first time, need to be downloaded from the internet. 
+
+Images also need to be downloaded during the running.
 
 Therefore, please make sure you are connected to the internet.

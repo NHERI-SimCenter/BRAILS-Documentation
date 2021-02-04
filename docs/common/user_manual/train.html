@@ -1,44 +1,48 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4.2. Train a model &mdash; SURF 1.0 documentation</title>
+  <title>Train a model &mdash; BRAILS 2.0 documentation</title>
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="4.3. Make predictions" href="predict.html" />
-    <link rel="prev" title="4.1. Prepare and fuse data" href="preparedata.html" />
+    <link rel="next" title="Make predictions" href="predict.html" />
+    <link rel="prev" title="Prepare and fuse data" href="preparedata.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -84,6 +88,7 @@
 
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,15 +102,19 @@
 <li class="toctree-l1"><a class="reference internal" href="about.html">2. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">3. Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="userGuide.html">4. User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="preparedata.html">4.1. Prepare and fuse data</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4.2. Train a model</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#train">Train</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#predict">Predict</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="1.x.html">4.1. User Guide (1.x Legacy)</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="preparedata.html">Prepare and fuse data</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Train a model</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#train">Train</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#predict">Predict</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="predict.html">4.3. Make predictions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enhance.html">4.4. Enhance the data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modules/modules.html">4.5. Modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="predict.html">Make predictions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="enhance.html">Enhance the data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/modules.html">4.2. Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">4.3. Workflow</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting</a></li>
@@ -127,6 +136,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -136,7 +146,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">SURF</a>
+          <a href="../../index.html">BRAILS</a>
         
       </nav>
 
@@ -161,20 +171,24 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="userGuide.html"><span class="section-number">4. </span>User Guide</a> &raquo;</li>
         
-      <li><span class="section-number">4.2. </span>Train a model</li>
+          <li><a href="1.x.html"><span class="section-number">4.1. </span>User Guide (1.x Legacy)</a> &raquo;</li>
+        
+      <li>Train a model</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/common/user_manual/train.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -189,7 +203,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="train-a-model">
-<span id="lbl-train"></span><h1><span class="section-number">4.2. </span>Train a model<a class="headerlink" href="#train-a-model" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-train"></span><h1>Train a model<a class="headerlink" href="#train-a-model" title="Permalink to this headline">¶</a></h1>
 <p>There are pretrained ConvNets released with BRAILS that can be used out of the box.</p>
 <p>However, if the user is interested in training his / her own ConvNets, the following is an example demonstrating
 how to train a classifier (for roof shape), and how to use the trained model in the BRAILS application.</p>
@@ -241,29 +255,29 @@ python predict.py --image_dir &lt;IMAGE_DIRECTORY&gt; --model_path &lt;MODEL_PAT
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="predict.html" class="btn btn-neutral float-right" title="4.3. Make predictions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="preparedata.html" class="btn btn-neutral float-left" title="4.1. Prepare and fuse data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="predict.html" class="btn btn-neutral float-right" title="Make predictions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="preparedata.html" class="btn btn-neutral float-left" title="Prepare and fuse data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NHERI SimCenter
+        &#169; Copyright 2020, NHERI SimCenter.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -271,7 +285,6 @@ python predict.py --image_dir &lt;IMAGE_DIRECTORY&gt; --model_path &lt;MODEL_PAT
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

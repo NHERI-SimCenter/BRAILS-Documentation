@@ -1,40 +1,44 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>1.1. Framework &mdash; SURF 1.0 documentation</title>
+  <title>1.1. Framework &mdash; BRAILS 2.0 documentation</title>
   
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../../_static/jquery.js"></script>
-        <script type="text/javascript" src="../../_static/underscore.js"></script>
-        <script type="text/javascript" src="../../_static/doctools.js"></script>
-        <script type="text/javascript" src="../../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
 
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1.2. Modules" href="modulesTheory.html" />
@@ -84,6 +88,7 @@
 
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -125,6 +130,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -134,7 +140,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">SURF</a>
+          <a href="../../index.html">BRAILS</a>
         
       </nav>
 
@@ -159,11 +165,13 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="theory.html"><span class="section-number">1. </span>Theory and Implementation</a> &raquo;</li>
         
@@ -172,7 +180,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../../_sources/common/technical_manual/framework.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -239,11 +247,11 @@ This way, as long as the satellite/street view images of a city can be obtained,
 a database of building information can be created. The pipeline to extract a specific building property
 from images is listed as following:</p>
 <ol class="arabic simple">
-<li>Identify a visually comprehensible building property (e.g., exterior construction material) that is intended to be extracted.</li>
-<li>Retrieve satellite/street view images of individual buildings from Google Map API</li>
-<li>Label the retrieved images using tags (e.g., exterior construction material type) found in OSM</li>
-<li>Train a ConvNet on the labeled images to classify between types</li>
-<li>Apply the trained ConvNet to unlabeled satellite / street view images of buildings in the city of interest</li>
+<li><p>Identify a visually comprehensible building property (e.g., exterior construction material) that is intended to be extracted.</p></li>
+<li><p>Retrieve satellite/street view images of individual buildings from Google Map API</p></li>
+<li><p>Label the retrieved images using tags (e.g., exterior construction material type) found in OSM</p></li>
+<li><p>Train a ConvNet on the labeled images to classify between types</p></li>
+<li><p>Apply the trained ConvNet to unlabeled satellite / street view images of buildings in the city of interest</p></li>
 </ol>
 <p>Repeat the above five steps for other building properties,
 such as number of stories, structural type, etc., as long as they can be visually identified from images.
@@ -379,84 +387,35 @@ Using <a class="reference external" href="https://github.com/NHERI-SimCenter/SUR
 the missing values can be predicted based on known values of neighboring buildings,
 hence the gaps in the initial database are filled and the regional building information database is enhanced.
 Details about how to do this can be found in the documentation of <a class="reference external" href="https://github.com/NHERI-SimCenter/SURF">SURF</a>.</p>
-<p id="bibtex-bibliography-common/technical_manual/framework-0"><table class="bibtex docutils citation" frame="void" id="bischke2019multi" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id4">[BHF+19]</a></td><td>Benjamin Bischke, Patrick Helber, Joachim Folz, Damian Borth, and Andreas Dengel. Multi-task learning for segmentation of building footprints with deep neural networks. <em>2019 IEEE International Conference on Image Processing (ICIP)</em>, pages 1480–1484, 2019.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="goovaerts1997geostatistics" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id6">[Goo97]</a></td><td>Pierre Goovaerts. <em>Geostatistics for natural resources evaluation</em>. Oxford University Press on Demand, 1997.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="hubel1968receptive" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[HW68]</a></td><td>David&nbsp;H Hubel and Torsten&nbsp;N Wiesel. Receptive fields and functional architecture of monkey striate cortex. <em>The Journal of physiology</em>, 195(1):215–243, 1968.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="li2019semantic" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[LHF+19]</a></td><td>Weijia Li, Conghui He, Jiarui Fang, Juepeng Zheng, Haohuan Fu, and Le&nbsp;Yu. Semantic segmentation-based building footprint extraction using very high-resolution satellite images and multi-source gis data. <em>Remote Sensing</em>, 11(4):403, 2019.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="msfootprint" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[Mic]</a></td><td>Microsoft. US Building Footprints. URL: <a class="reference external" href="https://github.com/microsoft/USBuildingFootprints">https://github.com/microsoft/USBuildingFootprints</a>.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="szegedy2016rethinking" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[SVI+16]</td><td>Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew Wojna. Rethinking the inception architecture for computer vision. <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em>, pages 2818–2826, 2016.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="vanmarcke2010random" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[Van10]</a></td><td>Erik Vanmarcke. <em>Random fields: analysis and synthesis</em>. World Scientific, 2010.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="wang2017hybrid" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[WC18]</a></td><td>C&nbsp;Wang and Q&nbsp;Chen. A hybrid geotechnical and geological data-based framework for multiscale regional liquefaction hazard mapping. <em>Géotechnique</em>, 68(7):614–625, 2018.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="chaofeng-wang-2020-4386991" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[Wan20]</td><td>Chaofeng Wang. Occupancy test. December 2020. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.4386991">https://doi.org/10.5281/zenodo.4386991</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.4386991">doi:10.5281/zenodo.4386991</a>.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="wang2017spatial" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id8">[WCSJ17]</a></td><td>Chaofeng Wang, Qiushi Chen, Mengfen Shen, and C&nbsp;Hsein Juang. On the spatial variability of cpt-based geotechnical parameters for regional liquefaction evaluation. <em>Soil Dynamics and Earthquake Engineering</em>, 95:153–166, 2017.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="charles-wang-2019-3521067" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[Wan19]</td><td>Charles Wang. Random satellite images of buildings. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">https://doi.org/10.5281/zenodo.3521067</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">doi:10.5281/zenodo.3521067</a>.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="brails" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label">[WYM+19]</td><td>Charles Wang, Qian Yu, Frank McKenna, Barbaros Cetiner, Stella&nbsp;X. Yu, Ertugrul Taciroglu, and Kincho&nbsp;H. Law. Nheri-simcenter/brails: v1.0.1. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">https://doi.org/10.5281/zenodo.3483208</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">doi:10.5281/zenodo.3483208</a>.</td></tr>
-</tbody>
-</table>
-<table class="bibtex docutils citation" frame="void" id="zhao2018building" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[ZKJS18]</a></td><td>Kang Zhao, Jungwon Kang, Jaewook Jung, and Gunho Sohn. Building extraction from satellite images using mask r-cnn with building boundary regularization. <em>CVPR Workshops</em>, pages 247–251, 2018.</td></tr>
-</tbody>
-</table>
+<p id="bibtex-bibliography-common/technical_manual/framework-0"><dl class="citation">
+<dt class="bibtex label" id="bischke2019multi"><span class="brackets"><a class="fn-backref" href="#id4">BHF+19</a></span></dt>
+<dd><p>Benjamin Bischke, Patrick Helber, Joachim Folz, Damian Borth, and Andreas Dengel. Multi-task learning for segmentation of building footprints with deep neural networks. <em>2019 IEEE International Conference on Image Processing (ICIP)</em>, pages 1480–1484, 2019.</p>
+</dd>
+<dt class="bibtex label" id="goovaerts1997geostatistics"><span class="brackets"><a class="fn-backref" href="#id6">Goo97</a></span></dt>
+<dd><p>Pierre Goovaerts. <em>Geostatistics for natural resources evaluation</em>. Oxford University Press on Demand, 1997.</p>
+</dd>
+<dt class="bibtex label" id="hubel1968receptive"><span class="brackets"><a class="fn-backref" href="#id1">HW68</a></span></dt>
+<dd><p>David H Hubel and Torsten N Wiesel. Receptive fields and functional architecture of monkey striate cortex. <em>The Journal of physiology</em>, 195(1):215–243, 1968.</p>
+</dd>
+<dt class="bibtex label" id="li2019semantic"><span class="brackets"><a class="fn-backref" href="#id2">LHF+19</a></span></dt>
+<dd><p>Weijia Li, Conghui He, Jiarui Fang, Juepeng Zheng, Haohuan Fu, and Le Yu. Semantic segmentation-based building footprint extraction using very high-resolution satellite images and multi-source gis data. <em>Remote Sensing</em>, 11(4):403, 2019.</p>
+</dd>
+<dt class="bibtex label" id="msfootprint"><span class="brackets"><a class="fn-backref" href="#id5">Mic</a></span></dt>
+<dd><p>Microsoft. US Building Footprints. URL: <a class="reference external" href="https://github.com/microsoft/USBuildingFootprints">https://github.com/microsoft/USBuildingFootprints</a>.</p>
+</dd>
+<dt class="bibtex label" id="vanmarcke2010random"><span class="brackets"><a class="fn-backref" href="#id7">Van10</a></span></dt>
+<dd><p>Erik Vanmarcke. <em>Random fields: analysis and synthesis</em>. World Scientific, 2010.</p>
+</dd>
+<dt class="bibtex label" id="wang2017hybrid"><span class="brackets"><a class="fn-backref" href="#id9">WC18</a></span></dt>
+<dd><p>C Wang and Q Chen. A hybrid geotechnical and geological data-based framework for multiscale regional liquefaction hazard mapping. <em>Géotechnique</em>, 68(7):614–625, 2018.</p>
+</dd>
+<dt class="bibtex label" id="wang2017spatial"><span class="brackets"><a class="fn-backref" href="#id8">WCSJ17</a></span></dt>
+<dd><p>Chaofeng Wang, Qiushi Chen, Mengfen Shen, and C Hsein Juang. On the spatial variability of cpt-based geotechnical parameters for regional liquefaction evaluation. <em>Soil Dynamics and Earthquake Engineering</em>, 95:153–166, 2017.</p>
+</dd>
+<dt class="bibtex label" id="zhao2018building"><span class="brackets"><a class="fn-backref" href="#id3">ZKJS18</a></span></dt>
+<dd><p>Kang Zhao, Jungwon Kang, Jaewook Jung, and Gunho Sohn. Building extraction from satellite images using mask r-cnn with building boundary regularization. <em>CVPR Workshops</em>, pages 247–251, 2018.</p>
+</dd>
+</dl>
 </p>
 </div>
 </div>
@@ -466,29 +425,29 @@ Details about how to do this can be found in the documentation of <a class="refe
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="modulesTheory.html" class="btn btn-neutral float-right" title="1.2. Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="theory.html" class="btn btn-neutral float-left" title="1. Theory and Implementation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="modulesTheory.html" class="btn btn-neutral float-right" title="1.2. Modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="theory.html" class="btn btn-neutral float-left" title="1. Theory and Implementation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, NHERI SimCenter
+        &#169; Copyright 2020, NHERI SimCenter.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
@@ -496,7 +455,6 @@ Details about how to do this can be found in the documentation of <a class="refe
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
