@@ -7,5 +7,6 @@ Modules
 .. toctree::
 
    roofTheory
+   occupancyTheory
    softstoryTheory
    

@@ -61,11 +61,11 @@ Available ones in the current version include:
 'softstory']. 
 These attributes will be inferred from images using specific :ref:`modules <lbl-modules>`.
 
-* roofshape is the roof class, details can be found here :ref:`lbl-roofClassifier`.
+* roofshape is the roof class, details can be found in :ref:`lbl-roofClassifier`.
 
-* occupancy is the occupancy class, details can be found here :ref:`lbl-occupancyClassifier`.
+* occupancy is the occupancy class, details can be found in :ref:`lbl-occupancyClassifier`.
 
-* softstory is the soft-story classification, details can be found here :ref:`lbl-softstoryClassifier`.
+* softstory is the soft-story classification, details can be found in :ref:`lbl-softstoryClassifier`.
 
 
 .. _limitthenumber:
@@ -106,5 +106,5 @@ Currently, the workflow supports '
 Examples
 ----------------------------
 
-Check the :ref:`lbl-examples` section.
+Check the :ref:`lbl-examples`.
 

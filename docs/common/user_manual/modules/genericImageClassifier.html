@@ -243,10 +243,39 @@ materialClassifier.loadData(&#39;building_materials&#39;)
 <div class="section" id="train-the-model">
 <h2>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># train the base model for 50 epochs and then fine tune for 200 epochs
-materialClassifier.train(initial_epochs=50,fine_tune_epochs=200)
+materialClassifier.train(baseModel=&#39;InceptionV3&#39;, initial_epochs=50,fine_tune_epochs=200)
 </pre></div>
 </div>
 <p>It is better to run the above example on a GPU machine.</p>
+<p>You can choose from the following options for the baseModel key:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;Xception&#39;,
+&#39;VGG16&#39;,
+&#39;VGG19&#39;,
+&#39;ResNet50&#39;,
+&#39;ResNet101&#39;,
+&#39;ResNet152&#39;,
+&#39;ResNet50V2&#39;,
+&#39;ResNet101V2&#39;,
+&#39;ResNet152V2&#39;,
+&#39;InceptionV3&#39;,
+&#39;InceptionResNetV2&#39;,
+&#39;MobileNet&#39;,
+&#39;MobileNetV2&#39;,
+&#39;DenseNet121&#39;,
+&#39;DenseNet169&#39;,
+&#39;DenseNet201&#39;,
+&#39;NASNetMobile&#39;,
+&#39;NASNetLarge&#39;,
+&#39;EfficientNetB0&#39;,
+&#39;EfficientNetB1&#39;,
+&#39;EfficientNetB2&#39;,
+&#39;EfficientNetB3&#39;,
+&#39;EfficientNetB4&#39;,
+&#39;EfficientNetB5&#39;,
+&#39;EfficientNetB6&#39;,
+&#39;EfficientNetB7&#39;
+</pre></div>
+</div>
 </div>
 <div class="section" id="use-the-model">
 <h2>Use the model<a class="headerlink" href="#use-the-model" title="Permalink to this headline">¶</a></h2>
