@@ -117,7 +117,6 @@
 <li class="toctree-l3"><a class="reference internal" href="softstory.html">Soft-story Building Classifier</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="testbed.html">2.2. Testbed</a></li>
 </ul>
 </li>
 </ul>
@@ -198,26 +197,25 @@
             
   <div class="section" id="roof-classifier">
 <span id="lbl-roofclassifier-vnv"></span><h1>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The trained classifier is tested on a <a class="reference external" href="http://doi.org/10.5281/zenodo.3986721">ground truth dataset</a>.</p>
+<p>The Roof Classifier is validated here.</p>
+<p>An overall accuracy of 89.5% is obtained when the trained classifier is tested on a ground truth <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">dataset</a>.</p>
 <p>Run the following python script to test on this dataset.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># download the testing dataset</span>
-
-<span class="kn">import</span> <span class="nn">wget</span>
-<span class="kn">import</span> <span class="nn">zipfile</span>
-<span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://zenodo.org/record/3986721/files/Roof_Satellite_Images.zip&#39;</span><span class="p">)</span>
-<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;Roof_Satellite_Images.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
-    <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
-
-<span class="c1"># prepare the image lists</span>
-
-<span class="kn">import</span> <span class="nn">shutil</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">import</span> <span class="nn">wget</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
 
-<span class="n">flatList</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;Roof_Satellite_Images/flat/*.png&#39;</span><span class="p">)</span>
-<span class="n">gabledList</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;Roof_Satellite_Images/gabled/*.png&#39;</span><span class="p">)</span>
-<span class="n">hippedList</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;Roof_Satellite_Images/hipped/*.png&#39;</span><span class="p">)</span>
+<span class="c1"># download the testing dataset</span>
+<span class="n">wget</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;https://zenodo.org/record/4520781/files/satellite-images-val.zip&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="s1">&#39;satellite-images-val.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">zip_ref</span><span class="p">:</span>
+    <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+<span class="c1"># get images</span>
+<span class="n">flatList</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;satellite-images-val/flat/*.png&#39;</span><span class="p">)</span>
+<span class="n">gabledList</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;satellite-images-val/gabled/*.png&#39;</span><span class="p">)</span>
+<span class="n">hippedList</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="s1">&#39;satellite-images-val/hipped/*.png&#39;</span><span class="p">)</span>
 
 <span class="c1"># define the paths of images in a list</span>
 <span class="n">imgs</span><span class="o">=</span><span class="n">flatList</span><span class="o">+</span><span class="n">gabledList</span><span class="o">+</span><span class="n">hippedList</span>
@@ -234,12 +232,13 @@
 <span class="n">prediction</span> <span class="o">=</span> <span class="n">predictions</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;flat&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">flatList</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;gabled&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">gabledList</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;hipped&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hippedList</span><span class="p">)</span>
 
-<span class="c1"># Plot results</span>
+<span class="c1"># lot results</span>
 <span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span><span class="s1">&#39;gabled&#39;</span><span class="p">,</span> <span class="s1">&#39;hipped&#39;</span><span class="p">]</span>
 <span class="kn">from</span> <span class="nn">utils.plotUtils</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span><span class="p">,</span><span class="n">accuracy_score</span>
 
+<span class="c1"># print</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; Accuracy is   : </span><span class="si">{}</span><span class="s1">, Random guess is 0.33&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span><span class="n">label</span><span class="p">)))</span>
 <span class="n">cnf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span><span class="n">label</span><span class="p">)</span>
 <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix&#39;</span><span class="p">,</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Labels&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Predictions&#39;</span><span class="p">)</span>

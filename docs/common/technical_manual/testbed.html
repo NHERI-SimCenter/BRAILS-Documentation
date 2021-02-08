@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2. Testbed &mdash; BRAILS 2.0 documentation</title>
+  <title>Testbed &mdash; BRAILS 2.0 documentation</title>
   
 
   
@@ -41,8 +41,6 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1. How to Extend" href="../developer_manual/how_to_extend/how_to_extend.html" />
-    <link rel="prev" title="Soft-story Building Classifier" href="softstory.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -108,16 +106,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical Manual</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">1. Theory and Implementation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="vnv.html">2. Verification and Validation</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="modules.html">2.1. Modules</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.2. Testbed</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#application-example-atlantic-city-testbed">Application example: Atlantic City Testbed</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="vnv.html">2. Verification and Validation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Manual</span></p>
 <ul>
@@ -171,9 +162,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="vnv.html"><span class="section-number">2. </span>Verification and Validation</a> &raquo;</li>
-        
-      <li><span class="section-number">2.2. </span>Testbed</li>
+      <li>Testbed</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,7 +182,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="testbed">
-<span id="lbl-vnv-testbed"></span><h1><span class="section-number">2.2. </span>Testbed<a class="headerlink" href="#testbed" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-vnv-testbed"></span><h1>Testbed<a class="headerlink" href="#testbed" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="application-example-atlantic-city-testbed">
 <h2>Application example: Atlantic City Testbed<a class="headerlink" href="#application-example-atlantic-city-testbed" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
@@ -206,19 +195,19 @@ As a demonstration, this framework is applied to create a building inventory
 covering several coastal cities that are historically threatened by hurricanes in New Jersey.</p>
 <div class="align-center figure" id="id6">
 <span id="fig-tax-record"></span><img alt="../../_images/tax_record.png" src="../../_images/tax_record.png" />
-<p class="caption"><span class="caption-number">Fig. 2.2.1 </span><span class="caption-text">Building information inferred from tax assessment record</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Building information inferred from tax assessment record</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p>In this implementation, three sources of data are fused to form a hybrid initial database of buildings.
 The first source is the tax assessment records which are scraped from the administrative website of
 <a class="reference external" href="https://www.state.nj.us/treasury/taxation/lpt/TaxListSearchPublicWebpage.shtml">the Department of Treasure of New Jersey</a>
-as shown in <a class="reference internal" href="#fig-tax-record"><span class="std std-numref">Fig. 2.2.1</span></a>,
+as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:tax_record</span></code>,
 including number of stories, year of construction, structure type, occupancy.
 The second source is the United State Building Footprint dataset <a class="bibtex reference internal" href="../../index.html#msfootprint" id="id1">[Mic]</a>.
 The third source is satellite images, which can be download by calling Google Maps API.
 When evaluating the loss caused by hurricanes, the roof type (flat, gabled, or hipped) is an important parameter to be considered.
 To obtain the roof type of every building in these coastal cities,
 the authors trained a ConvNet classifier, which takes a satellite image of a building as
-input and predict the roof type as the output, as shown in <a class="reference internal" href="#fig-roofclassifier"><span class="std std-numref">Fig. 2.2.2</span></a>.
+input and predict the roof type as the output, as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:roofClassifier</span></code>.
 The training data contains 6,000 satellite images (2,000 for each roof type).
 The ConvNet architecture used here is InceptionV3 <a class="bibtex reference internal" href="../../index.html#szegedy2016rethinking" id="id2">[SVI+16]</a>,
 which is a widely-used image recognition model that has been shown to attain greater than 78.1% accuracy on the ImageNet dataset.
@@ -231,39 +220,39 @@ transfer learning is performed to train a roof classifier based on the satellite
 The accuracy of the trained classifier tested on a ground truth dataset <a class="bibtex reference internal" href="../../index.html#charles-wang-2019-3521067" id="id3">[Wan19]</a> is 85%.</p>
 <div class="align-center figure" id="id7">
 <span id="fig-roofclassifier"></span><img alt="../../_images/roofCNN.png" src="../../_images/roofCNN.png" />
-<p class="caption"><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">Convolutional neural network for roof type classification</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Convolutional neural network for roof type classification</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <p>Using the proposed framework, the above data are fused and enhanced to form the regional BIM database.
-As shown in <a class="reference internal" href="#fig-demo"><span class="std std-numref">Fig. 2.2.3</span></a>, about 20,000 buildings are modeled within this region and
-the BIM of a typical building is shown on the right side of <a class="reference internal" href="#fig-demo"><span class="std std-numref">Fig. 2.2.3</span></a>,
+As shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:demo</span></code>, about 20,000 buildings are modeled within this region and
+the BIM of a typical building is shown on the right side of <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:demo</span></code>,
 in which several attributes are included: structure type, roof type, occupancy,
 number of stories, year of construction, footprint geometry.</p>
 <div class="align-center figure" id="id8">
 <span id="fig-demo"></span><img alt="../../_images/BIM.png" src="../../_images/BIM.png" />
-<p class="caption"><span class="caption-number">Fig. 2.2.3 </span><span class="caption-text">Regional scale BIM database</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Regional scale BIM database</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <p>During the data enhancement period, the prediction errors for building attributes
-(using number of stories and year built as examples) are shown in <a class="reference internal" href="#fig-stories-error"><span class="std std-numref">Fig. 2.2.4</span></a> and <a class="reference internal" href="#fig-yearbuilt-error"><span class="std std-numref">Fig. 2.2.5</span></a>.
+(using number of stories and year built as examples) are shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:stories_error</span></code> and <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:yearbuilt_error</span></code>.
 It can be seen that for the number of stories,
 the majority of the prediction errors are zero.
 For the year of construction, the majority of prediction errors are less than 10 years.
 Therefore, the prediction errors are considered as insignificant and the performance of SURF is believed to be satisfying.</p>
 <div class="align-center figure" id="id9">
 <span id="fig-stories-error"></span><img alt="../../_images/stories_Predictions_classification_error.png" src="../../_images/stories_Predictions_classification_error.png" />
-<p class="caption"><span class="caption-number">Fig. 2.2.4 </span><span class="caption-text">Prediction error plot against 45 degree line &amp; Histogram plot of prediction error (Number of stories)</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Prediction error plot against 45 degree line &amp; Histogram plot of prediction error (Number of stories)</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id10">
 <span id="fig-yearbuilt-error"></span><img alt="../../_images/yearBuilt-prediction-error.png" src="../../_images/yearBuilt-prediction-error.png" />
-<p class="caption"><span class="caption-number">Fig. 2.2.5 </span><span class="caption-text">Prediction error plot against 45 degree line &amp; Histogram plot of prediction error (Year of construction)</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Prediction error plot against 45 degree line &amp; Histogram plot of prediction error (Year of construction)</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
-<p>As shown in <a class="reference internal" href="#fig-stories-error-correlation"><span class="std std-numref">Fig. 2.2.6</span></a> and <a class="reference internal" href="#fig-yearbuilt-error-correlation"><span class="std std-numref">Fig. 2.2.7</span></a>, the semivariograms of the predicted building attributes are calculated and plotted against the observed values. The curves agree with each other very well, indicating that the spatial variation in the original dataset are preserved during the simulations.</p>
+<p>As shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:stories_error_correlation</span></code> and <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:yearbuilt_error_correlation</span></code>, the semivariograms of the predicted building attributes are calculated and plotted against the observed values. The curves agree with each other very well, indicating that the spatial variation in the original dataset are preserved during the simulations.</p>
 <div class="align-center figure" id="id11">
 <span id="fig-stories-error-correlation"></span><img alt="../../_images/correlation_numofstories_compare.png" src="../../_images/correlation_numofstories_compare.png" />
-<p class="caption"><span class="caption-number">Fig. 2.2.6 </span><span class="caption-text">Comparison of semivariograms between original data and simulated data (Number of stories)</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Comparison of semivariograms between original data and simulated data (Number of stories)</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 <div class="align-center figure" id="id12">
 <span id="fig-yearbuilt-error-correlation"></span><img alt="../../_images/correlation_yearbuilt_compare.png" src="../../_images/correlation_yearbuilt_compare.png" />
-<p class="caption"><span class="caption-number">Fig. 2.2.7 </span><span class="caption-text">Comparison of semivariograms between original data and simulated data (Year of construction)</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">Comparison of semivariograms between original data and simulated data (Year of construction)</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 <p>It should be noted that, following the framework described in this documentation,
 one can add more building attributes of interests
@@ -274,7 +263,7 @@ In addition to the semantic representations, geometric features (such as buildin
 can also be extracted from images using ConvNets-based segmentation <a class="bibtex reference internal" href="../../index.html#bischke2019multi" id="id4">[BHF+19]</a>.
 However, segmentation is not the focus of this study, therefore not elaborated here.
 The code, data, pre-trained ConvNets, and BIM database created by the implementation can be found in <a class="bibtex reference internal" href="../../index.html#brails" id="id5">[WYM+19]</a>.</p>
-<p>The BIM information shown in <a class="reference internal" href="#fig-demo"><span class="std std-numref">Fig. 2.2.3</span></a> is enough for describing a building
+<p>The BIM information shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:demo</span></code> is enough for describing a building
 when it comes to regional loss estimation of natural hazards, such as hurricanes.</p>
 </div>
 </div>
@@ -284,10 +273,6 @@ when it comes to regional loss estimation of natural hazards, such as hurricanes
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../developer_manual/how_to_extend/how_to_extend.html" class="btn btn-neutral float-right" title="1. How to Extend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="softstory.html" class="btn btn-neutral float-left" title="Soft-story Building Classifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 
