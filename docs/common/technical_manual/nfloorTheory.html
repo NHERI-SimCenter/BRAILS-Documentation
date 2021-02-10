@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Roof type &mdash; BRAILS 2.0 documentation</title>
+  <title>Number of Floor Detector &mdash; BRAILS 2.0 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Occupancy" href="occupancyTheory.html" />
-    <link rel="prev" title="1.2. Modules" href="modulesTheory.html" />
+    <link rel="next" title="2. Verification and Validation" href="vnv.html" />
+    <link rel="prev" title="Soft-story" href="softstoryTheory.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -112,10 +112,10 @@
 <li class="toctree-l1 current"><a class="reference internal" href="theory.html">1. Theory and Implementation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="framework.html">1.1. Framework</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modulesTheory.html">1.2. Modules</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Roof type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="roofTheory.html">Roof type</a></li>
 <li class="toctree-l3"><a class="reference internal" href="occupancyTheory.html">Occupancy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="softstoryTheory.html">Soft-story</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nfloorTheory.html">Number of Floor Detector</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Number of Floor Detector</a></li>
 </ul>
 </li>
 </ul>
@@ -178,13 +178,13 @@
         
           <li><a href="modulesTheory.html"><span class="section-number">1.2. </span>Modules</a> &raquo;</li>
         
-      <li>Roof type</li>
+      <li>Number of Floor Detector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/common/technical_manual/roofTheory.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/common/technical_manual/nfloorTheory.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -197,76 +197,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="roof-type">
-<span id="rooftheory"></span><h1>Roof type<a class="headerlink" href="#roof-type" title="Permalink to this headline">¶</a></h1>
-<p>Roof type is a crucial information for wind hazard analyses of buildings because it is
-a key attribute needed for consideration of wind effects on structures.</p>
-<p>There are three major roof types, as shown in <a class="reference internal" href="#roof-types"><span class="std std-numref">Table 1.2.1</span></a>, that are widely used in the world: flat, gabled, hipped.</p>
-<table class="docutils align-default" id="roof-types">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id2">
-<img alt="../../_images/flat.jpg" src="../../_images/flat.jpg" />
-<p class="caption"><span class="caption-number">Fig. 1.2.1 </span><span class="caption-text">Flat</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+  <div class="section" id="number-of-floor-detector">
+<span id="nfloortheory"></span><h1>Number of Floor Detector<a class="headerlink" href="#number-of-floor-detector" title="Permalink to this headline">¶</a></h1>
+<p>In general, all modern object detectors can be said to consist of three main components:</p>
+<ol class="arabic simple">
+<li><p>A backbone network that extracts features from the given image at different scales,</p></li>
+<li><p>A feature network that receives multiple levels of features from the backbone and returns a list of fused features that identify the dominant features of the image,</p></li>
+<li><p>A class and box network that takes the fused features as input to predict the class and location of each object, respectively.</p></li>
+</ol>
+<p>EfficientDet models use EfficientNets pretrained on ImageNet for their backbone network. For the feature network, EfficienDet models use a novel bidirectional feature pyramid network (BiFPN), which takes level 3 through 7 features from the backbone network and repeatedly fuses these features in top-down and bottom-up directions. Both BiFPN layers and class/box layers are repeated multiple times with the number of repetations depending on the compund coefficient of the architecture. <a class="reference internal" href="#fig-modelarch"><span class="std std-numref">Fig. 1.2.13</span></a>  provides and overview of the described structure. For further details please see the seminal work by <a class="reference external" href="https://arxiv.org/abs/1911.09070">Tan, Pang, and Le</a>.</p>
+<div class="figure align-default" id="id1">
+<span id="fig-modelarch"></span><a class="reference internal image-reference" href="../../_images/EfficientDetArch.png"><img alt="Model architecture" src="../../_images/EfficientDetArch.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.2.13 </span><span class="caption-text">A high-level representation of the EfficientDet architecture</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-</td>
-<td><div class="figure align-default" id="id3">
-<img alt="../../_images/gable.jpg" src="../../_images/gable.jpg" />
-<p class="caption"><span class="caption-number">Fig. 1.2.2 </span><span class="caption-text">Gabled</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id4">
-<img alt="../../_images/hip.jpg" src="../../_images/hip.jpg" />
-<p class="caption"><span class="caption-number">Fig. 1.2.3 </span><span class="caption-text">Hipped</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Correspondingly, a typical satellite image of each roof type is shown in <a class="reference internal" href="#roof-images"><span class="std std-numref">Table 1.2.2</span></a>.</p>
-<table class="docutils align-default" id="roof-images">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id5">
-<img alt="../../_images/94.png" src="../../_images/94.png" />
-<p class="caption"><span class="caption-number">Fig. 1.2.4 </span><span class="caption-text">Flat</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id6">
-<img alt="../../_images/76.png" src="../../_images/76.png" />
-<p class="caption"><span class="caption-number">Fig. 1.2.5 </span><span class="caption-text">Gabled</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id7">
-<img alt="../../_images/54.png" src="../../_images/54.png" />
-<p class="caption"><span class="caption-number">Fig. 1.2.6 </span><span class="caption-text">Hipped</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p>Satellite images are a scalable source for inferring roof type information.
-In the attempt to determine roof type for every building in a region,
-a ConvNet classifier
-is trained to take a satellite image of a building and predicts its roof type.
-A training data set of 6,000 satellite images (2,000 for each roof type: flat, gabled, hipped) is collected.
-Specifically,  InceptionV3 <a class="bibtex reference internal" href="../../index.html#szegedy2016rethinking" id="id1">[SVI+16]</a>, which is a widely-used ConvNet architecture for image feature recognition that has been shown to attain good results with an accuracy greater than 78.1% on the ImageNet dataset, is employed.</p>
-<p>The InceptionV3 is made up of a series of symmetric and asymmetric building blocks,
-including convolutions, average pooling, max pooling, concats, dropouts, and fully connected layers.
-Batchnorm is used extensively throughout the model and applied to activation inputs.
-Loss is computed via Softmax.
-The architecture of the model is shown in <a class="reference internal" href="#fig-inceptionv3-roof"><span class="std std-numref">Fig. 1.2.7</span></a>.</p>
-<div class="figure align-default" id="id8">
-<span id="fig-inceptionv3-roof"></span><a class="reference internal image-reference" href="../../_images/inceptionv3.png"><img alt="InceptionV3" src="../../_images/inceptionv3.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.2.7 </span><span class="caption-text">InceptionV3</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p>Remarkable performance gains can be attained in image classification by jointly scaling up all dimensions of neural network width, depth, and input resolution, as noted in the study by <a class="reference external" href="https://arxiv.org/abs/1905.11946">Tan and Le</a>. Inspired by this work, EfficienDet utilizes a new compound scaling method for object detection that jointly increases all dimensions of the backbone network, BiFPN, class/box network, and input image resolution, using a simple compound coefficient, φ. A total of 8 compounding levels are defined for EffcienDet, i.e., φ = 0 to 8, with EfficientDet-D0 being the simplest and EfficientDet-D8 being the most complex of the network architectures.</p>
+<p>As shown in <a class="reference internal" href="#fig-efficientdetperf"><span class="std std-numref">Fig. 1.2.14</span></a>, at the time this work was published, EfficientDet object detection algorithms attained the state-of-the-art performance on the COCO dataset. Also suggested in Figure 3 is the more complex the network architecture is, the higher the detection performance will be. From a practical standpoint, however, architecture selection will depend on the availability of computational resources. For example, to train a model on an architecture with a compound coefficient higher than 4, a GPU with a memory of more than 11 GB will almost always be required.</p>
+<div class="figure align-default" id="id2">
+<span id="fig-efficientdetperf"></span><a class="reference internal image-reference" href="../../_images/EfficientDetPerf.png"><img alt="Detection performance" src="../../_images/EfficientDetPerf.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.2.14 </span><span class="caption-text">A comparison of the performance and accuracy levels of EfficienDet models over other popular object detection architectures on the COCO dataset</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 
@@ -276,8 +224,8 @@ The architecture of the model is shown in <a class="reference internal" href="#f
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="occupancyTheory.html" class="btn btn-neutral float-right" title="Occupancy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="modulesTheory.html" class="btn btn-neutral float-left" title="1.2. Modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vnv.html" class="btn btn-neutral float-right" title="2. Verification and Validation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="softstoryTheory.html" class="btn btn-neutral float-left" title="Soft-story" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

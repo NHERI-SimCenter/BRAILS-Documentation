@@ -9,4 +9,5 @@ Modules
    roofTheory
    occupancyTheory
    softstoryTheory
+   nfloorTheory
    

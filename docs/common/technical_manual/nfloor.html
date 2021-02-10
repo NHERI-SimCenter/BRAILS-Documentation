@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4.1. User Guide (1.x Legacy) &mdash; BRAILS 2.0 documentation</title>
+  <title>2.4. Number of Floor Detector &mdash; BRAILS 2.0 documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Prepare and fuse data" href="preparedata.html" />
-    <link rel="prev" title="4. User Guide" href="userGuide.html" />
+    <link rel="next" title="1. How to Extend" href="../developer_manual/how_to_extend/how_to_extend.html" />
+    <link rel="prev" title="2.3. Soft-story Building Classifier" href="softstory.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -97,31 +97,26 @@
             
             
               <p class="caption"><span class="caption-text">User Manual</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">1. Acknowledgments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">2. About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">3. Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="userGuide.html">4. User Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">4.1. User Guide (1.x Legacy)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="preparedata.html">Prepare and fuse data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="train.html">Train a model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="predict.html">Make predictions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="enhance.html">Enhance the data</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="modules/modules.html">4.2. Modules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html">4.3. Workflow</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/acknowledgments.html">1. Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/about.html">2. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/installation.html">3. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/userGuide.html">4. User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/troubleshooting.html">5. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/examples.html">6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical Manual</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../technical_manual/theory.html">1. Theory and Implementation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../technical_manual/vnv.html">2. Verification and Validation</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="theory.html">1. Theory and Implementation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="vnv.html">2. Verification and Validation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="roof.html">2.1. Roof Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="occupancy.html">2.2. Occupancy Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="softstory.html">2.3. Soft-story Building Classifier</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.4. Number of Floor Detector</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Manual</span></p>
 <ul>
@@ -175,15 +170,15 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="userGuide.html"><span class="section-number">4. </span>User Guide</a> &raquo;</li>
+          <li><a href="vnv.html"><span class="section-number">2. </span>Verification and Validation</a> &raquo;</li>
         
-      <li><span class="section-number">4.1. </span>User Guide (1.x Legacy)</li>
+      <li><span class="section-number">2.4. </span>Number of Floor Detector</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/common/user_manual/1.x.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/common/technical_manual/nfloor.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,15 +191,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="user-guide-1-x-legacy">
-<span id="lbl-1-x-tutorial"></span><h1><span class="section-number">4.1. </span>User Guide (1.x Legacy)<a class="headerlink" href="#user-guide-1-x-legacy" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="preparedata.html">Prepare and fuse data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="train.html">Train a model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="predict.html">Make predictions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="enhance.html">Enhance the data</a></li>
-</ul>
+  <div class="section" id="number-of-floor-detector">
+<span id="lbl-nfloordetector-vnv"></span><h1><span class="section-number">2.4. </span>Number of Floor Detector<a class="headerlink" href="#number-of-floor-detector" title="Permalink to this headline">¶</a></h1>
+<p>On a randomly selected set of in-the-wild building images from New Jersey’s Bergen, Middlesex, and Moris Counties, the model attains an F1-score of 86%. Here, in-the-wild building images are defined as street-level photos that may contain multiple buildings and are captured with random camera properties. <code class="xref std std-numref docutils literal notranslate"><span class="pre">confusion_nFloorWild</span></code> is the confusion matrix of the model inferences on the aforementioned in-the-wild test set.</p>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/confusion_nFloorWild.png"><img alt="Confusion matrix (in-the-wild dataset)" src="../../_images/confusion_nFloorWild.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.4.1 </span><span class="caption-text">Confusion matrix of the pretrained model on the in-the-wild test set</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>If the test images are constrained such that a single building exists in each image and the images are captured such that the image plane is nearly parallel to the frontal plane of the building facade, the F1-score of the model is determined as 94.7%. <a class="reference internal" href="#confusion-nfloorclean"><span class="std std-numref">Fig. 2.4.2</span></a> shows the confusion matrix for the pretrained model on a test set generated according to these constraints.</p>
+<div class="figure align-default" id="id2">
+<span id="confusion-nfloorclean"></span><a class="reference internal image-reference" href="../../_images/confusion_nFloorClean.png"><img alt="Confusion matrix (clean dataset)" src="../../_images/confusion_nFloorClean.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.4.2 </span><span class="caption-text">Confusion matrix of the pretrained model on the dataset containing lightly distorted/obstructed images of individual buildings</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 
@@ -214,8 +211,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="preparedata.html" class="btn btn-neutral float-right" title="Prepare and fuse data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="userGuide.html" class="btn btn-neutral float-left" title="4. User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../developer_manual/how_to_extend/how_to_extend.html" class="btn btn-neutral float-right" title="1. How to Extend" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="softstory.html" class="btn btn-neutral float-left" title="2.3. Soft-story Building Classifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

@@ -115,6 +115,7 @@
 <li class="toctree-l3"><a class="reference internal" href="roofTheory.html">Roof type</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Occupancy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="softstoryTheory.html">Soft-story</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nfloorTheory.html">Number of Floor Detector</a></li>
 </ul>
 </li>
 </ul>
@@ -199,7 +200,8 @@
   <div class="section" id="occupancy">
 <span id="occupancytheory"></span><h1>Occupancy<a class="headerlink" href="#occupancy" title="Permalink to this headline">¶</a></h1>
 <p>Occupancy class is an important parameter for natural hazard risk analysis of a building.
-The occupancy model in the current version of BRAILS is trained on a dataset consists of residential buildings that are classified into two categories: single-family buildings (RES1) and
+The occupancy model in the current version of BRAILS is trained on a dataset consists of residential buildings
+that are classified into two categories: single-family buildings (RES1) and
 Multi-family buildings (RES3). Data of other occupancy classes are being collected and will be added to the new versions of BRAILS.</p>
 <p>Examples of different occupancy type is shown in <a class="reference internal" href="#occupancyexample"><span class="std std-numref">Table 1.2.3</span></a>.</p>
 <table class="docutils align-default" id="occupancyexample">
@@ -209,19 +211,19 @@ Multi-family buildings (RES3). Data of other occupancy classes are being collect
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="figure align-default" id="id2">
-<a class="reference internal image-reference" href="common/technical_manual/../../images/technical/RES1.png"><img alt="common/technical_manual/../../images/technical/RES1.png" src="common/technical_manual/../../images/technical/RES1.png" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="../../_images/RES1.jpg"><img alt="../../_images/RES1.jpg" src="../../_images/RES1.jpg" style="width: 60%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.2.8 </span><span class="caption-text">Single-Family Building</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 <td><div class="figure align-default" id="id3">
-<a class="reference internal image-reference" href="common/technical_manual/../../images/technical/RES3.png"><img alt="common/technical_manual/../../images/technical/RES3.png" src="common/technical_manual/../../images/technical/RES3.png" style="width: 60%;" /></a>
+<a class="reference internal image-reference" href="../../_images/RES3.jpg"><img alt="../../_images/RES3.jpg" src="../../_images/RES3.jpg" style="width: 60%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.2.9 </span><span class="caption-text">Multi-Family Building</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
-<p>The classifier is trained based on InceptionV3 <a class="bibtex reference internal" href="../../index.html#szegedy2016rethinking" id="id1">[SVI+16]</a>.</p>
+<p>The classifier is also trained based on InceptionV3 <a class="bibtex reference internal" href="../../index.html#szegedy2016rethinking" id="id1">[SVI+16]</a>.</p>
 </div>
 
 
