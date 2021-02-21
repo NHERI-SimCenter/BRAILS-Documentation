@@ -220,18 +220,18 @@
 <span class="c1"># import the module</span>
 <span class="kn">from</span> <span class="nn">brails.modules</span> <span class="kn">import</span> <span class="n">SoftstoryClassifier</span>
 
-<span class="c1"># initialize a roof classifier</span>
-<span class="n">roofModel</span> <span class="o">=</span> <span class="n">SoftstoryClassifier</span><span class="p">()</span>
+<span class="c1"># initialize the classifier</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">SoftstoryClassifier</span><span class="p">()</span>
 
 <span class="c1"># use the model to predict</span>
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">roofModel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
 
 <span class="n">prediction</span> <span class="o">=</span> <span class="n">predictions</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;softstory&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">softstoryList</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;others&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">othersList</span><span class="p">)</span>
 
 <span class="c1"># Plot results</span>
 <span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;softstory&#39;</span><span class="p">,</span><span class="s1">&#39;others&#39;</span><span class="p">]</span>
-<span class="kn">from</span> <span class="nn">utils.plotUtils</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">brails.utils.plotUtils</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span><span class="p">,</span><span class="n">accuracy_score</span>
 
