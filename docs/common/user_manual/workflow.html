@@ -222,7 +222,7 @@
 </div></blockquote>
 <dl class="field-list simple">
 <dt class="field-odd">attributes (list)</dt>
-<dd class="field-odd"><p>A list of building attributes, such as [‘story’, ‘occupancy’, ‘roofshape’], which are available in the current version.</p>
+<dd class="field-odd"><p>A list of building attributes, such as [‘<a class="reference internal" href="modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">roofshape</span></a>’, ‘<a class="reference internal" href="modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">occupancy</span></a>’, ‘<a class="reference internal" href="modules/softstoryClassifier.html#lbl-softstoryclassifier"><span class="std std-ref">softstory</span></a>’, ‘<a class="reference internal" href="modules/foundationElevationClassifier.html#lbl-foundationelevationclassifier"><span class="std std-ref">elevated</span></a>’, ‘<a class="reference internal" href="modules/nFloorDetector.html#lbl-nfloordetector"><span class="std std-ref">story</span></a>’], which are available in the current version.</p>
 </dd>
 <dt class="field-even">numBldg (int)</dt>
 <dd class="field-even"><p>Number of buildings to generate.</p>
@@ -231,13 +231,13 @@
 <dd class="field-odd"><p>Randomly select numBldg buildings from the database if random is True.</p>
 </dd>
 <dt class="field-even">bbox (list)</dt>
-<dd class="field-even"><p>[north, west, south, east], which are latitude and longitudes that defines a region of interest.</p>
+<dd class="field-even"><p>[north, west, south, east], which are latitudes and longitudes of two corners that define a region of interest.</p>
 </dd>
 <dt class="field-odd">place (str)</dt>
-<dd class="field-odd"><p>The region of interest, e.g., Berkeley, California.</p>
+<dd class="field-odd"><p>The region of interest, e.g., ‘Berkeley, California’.</p>
 </dd>
 <dt class="field-even">footPrints (str)</dt>
-<dd class="field-even"><p>The footprint provide, choose from OSM or Microsoft. The default value is OSM.</p>
+<dd class="field-even"><p>The footprint provide, choose from ‘OSM’ or ‘Microsoft’. The default value is ‘OSM’.</p>
 </dd>
 <dt class="field-odd">save (bool)</dt>
 <dd class="field-odd"><p>Save temporary files. Default value is True.</p>
@@ -246,7 +246,7 @@
 <dd class="field-even"><p>Name of the generated BIM file. Default value will be generated if not provided by the user.</p>
 </dd>
 <dt class="field-odd">workDir (str)</dt>
-<dd class="field-odd"><p>Work directory where all files will be saved. Default value is ./tmp</p>
+<dd class="field-odd"><p>Work directory where all files will be saved. Default value is ‘./tmp’</p>
 </dd>
 <dt class="field-even">GoogleMapAPIKey (str)</dt>
 <dd class="field-even"><p>Google API Key. Must be provided to use the workflow.</p>
@@ -255,7 +255,7 @@
 <dd class="field-odd"><p>Overwrite existing tmp files. Default value is False.</p>
 </dd>
 <dt class="field-even">reDownloadImgs (bool)</dt>
-<dd class="field-even"><p>Re-download if an image exists locally. Default value is False.</p>
+<dd class="field-even"><p>Re-download even an image exists locally. Default value is False.</p>
 </dd>
 </dl>
 <div class="section" id="specify-attributes-to-be-collected">
@@ -264,12 +264,16 @@
 Available ones in the current version include:
 [‘roofshape’,
 ‘occupancy’,
-‘softstory’].
+‘softstory’,
+‘elevated’,
+‘story’].
 These attributes will be inferred from images using specific <a class="reference internal" href="modules/modules.html#lbl-modules"><span class="std std-ref">modules</span></a>.</p>
 <ul class="simple">
 <li><p>roofshape is the roof class, details can be found in <a class="reference internal" href="modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Classifier</span></a>.</p></li>
 <li><p>occupancy is the occupancy class, details can be found in <a class="reference internal" href="modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">Occupancy Classifier</span></a>.</p></li>
-<li><p>softstory is the soft-story classification, details can be found in <a class="reference internal" href="modules/softstoryClassifier.html#lbl-softstoryclassifier"><span class="std std-ref">Soft-story Building Classifier</span></a>.</p></li>
+<li><p>softstory is the soft-story attribute, details can be found in <a class="reference internal" href="modules/softstoryClassifier.html#lbl-softstoryclassifier"><span class="std std-ref">Soft-story Building Classifier</span></a>.</p></li>
+<li><p>elevated is the foundation elevation attribute, details can be found in <a class="reference internal" href="modules/foundationElevationClassifier.html#lbl-foundationelevationclassifier"><span class="std std-ref">Raised Foundation Classification</span></a>.</p></li>
+<li><p>story is the number of stories, details can be found in <a class="reference internal" href="modules/nFloorDetector.html#lbl-nfloordetector"><span class="std std-ref">Number of Floor Detector</span></a>.</p></li>
 </ul>
 </div>
 <div class="section" id="limit-the-number-of-buildings-to-be-collected">
