@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Roof Classifier &mdash; BRAILS 2.0 documentation</title>
+  <title>Roof Shape Classifier &mdash; BRAILS 2.0 documentation</title>
   
 
   
@@ -102,10 +102,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../about.html">2. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../userGuide.html">4. User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../1.x.html">4.1. User Guide (1.x Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../1.x.html">4.1. 1.x User Guide (Legacy)</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modules.html">4.2. Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="genericImageClassifier.html">Generic Image Classifier</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Roof Classifier</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Roof Shape Classifier</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#use-the-module">Use the module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#retrain-the-model">Retrain the model</a></li>
 </ul>
@@ -186,7 +186,7 @@
         
           <li><a href="modules.html"><span class="section-number">4.2. </span>Modules</a> &raquo;</li>
         
-      <li>Roof Classifier</li>
+      <li>Roof Shape Classifier</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -205,9 +205,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="roof-classifier">
-<span id="lbl-roofclassifier"></span><h1>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Roof Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module.</p>
+  <div class="section" id="roof-shape-classifier">
+<span id="lbl-roofclassifier"></span><h1>Roof Shape Classifier<a class="headerlink" href="#roof-shape-classifier" title="Permalink to this headline">¶</a></h1>
+<p>The Roof Shape Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module.</p>
 <p>The module is shipped with BRAILS,
 so you don’t have to install it standalone if you’ve installed BRAILS following the <a class="reference internal" href="../installation.html#lbl-install"><span class="std std-ref">Installation</span></a> instruction.</p>
 <p>It takes a list of satellite images of roof tops as the input, and classify the roof types into three categories: gabled, hipped, and flat.</p>
@@ -215,6 +215,7 @@ so you don’t have to install it standalone if you’ve installed BRAILS follow
 <h2>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
 <p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
 <p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
+<p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4562949/files/image_examples.zip">here</a>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
 from brails.modules import RoofClassifier
 
