@@ -216,7 +216,7 @@ RES1 (single family building), RES3 (multi-family building), COM(Commercial buil
 <h2>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
 <p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
 <p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
-<p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4562949/files/image_examples.zip">here</a>.</p>
+<p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4627958/files/image_examples.zip">here</a>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
 from brails.modules import OccupancyClassifier
 
@@ -224,34 +224,42 @@ from brails.modules import OccupancyClassifier
 occupancyModel = OccupancyClassifier()
 
 # define the paths of images in a list
-imgs = [&#39;image_examples/Occupancy/RES1/51563.png&#39;,
-        &#39;image_examples/Occupancy/RES3/65883.png&#39;]
+imgs = [&#39;image_examples/Occupancy/RES1/36887.jpg&#39;,
+    &#39;image_examples/Occupancy/RES3/37902.jpg&#39;,
+    &#39;image_examples/Occupancy/COM/42915.jpg&#39;]
 
 # use the model to predict
 predictions = occupancyModel.predict(imgs)
 </pre></div>
 </div>
 <p>The predictions look like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Image :  image_examples/Occupancy/RES1/51563.png     Class : RES1 (66.41%)
-Image :  image_examples/Occupancy/RES3/65883.png     Class : RES1 (49.51%)
-Results written in file occupancy_preds.csv
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Image :  image_examples/Occupancy/RES1/36887.jpg     Class : RES1 (100.0%)
+Image :  image_examples/Occupancy/RES3/37902.jpg     Class : RES3 (100.0%)
+Image :  image_examples/Occupancy/COM/42915.jpg     Class : COM (100.0%)
+Results written in file tmp/occupancy_preds.csv
 </pre></div>
 </div>
 <p>The images used in this example are:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><div class="figure align-default" id="id1">
-<img alt="../../../_images/51563.png" src="../../../_images/51563.png" />
-<p class="caption"><span class="caption-number">Fig. 4.2.4 </span><span class="caption-text">images/image_examples/Occupancy/RES1/51563.png Single-family Building</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/36887.jpg" src="../../../_images/36887.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.4 </span><span class="caption-text">Predicted as Single-family Building</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 <td><div class="figure align-default" id="id2">
-<img alt="../../../_images/65883.png" src="../../../_images/65883.png" />
-<p class="caption"><span class="caption-number">Fig. 4.2.5 </span><span class="caption-text">images/image_examples/Occupancy/RES3/65883.png Multi-family Building</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<img alt="../../../_images/37902.jpg" src="../../../_images/37902.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.5 </span><span class="caption-text">Predicted as Multi-family Building</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id3">
+<img alt="../../../_images/42915.jpg" src="../../../_images/42915.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.6 </span><span class="caption-text">Predicted as Commercial Building</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 </tr>

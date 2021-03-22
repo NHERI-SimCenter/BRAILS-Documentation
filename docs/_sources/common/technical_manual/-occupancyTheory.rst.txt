@@ -15,15 +15,16 @@ Examples of different occupancy type is shown in :numref:`occupancyexample`.
 .. list-table::
 
     * - .. figure:: ../../images/technical/RES1.jpg
-           :width: 60%
 
            Single-Family Building
 
       - .. figure:: ../../images/technical/RES3.jpg
-           :width: 60%
 
            Multi-Family Building
 
+      - .. figure:: ../../images/image_examples/Occupancy/COM/42915.jpg
+
+           Commercial Building
 
 The classifier is also trained using :cite:`he2016deep`.
 
