@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2. Coding Style &mdash; BRAILS 2.0 documentation</title>
+  <title>Generic Image Classifier &mdash; BRAILS 2.0 documentation</title>
   
 
   
@@ -41,7 +41,6 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="prev" title="1. How to Extend" href="../how_to_extend/how_to_extend.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -97,13 +96,13 @@
             
               <p class="caption"><span class="caption-text">User Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../user_manual/acknowledgments.html">1. Acknowledgments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user_manual/about.html">2. About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user_manual/installation.html">3. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user_manual/userGuide.html">4. User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user_manual/troubleshooting.html">5. Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user_manual/examples.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgments.html">1. Acknowledgments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">2. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userGuide.html">4. User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">5. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">6. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bugs.html">7. Bugs &amp; Feauture Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../license.html">8. Copyright and License</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Technical Manual</span></p>
@@ -112,12 +111,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../../technical_manual/vnv.html">2. Verification and Validation</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Manual</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../how_to_extend/how_to_extend.html">1. How to Extend</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Coding Style</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#python-style">2.1. Python Style</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_manual/how_to_extend/how_to_extend.html">1. How to Extend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../developer_manual/coding_style/coding_style.html">2. Coding Style</a></li>
 </ul>
 
             
@@ -166,13 +162,13 @@
     
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">2. </span>Coding Style</li>
+      <li>Generic Image Classifier</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../../_sources/common/developer_manual/coding_style/coding_style.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/common/user_manual/modules/generalImageClassifier-old2.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,12 +181,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="coding-style">
-<span id="lblcodingstyle"></span><h1><span class="section-number">2. </span>Coding Style<a class="headerlink" href="#coding-style" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="python-style">
-<h2><span class="section-number">2.1. </span>Python Style<a class="headerlink" href="#python-style" title="Permalink to this headline">¶</a></h2>
-<p>For code written in Python SimCenter programmers follow the widely used
-<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">Guide PEP 8</a></p>
+  <div class="section" id="generic-image-classifier">
+<span id="lbl-genericimageclassifier"></span><h1>Generic Image Classifier<a class="headerlink" href="#generic-image-classifier" title="Permalink to this headline">¶</a></h1>
+<p>The Generic Image Classifier module takes a list of images as the input, and predicts the classes of the images.</p>
+<p>In BRAILS, building attributes that can be inferred using this module include: Roof type, Occupancy class, Soft-story.</p>
+<div class="section" id="get-the-code">
+<h2>Get the code<a class="headerlink" href="#get-the-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/NHERI-SimCenter/BRAILS.git
+
+cd BRAILS/brails/modules/Generic_Image_Classifier
+
+pip install -r requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="train-a-model">
+<h2>Train a model<a class="headerlink" href="#train-a-model" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python train.py --imgDir &lt;IMAGE_DIRECTORY&gt; --modelDir &lt;MODEL_DIRECTORY&gt;
+</pre></div>
+</div>
+<p>IMAGE_DIRECTORY is the directory where you have your images for training</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IMAGE_DIRECTORY
+│── class_1
+│       └── *.png
+│── class_2
+|      └── *.png
+│── ...
+|
+└── class_n
+       └── *.png
+</pre></div>
+</div>
+<p>An image dataset for test that contains images of different rooves can be downloaded <a class="reference external" href="https://zenodo.org/record/3986721/files/Roof_Satellite_Images.zip">here</a>.</p>
+<p>MODEL_DIRECTORY is the directory where the trained model will be saved.</p>
+<p>It is better to run the above code on a GPU machine.</p>
+</div>
+<div class="section" id="predict">
+<h2>Predict<a class="headerlink" href="#predict" title="Permalink to this headline">¶</a></h2>
+<p>Now you can use the trained model to predict on given images.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python predict.py --imageDir &lt;IMAGE_DIRECTORY&gt; --modelDir &lt;MODEL_DIRECTORY&gt;
+</pre></div>
+</div>
+<p>The predictions will be written in preds.csv under the current directory.</p>
+<p>IMAGE_DIRECTORY is the directory of your images.</p>
+<p>MODEL_DIRECTORY is the folder where you have your trained model saved.</p>
+<p>You need also to specify the name of your model file by –modelFile &lt;MODEL_FILE_NAME&gt; if the name of your model file is not the default “classifier.h5”.</p>
+<p>You can specify the name of classes like this –classNames &lt;CLASS_A&gt; &lt;CLASS_B&gt; …</p>
+<p>Example: Roof type classification</p>
+<p>A pre-trained model for roof type classification can be downloaded from <a class="reference external" href="https://doi.org/10.5281/zenodo.4059083">here</a>.</p>
+<p>This model takes a satellite image as input and predicts roof types (flat/gabled/hipped). To test it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>wget https://zenodo.org/record/4059084/files/roof_classifier_v0.1.h5
+
+python predict.py
+        --imageDir &lt;IMAGE_DIRECTORY&gt;
+        --modelDir .
+        --modelFile roof_classifier_v0.1.h5
+        --classNames flat gabled hipped
+</pre></div>
+</div>
+<p>Note that a module named Roof Classifier is shipped as a module in BRAILS, which is much more convenient to use.
+Check how to use it here: <a class="reference internal" href="roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Shape Classifier</span></a>.</p>
 </div>
 </div>
 
@@ -199,9 +249,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../how_to_extend/how_to_extend.html" class="btn btn-neutral float-left" title="1. How to Extend" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 
