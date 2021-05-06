@@ -194,8 +194,12 @@
   <div class="section" id="roof-classifier">
 <span id="lbl-roofclassifier-vnv"></span><h1><span class="section-number">2.1. </span>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
 <p>The Roof Classifier is validated here.</p>
-<p>The trained classifier is tested on a ground truth <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">dataset</a>.
-Accuracy is 90.3%. Precision is 90.3%. Recall is 90.3%. F1 is 90.3%.</p>
+<p>The trained classifier is tested on a ground truth dataset that can be downloaded from <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">here</a>.
+We firstly obtained a set of randomly selected buildings in the United States with their roof type labelled on OpenStreetMap.
+We then downloaded the satellite images from Google Maps for each building.
+The dataset contains roof images in three categories: 32 flat, 40 gabled, 52 hipped.
+Examples of these street view images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type</span></a>.</p>
+<p>For this dataset, the prediction accuracy is 90.3%. Precision is 90.3%. Recall is 90.3%. F1 is 90.3%.</p>
 <p>Run the following python script to test on this dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">os</span>
