@@ -218,8 +218,8 @@ The accuracy for three classes are:
 
   
 
-Dataset 3: Compare with StEER Irma Dataset with Post-disaster Images
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Dataset 3: Compare with StEER Hurricane Irma Dataset with Post-disaster Images
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
   
