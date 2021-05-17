@@ -113,7 +113,8 @@
 <li class="toctree-l1 current"><a class="reference internal" href="vnv.html">2. Verification and Validation</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Roof Classifier</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dataset-1-compare-with-openstreetmap-labels">Dataset 1: Compare with OpenStreetMap Labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dataset-2-compare-with-steer-irma-dataset-with-post-disaster-images">Dataset 2: Compare with StEER Irma Dataset with Post-disaster Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-2-compare-with-steer-hurricane-laura-dataset">Dataset 2: Compare with StEER Hurricane Laura Dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-3-compare-with-steer-irma-dataset-with-post-disaster-images">Dataset 3: Compare with StEER Irma Dataset with Post-disaster Images</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="occupancy.html">2.2. Occupancy Classifier</a></li>
@@ -258,9 +259,128 @@ Examples of these satellite images can be found in <a class="reference internal"
 <p class="caption"><span class="caption-number">Fig. 2.1.1 </span><span class="caption-text">Confusion matrix - Roof type classification for OpenStreetMap</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
-<div class="section" id="dataset-2-compare-with-steer-irma-dataset-with-post-disaster-images">
-<h2>Dataset 2: Compare with StEER Irma Dataset with Post-disaster Images<a class="headerlink" href="#dataset-2-compare-with-steer-irma-dataset-with-post-disaster-images" title="Permalink to this headline">¶</a></h2>
-<style> .red {color:#aa0060; font-weight:bold; font-size:16px} </style><p>The second validation dataset is from StEER, you can download it from <a class="reference external" href="https://zenodo.org/record/4767858/files/Irma_roof_validation.zip">here</a>.
+<div class="section" id="dataset-2-compare-with-steer-hurricane-laura-dataset">
+<h2>Dataset 2: Compare with StEER Hurricane Laura Dataset<a class="headerlink" href="#dataset-2-compare-with-steer-hurricane-laura-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The second validation dataset is from StEER.
+This dataset contains satellite images of building, most are taken before Hurricane Laura.</p>
+<p>From StEER, we obtained a list of addresses with their roof types labelled.
+For each address, we downloaded an satellite image from Google Maps Static API.</p>
+<p>Examples of these satellite images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type</span></a>.</p>
+<p>The labeling system of StEER is different from the BRAILS roof classification system.
+The StEER labels include the following classes:</p>
+<ul class="simple">
+<li><p>Gable/Hip Combo</p></li>
+<li><p>Hip</p></li>
+<li><p>Gable</p></li>
+<li><p>Complex</p></li>
+<li><p>Flat</p></li>
+</ul>
+<p>The BRAILS roof types include the following classes:</p>
+<ul class="simple">
+<li><p>gabled</p></li>
+<li><p>hipped</p></li>
+<li><p>flat</p></li>
+</ul>
+<p>To compare these two systems, we selected addresses labeled as ‘Flat’, ‘Gable’, ‘Hip’ from StEER.
+As a result we got the following numbers of StEER labels:</p>
+<ul class="simple">
+<li><p>hipped,    33</p></li>
+<li><p>gabled,    21</p></li>
+<li><p>flat  ,     2</p></li>
+</ul>
+<p>Download the labels, images, scripts for this validation from <a class="reference external" href="https://zenodo.org/record/4768487/files/Laura_roof_validation.zip">here</a>.</p>
+<p>The following show the script to run this validation.
+At the end, the script will plot a confusion matrix and print the accuracy.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ### Load labels and predictions from The Lake Charles Testbed</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;StEER_Laura.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Hip&#39;</span><span class="p">)</span> <span class="o">|</span>
+              <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Gable&#39;</span><span class="p">)</span> <span class="o">|</span>
+              <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;Flat&#39;</span><span class="p">)]</span>
+
+<span class="n">roofDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gable&#39;</span><span class="p">:</span><span class="s1">&#39;gabled&#39;</span><span class="p">,</span><span class="s1">&#39;Flat&#39;</span><span class="p">:</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span><span class="s1">&#39;Hip&#39;</span><span class="p">:</span><span class="s1">&#39;hipped&#39;</span><span class="p">}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">roofDict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(Testbed)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(Testbed)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">roofDict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+
+
+<span class="c1"># ### Plot confusion matrix</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">plotUtils</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span><span class="p">,</span><span class="n">accuracy_score</span><span class="p">,</span><span class="n">f1_score</span>
+
+<span class="n">class_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(Testbed)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(Testbed)&#39;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span>
+
+<span class="n">cnf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span><span class="n">predictions</span><span class="p">)</span>
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix&#39;</span><span class="p">,</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;BRAILS&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;StEER&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">cname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">class_names</span><span class="p">):</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">TP</span> <span class="o">=</span> <span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">FP</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">FN</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">-</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">F1</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">TP</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">FP</span><span class="o">+</span><span class="n">FN</span><span class="p">)))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{cname}</span><span class="s1">: Accuracy = </span><span class="si">{accuracy}</span><span class="s1">, F1 = </span><span class="si">{F1}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># ### Copy images to directories {label}-{prediction} for inspection</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="n">predDir</span> <span class="o">=</span> <span class="s1">&#39;tmp/images/roof_predictions&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">predDir</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">predDir</span><span class="p">)</span>
+
+<span class="n">falseNames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">def</span> <span class="nf">copyfiles</span><span class="p">(</span><span class="n">bim</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">bim</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;RoofShape(Testbed)&#39;</span><span class="p">]</span>
+
+        <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.6f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">%.6f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">]</span>
+
+        <span class="n">oldfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;tmp/images/TopView/TopViewx</span><span class="si">{lon}</span><span class="s1">x</span><span class="si">{lat}</span><span class="s1">.png&#39;</span>
+        <span class="n">newfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{predDir}</span><span class="s1">/</span><span class="si">{label}</span><span class="s1">-</span><span class="si">{pred}</span><span class="s1">/TopViewx</span><span class="si">{lon}</span><span class="s1">x</span><span class="si">{lat}</span><span class="s1">.png&#39;</span>
+
+        <span class="n">thisFileDir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{predDir}</span><span class="s1">/</span><span class="si">{label}</span><span class="s1">-</span><span class="si">{pred}</span><span class="s1">/&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">thisFileDir</span><span class="p">):</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">thisFileDir</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">oldfile</span><span class="p">,</span> <span class="n">newfile</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">oldfile</span><span class="p">)</span>
+
+<span class="n">copyfiles</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the files you downloaded, there are folders with names like gabled-hipped, which means those are images that are labelled as ‘gabled’ in StEER dataset,
+but they are predicted as ‘hipped’. You can browse those images to investigate deeper.</p>
+<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-laura"><span class="std std-numref">Fig. 2.1.2</span></a>.</p>
+<div class="figure align-default" id="id4">
+<span id="fig-confusion-roof-laura"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_roof_laura.png"><img alt="Confusion matrix roof Laura" src="../../_images/fig_confusion_roof_laura.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.1.2 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Laura</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>The accuracy for three classes are:</p>
+<ul class="simple">
+<li><p>flat: Accuracy = 1.0, F1 = 0.4</p></li>
+<li><p>hipped: Accuracy = 0.7, F1 = 0.7</p></li>
+<li><p>gabled: Accuracy = 0.7, F1 = 0.8</p></li>
+</ul>
+</div>
+<div class="section" id="dataset-3-compare-with-steer-irma-dataset-with-post-disaster-images">
+<h2>Dataset 3: Compare with StEER Irma Dataset with Post-disaster Images<a class="headerlink" href="#dataset-3-compare-with-steer-irma-dataset-with-post-disaster-images" title="Permalink to this headline">¶</a></h2>
+<style> .red {color:#aa0060; font-weight:bold; font-size:16px} </style><p>The third validation dataset is also from StEER.
 This dataset contains satellite images of building that are taken after Hurricane Irma and labels of roof shapes.</p>
 <p>From StEER, we obtained a list of addresses with their roof types labelled.
 For each address, we downloaded an satellite image from Google Maps Static API.
@@ -275,24 +395,24 @@ It should be noted that these images were taken after the Hurricane Irma.</p>
 <col style="width: 25%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id4">
+<tr class="row-odd"><td><div class="figure align-default" id="id5">
 <img alt="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" src="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.2 </span><span class="caption-text">A severely damaged building with its roof cover totally removed</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id5">
-<img alt="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">A gabled roof with a temporary fix by partial covering with a blue tarp</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">A severely damaged building with its roof cover totally removed</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 <td><div class="figure align-default" id="id6">
-<img alt="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" src="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">A building removed from the land, leaving an empty land</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<img alt="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">A gabled roof with a temporary fix by partial covering with a blue tarp</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 <td><div class="figure align-default" id="id7">
+<img alt="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" src="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">A building removed from the land, leaving an empty land</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id8">
 <img alt="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" src="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">A building with a hipped roof that was not damage</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">A building with a hipped roof that was not damage</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 </tr>
@@ -321,10 +441,7 @@ The StEER labels include the following classes:</p>
 <ul class="simple">
 <li><p>gabled</p></li>
 <li><p>hipped</p></li>
-<li><ul>
 <li><p>flat</p></li>
-</ul>
-</li>
 </ul>
 <p>To compare these two systems, we selected addresses labeled as ‘Flat’, ‘Gable’, ‘Hip’ from StEER.
 As a result we got the following numbers of StEER labels:</p>
@@ -405,10 +522,8 @@ At the end, the script will plot a confusion matrix and print the accuracy.</p>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 
-<span class="n">class_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;tmp/images/roof_predictions/&#39;</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;tmp/images/falsePreds/&#39;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;tmp/images/roof_predictions/&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="n">addrstr</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Addr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
@@ -425,10 +540,10 @@ At the end, the script will plot a confusion matrix and print the accuracy.</p>
 </div>
 <p>In the files you downloaded, there are folders with names like gabled-hipped, which means those are images that are labelled as ‘gabled’ in StEER dataset,
 but they are predicted as ‘hipped’. You can browse those images to investigate deeper.</p>
-<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-irma"><span class="std std-numref">Fig. 2.1.6</span></a>.</p>
-<div class="figure align-default" id="id8">
+<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-irma"><span class="std std-numref">Fig. 2.1.7</span></a>.</p>
+<div class="figure align-default" id="id9">
 <span id="fig-confusion-roof-irma"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_roof_irma.png"><img alt="Confusion matrix roof Irma" src="../../_images/fig_confusion_roof_irma.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Irma</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1.7 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Irma</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <p>The accuracy for three classes are:</p>
 <ul class="simple">
