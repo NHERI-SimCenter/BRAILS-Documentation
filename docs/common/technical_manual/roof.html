@@ -111,7 +111,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="theory.html">1. Theory and Implementation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="vnv.html">2. Verification and Validation</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Roof Classifier</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Roof Classifier</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-1-compare-with-openstreetmap-labels">Dataset 1: Compare with OpenStreetMap Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dataset-2-compare-with-steer-irma-dataset-with-post-disaster-images">Dataset 2: Compare with StEER Irma Dataset with Post-disaster Images</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="occupancy.html">2.2. Occupancy Classifier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="softstory.html">2.3. Soft-story Building Classifier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nfloor.html">2.4. Number of Floors Detector</a></li>
@@ -193,12 +197,15 @@
             
   <div class="section" id="roof-classifier">
 <span id="lbl-roofclassifier-vnv"></span><h1><span class="section-number">2.1. </span>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Roof Classifier is validated here.</p>
-<p>The trained classifier is tested on a ground truth dataset that can be downloaded from <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">here</a>.
+<p>The Roof Classifier is validated here using three datasets.</p>
+<div class="section" id="dataset-1-compare-with-openstreetmap-labels">
+<h2>Dataset 1: Compare with OpenStreetMap Labels<a class="headerlink" href="#dataset-1-compare-with-openstreetmap-labels" title="Permalink to this headline">¶</a></h2>
+<p>The trained classifier is first tested on a ground truth dataset that can be downloaded from <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">here</a>.
 We firstly obtained a set of randomly selected buildings in the United States with their roof type labelled on OpenStreetMap.
 We then downloaded the satellite images from Google Maps for each building.
-The dataset contains roof images in three categories: 32 flat, 40 gabled, 52 hipped.
-Examples of these street view images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type</span></a>.</p>
+We removed images in which we didn’t clearly see there is a roof.
+The resulting dataset contains roof images in three categories: 32 flat, 40 gabled, 52 hipped.
+Examples of these satellite images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type</span></a>.</p>
 <p>For this dataset, the prediction accuracy is 90.3%. Precision is 90.3%. Recall is 90.3%. F1 is 90.3%.</p>
 <p>Run the following python script to test on this dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
@@ -246,9 +253,198 @@ Examples of these street view images can be found in <a class="reference interna
 </pre></div>
 </div>
 <p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof"><span class="std std-numref">Fig. 2.1.1</span></a>.</p>
-<div class="figure align-default" id="id1">
+<div class="figure align-default" id="id3">
 <span id="fig-confusion-roof"></span><a class="reference internal image-reference" href="../../_images/confusion_roof.png"><img alt="Confusion matrix roof" src="../../_images/confusion_roof.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1.1 </span><span class="caption-text">Confusion matrix - Roof type classifier</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1.1 </span><span class="caption-text">Confusion matrix - Roof type classification for OpenStreetMap</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="dataset-2-compare-with-steer-irma-dataset-with-post-disaster-images">
+<h2>Dataset 2: Compare with StEER Irma Dataset with Post-disaster Images<a class="headerlink" href="#dataset-2-compare-with-steer-irma-dataset-with-post-disaster-images" title="Permalink to this headline">¶</a></h2>
+<style> .red {color:#aa0060; font-weight:bold; font-size:16px} </style><p>The second validation dataset is from StEER, you can download it from <a class="reference external" href="https://zenodo.org/record/4767858/files/Irma_roof_validation.zip">here</a>.
+This dataset contains satellite images of building that are taken after Hurricane Irma and labels of roof shapes.</p>
+<p>From StEER, we obtained a list of addresses with their roof types labelled.
+For each address, we downloaded an satellite image from Google Maps Static API.
+It should be noted that these images were taken after the Hurricane Irma.</p>
+<p><span class="red">These post-disaster images are very different from the training dataset, in which all images are taken before the disasters. Keep in mind, the BRAILS roof model is not designed to recognize the post-disaster images. The aim of this validation is to see how BRAILS performs on these post-disaster images, though the model is not trained for this purpose.</span></p>
+<p>Examples of these satellite images can be found in <a class="reference internal" href="#irma-roof-examples"><span class="std std-numref">Table 2.1.1</span></a>.</p>
+<table class="docutils align-default" id="irma-roof-examples">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id4">
+<img alt="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" src="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.2 </span><span class="caption-text">A severely damaged building with its roof cover totally removed</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id5">
+<img alt="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">A gabled roof with a temporary fix by partial covering with a blue tarp</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id6">
+<img alt="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" src="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">A building removed from the land, leaving an empty land</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id7">
+<img alt="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" src="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">A building with a hipped roof that was not damage</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The labeling system of StEER is different from the BRAILS roof classification system.
+The StEER labels include the following classes:</p>
+<ul class="simple">
+<li><p>Gable</p></li>
+<li><p>Hip</p></li>
+<li><p>Complex</p></li>
+<li><p>Flat</p></li>
+<li><p>Hip/Gable</p></li>
+<li><p>Hip,Complex</p></li>
+<li><p>Gable,Complex</p></li>
+<li><p>Other</p></li>
+<li><p>Gable,Flat</p></li>
+<li><p>Hip/Gable,Complex</p></li>
+<li><p>Hip,Flat</p></li>
+<li><p>Gambrel</p></li>
+<li><p>Hip,Gable</p></li>
+<li><p>Hip,Other</p></li>
+<li><p>Hip/Gable,Flat</p></li>
+</ul>
+<p>The BRAILS roof types include the following classes:</p>
+<ul class="simple">
+<li><p>gabled</p></li>
+<li><p>hipped</p></li>
+<li><ul>
+<li><p>flat</p></li>
+</ul>
+</li>
+</ul>
+<p>To compare these two systems, we selected addresses labeled as ‘Flat’, ‘Gable’, ‘Hip’ from StEER.
+As a result we got the following numbers of StEER labels:</p>
+<ul class="simple">
+<li><p>gabled,    459</p></li>
+<li><p>hipped,    180</p></li>
+<li><p>flat,       72</p></li>
+</ul>
+<p>Download the labels, images, scripts for this validation from <a class="reference external" href="https://zenodo.org/record/4767858/files/Irma_roof_validation.zip">here</a>.</p>
+<p>The following show the script to run this validation.
+It will use BRAILS to download images from Google Map Static API and perform predictions on these images.
+At the end, the script will plot a confusion matrix and print the accuracy.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Irma_validation.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+
+<span class="c1"># ### Use BRAILS to download satellite images</span>
+
+<span class="c1"># You don&#39;t have to download again, it&#39;s already included in this example</span>
+<span class="c1"># But feel free to uncomment and download again. You need a Google API Key, and set reDownloadImgs=True</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">from brails.workflow.Images import getGoogleImagesByAddrOrCoord</span>
+
+<span class="sd">addrs =  list(data[&#39;Addr&#39;])</span>
+<span class="sd">getGoogleImagesByAddrOrCoord(Addrs=addrs, GoogleMapAPIKey=&#39;Your-Key&#39;,</span>
+<span class="sd">                             imageTypes=[&#39;TopView&#39;],imgDir=&#39;tmp/images&#39;,ncpu=2,</span>
+<span class="sd">                             fov=60,pitch=0,reDownloadImgs=False)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TopViewImg&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;tmp/images/TopView/TopViewx&#39;</span><span class="o">+</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Addr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span>
+
+
+<span class="c1"># ### Predict</span>
+
+<span class="kn">from</span> <span class="nn">brails.modules</span> <span class="kn">import</span> <span class="n">RoofClassifier</span>
+<span class="n">roofModel</span> <span class="o">=</span> <span class="n">RoofClassifier</span><span class="p">()</span>
+<span class="n">roofPreds</span> <span class="o">=</span> <span class="n">roofModel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TopViewImg&#39;</span><span class="p">]))</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">roofPreds</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">])</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;prob_RoofShape(BRAILS)&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">roofPreds</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">])</span>
+<span class="n">roofDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gable&#39;</span><span class="p">:</span><span class="s1">&#39;gabled&#39;</span><span class="p">,</span><span class="s1">&#39;Flat&#39;</span><span class="p">:</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span><span class="s1">&#39;Hip&#39;</span><span class="p">:</span><span class="s1">&#39;hipped&#39;</span><span class="p">}</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;roof_shape&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">roofDict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+
+
+<span class="c1"># ### Plot confusion matrix</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">plotUtils</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span><span class="p">,</span><span class="n">accuracy_score</span><span class="p">,</span><span class="n">f1_score</span>
+
+<span class="n">class_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span>
+
+<span class="n">cnf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
+<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;BRAILS&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;StEER&#39;</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">cname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">class_names</span><span class="p">):</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">TP</span> <span class="o">=</span> <span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">FP</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">FN</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">-</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">F1</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">TP</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">FP</span><span class="o">+</span><span class="n">FN</span><span class="p">)))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{cname}</span><span class="s1">: Accuracy = </span><span class="si">{accuracy}</span><span class="s1">, F1 = </span><span class="si">{F1}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+
+<span class="c1"># ### Copy images to directories {label}-{prediction} for inspection</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+
+<span class="n">class_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;tmp/images/roof_predictions/&#39;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;tmp/images/falsePreds/&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">addrstr</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Addr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">picname</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;tmp/images/TopView/TopViewx</span><span class="si">{addrstr}</span><span class="s1">.png&#39;</span>
+
+    <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">thisFileDir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;tmp/images/roof_predictions/</span><span class="si">{label}</span><span class="s1">-</span><span class="si">{pred}</span><span class="s1">/&#39;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">thisFileDir</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">thisFileDir</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">picname</span><span class="p">,</span> <span class="n">thisFileDir</span><span class="o">+</span><span class="n">picname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>In the files you downloaded, there are folders with names like gabled-hipped, which means those are images that are labelled as ‘gabled’ in StEER dataset,
+but they are predicted as ‘hipped’. You can browse those images to investigate deeper.</p>
+<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-irma"><span class="std std-numref">Fig. 2.1.6</span></a>.</p>
+<div class="figure align-default" id="id8">
+<span id="fig-confusion-roof-irma"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_roof_irma.png"><img alt="Confusion matrix roof Irma" src="../../_images/fig_confusion_roof_irma.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Irma</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<p>The accuracy for three classes are:</p>
+<ul class="simple">
+<li><p>gabled: Accuracy = 0.2, F1 = 0.3</p></li>
+<li><p>hipped: Accuracy = 0.9, F1 = 0.6</p></li>
+<li><p>flat:   Accuracy = 0.8, F1 = 0.3</p></li>
+</ul>
+<p>It shows the accuracy for the gable is not as high as the other classes.
+A further look into the images we found the following facts:</p>
+<ul class="simple">
+<li><p>Most roofs that are labelled as ‘flat’ and ‘hipped’ are not damaged during the hurricane.</p></li>
+<li><p>Roofs labelled as ‘gabled’ are the class got most damages.</p></li>
+<li><p>When roofs are damaged, their satellite images are different from pre-disaster images.</p></li>
+<li><p>This validation doesn’t remove those images with an empty land, which negatively influences the accuracy.</p></li>
+<li><p>This validation doesn’t consider the possible bias in the StEER labels, which also negatively influences the accuracy.</p></li>
+</ul>
 </div>
 </div>
 
