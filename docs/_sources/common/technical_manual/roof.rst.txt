@@ -3,7 +3,8 @@
 Roof Classifier
 ========================
 
-The Roof Classifier is validated here using three datasets.
+The Roof Classifier's methodology has been presented in :ref:`roofTheory`, and examples showing how to use it can be found in :ref:`lbl-roofClassifier`.
+This section presents its validation against three datasets.
 
 Dataset 1: Compare with OpenStreetMap Labels
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -115,7 +116,7 @@ As a result we got the following numbers of StEER labels:
 
 Download the labels, images, scripts for this validation from `here <https://zenodo.org/record/4768487/files/Laura_roof_validation.zip>`_.
 
-The following show the script to run this validation.
+The following shows the script to run this validation.
 At the end, the script will plot a confusion matrix and print the accuracy.
 
 .. code-block:: python 
@@ -240,24 +241,6 @@ It should be noted that these images were taken after the Hurricane Irma.
 Examples of these satellite images can be found in :numref:`Irma_roof_examples`.
 
 
-.. _Irma_roof_examples:
-.. list-table::
-
-    * - .. figure:: ../../images/technical/irma/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png
-
-           A severely damaged building with its roof cover totally removed 
-
-      - .. figure:: ../../images/technical/irma/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png
-
-           A gabled roof with a temporary fix by partial covering with a blue tarp 
-
-      - .. figure:: ../../images/technical/irma/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png
-
-           A building removed from the land, leaving an empty land
-
-      - .. figure:: ../../images/technical/irma/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png
-
-           A building with a hipped roof that was not damage 
            
 
 
@@ -296,7 +279,7 @@ As a result we got the following numbers of StEER labels:
 
 Download the labels, images, scripts for this validation from `here <https://zenodo.org/record/4767858/files/Irma_roof_validation.zip>`_.
 
-The following show the script to run this validation.
+The following shows the script to run this validation.
 It will use BRAILS to download images from Google Map Static API and perform predictions on these images.
 At the end, the script will plot a confusion matrix and print the accuracy.
 
@@ -411,7 +394,27 @@ A further look into the images we found the following facts:
 * Most roofs that are labelled as 'flat' and 'hipped' are not damaged during the hurricane.
 * Roofs labelled as 'gabled' are the class got most damages. 
 * When roofs are damaged, their satellite images are different from pre-disaster images. 
-* This validation doesn't remove those images with an empty land, which negatively influences the accuracy.
+* This validation doesn't remove those images with an empty lot, which negatively influences the accuracy.
 * This validation doesn't consider the possible bias in the StEER labels, which also negatively influences the accuracy. 
+
+
+.. _Irma_roof_examples:
+.. list-table::
+
+    * - .. figure:: ../../images/technical/irma/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png
+
+           A severely damaged building with its roof cover totally removed 
+
+      - .. figure:: ../../images/technical/irma/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png
+
+           A gabled roof with a temporary fix by partial covering with a blue tarp 
+
+      - .. figure:: ../../images/technical/irma/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png
+
+           A building removed from the land, leaving an empty lot
+
+      - .. figure:: ../../images/technical/irma/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png
+
+           A building with a hipped roof that was not damaged 
 
 

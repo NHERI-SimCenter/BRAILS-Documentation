@@ -198,7 +198,8 @@
             
   <div class="section" id="roof-classifier">
 <span id="lbl-roofclassifier-vnv"></span><h1><span class="section-number">2.1. </span>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Roof Classifier is validated here using three datasets.</p>
+<p>The Roof Classifier’s methodology has been presented in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type</span></a>, and examples showing how to use it can be found in <a class="reference internal" href="../user_manual/modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Shape Classifier</span></a>.
+This section presents its validation against three datasets.</p>
 <div class="section" id="dataset-1-compare-with-openstreetmap-labels">
 <h2>Dataset 1: Compare with OpenStreetMap Labels<a class="headerlink" href="#dataset-1-compare-with-openstreetmap-labels" title="Permalink to this headline">¶</a></h2>
 <p>The trained classifier is first tested on a ground truth dataset that can be downloaded from <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">here</a>.
@@ -289,7 +290,7 @@ As a result we got the following numbers of StEER labels:</p>
 <li><p>flat  ,     2</p></li>
 </ul>
 <p>Download the labels, images, scripts for this validation from <a class="reference external" href="https://zenodo.org/record/4768487/files/Laura_roof_validation.zip">here</a>.</p>
-<p>The following show the script to run this validation.
+<p>The following shows the script to run this validation.
 At the end, the script will plot a confusion matrix and print the accuracy.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ### Load labels and predictions from The Lake Charles Testbed</span>
 
@@ -387,37 +388,6 @@ For each address, we downloaded an satellite image from Google Maps Static API.
 It should be noted that these images were taken after the Hurricane Irma.</p>
 <p><span class="red">These post-disaster images are very different from the training dataset, in which all images are taken before the disasters. Keep in mind, the BRAILS roof model is not designed to recognize the post-disaster images. The aim of this validation is to see how BRAILS performs on these post-disaster images, though the model is not trained for this purpose.</span></p>
 <p>Examples of these satellite images can be found in <a class="reference internal" href="#irma-roof-examples"><span class="std std-numref">Table 2.1.1</span></a>.</p>
-<table class="docutils align-default" id="irma-roof-examples">
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id5">
-<img alt="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" src="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">A severely damaged building with its roof cover totally removed</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id6">
-<img alt="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">A gabled roof with a temporary fix by partial covering with a blue tarp</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id7">
-<img alt="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" src="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">A building removed from the land, leaving an empty land</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id8">
-<img alt="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" src="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">A building with a hipped roof that was not damage</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
 <p>The labeling system of StEER is different from the BRAILS roof classification system.
 The StEER labels include the following classes:</p>
 <ul class="simple">
@@ -451,7 +421,7 @@ As a result we got the following numbers of StEER labels:</p>
 <li><p>flat,       72</p></li>
 </ul>
 <p>Download the labels, images, scripts for this validation from <a class="reference external" href="https://zenodo.org/record/4767858/files/Irma_roof_validation.zip">here</a>.</p>
-<p>The following show the script to run this validation.
+<p>The following shows the script to run this validation.
 It will use BRAILS to download images from Google Map Static API and perform predictions on these images.
 At the end, the script will plot a confusion matrix and print the accuracy.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -540,10 +510,10 @@ At the end, the script will plot a confusion matrix and print the accuracy.</p>
 </div>
 <p>In the files you downloaded, there are folders with names like gabled-hipped, which means those are images that are labelled as ‘gabled’ in StEER dataset,
 but they are predicted as ‘hipped’. You can browse those images to investigate deeper.</p>
-<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-irma"><span class="std std-numref">Fig. 2.1.7</span></a>.</p>
-<div class="figure align-default" id="id9">
+<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-irma"><span class="std std-numref">Fig. 2.1.3</span></a>.</p>
+<div class="figure align-default" id="id5">
 <span id="fig-confusion-roof-irma"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_roof_irma.png"><img alt="Confusion matrix roof Irma" src="../../_images/fig_confusion_roof_irma.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1.7 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Irma</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Irma</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 <p>The accuracy for three classes are:</p>
 <ul class="simple">
@@ -557,9 +527,40 @@ A further look into the images we found the following facts:</p>
 <li><p>Most roofs that are labelled as ‘flat’ and ‘hipped’ are not damaged during the hurricane.</p></li>
 <li><p>Roofs labelled as ‘gabled’ are the class got most damages.</p></li>
 <li><p>When roofs are damaged, their satellite images are different from pre-disaster images.</p></li>
-<li><p>This validation doesn’t remove those images with an empty land, which negatively influences the accuracy.</p></li>
+<li><p>This validation doesn’t remove those images with an empty lot, which negatively influences the accuracy.</p></li>
 <li><p>This validation doesn’t consider the possible bias in the StEER labels, which also negatively influences the accuracy.</p></li>
 </ul>
+<table class="docutils align-default" id="irma-roof-examples">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id6">
+<img alt="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" src="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">A severely damaged building with its roof cover totally removed</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id7">
+<img alt="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">A gabled roof with a temporary fix by partial covering with a blue tarp</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id8">
+<img alt="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" src="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">A building removed from the land, leaving an empty lot</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id9">
+<img alt="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" src="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.7 </span><span class="caption-text">A building with a hipped roof that was not damaged</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
