@@ -197,7 +197,7 @@
             
   <div class="section" id="occupancy-classifier">
 <span id="lbl-occupancyclassifier-vnv"></span><h1><span class="section-number">2.2. </span>Occupancy Classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Occupancy Classifier’s methodology has been presented in <a class="reference internal" href="occupancyTheory.html#occupancytheory"><span class="std std-ref">Occupancy</span></a>, and examples showing how to use it can be found in <a class="reference internal" href="../user_manual/modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">Occupancy Classifier</span></a>.
+<p>The Occupancy Classifier’s methodology has been presented in <a class="reference internal" href="occupancyTheory.html#occupancytheory"><span class="std std-ref">Occupancy classifier</span></a>, and examples showing how to use it can be found in <a class="reference internal" href="../user_manual/modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">Occupancy Classifier</span></a>.
 This section presents its validation against two datasets.</p>
 <div class="section" id="dataset-1-compare-with-openstreetmap-labels">
 <h2>Dataset 1: Compare with OpenStreetMap Labels<a class="headerlink" href="#dataset-1-compare-with-openstreetmap-labels" title="Permalink to this headline">¶</a></h2>
@@ -266,7 +266,7 @@ Examples of these street view images can be found in <a class="reference interna
 <p>NJDEP developed a building inventory for flood hazard and risk analysis as part of its flood control and resilience mission.
 In this dataset, we can find building footprints with their occupancy types labelled.
 We randomly selected a subset of those records, for each we downloaded a street view image from Google Maps Static API.</p>
-<p>Examples of these satellite images can be found in <a class="reference internal" href="occupancyTheory.html#occupancytheory"><span class="std std-ref">Occupancy</span></a>.</p>
+<p>Examples of these satellite images can be found in <a class="reference internal" href="occupancyTheory.html#occupancytheory"><span class="std std-ref">Occupancy classifier</span></a>.</p>
 <p>The labeling system of NJDEP dataset is different from the BRAILS occupancy classification system.
 The NJDEP occupancy data includes the following labels:</p>
 <ul class="simple">
@@ -418,6 +418,42 @@ but they are predicted as ‘COM’. You can browse through those images to inve
 <li><p>RES: Accuracy = 0.8, F1 = 0.8</p></li>
 <li><p>COM: Accuracy = 0.7, F1 = 0.8</p></li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Bias in dataset is very common.
+This validation doesn’t consider the possible bias in the labels (examples can be found in <a class="reference internal" href="#atlantic-roof-examples-bias"><span class="std std-numref">Table 2.2.1</span></a>), which also negatively influences the accuracy.</p>
+</div>
+<span id="atlantic-roof-examples-bias"></span><table class="docutils align-default" id="id4">
+<caption><span class="caption-number">Table 2.2.1 </span><span class="caption-text">Example of street view images: Bias in the labels</span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id5">
+<img alt="../../_images/StreetViewx-74.386810x39.393053.png" src="../../_images/StreetViewx-74.386810x39.393053.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.3 </span><span class="caption-text">Label: COM, BRAILS Prediction: RES</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id6">
+<img alt="../../_images/StreetViewx-74.412273x39.368244.png" src="../../_images/StreetViewx-74.412273x39.368244.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.4 </span><span class="caption-text">Label: COM), BRAILS Prediction: RES</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="figure align-default" id="id7">
+<img alt="../../_images/StreetViewx-74.413082x39.365280.png" src="../../_images/StreetViewx-74.413082x39.365280.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.5 </span><span class="caption-text">Label: RES), BRAILS Prediction: COM</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id8">
+<img alt="../../_images/StreetViewx-74.445166x39.354932.png" src="../../_images/StreetViewx-74.445166x39.354932.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.6 </span><span class="caption-text">Label: RES), BRAILS Prediction: COM</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 

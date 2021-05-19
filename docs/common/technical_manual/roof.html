@@ -198,7 +198,7 @@
             
   <div class="section" id="roof-classifier">
 <span id="lbl-roofclassifier-vnv"></span><h1><span class="section-number">2.1. </span>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Roof Classifier’s methodology has been presented in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type</span></a>, and examples showing how to use it can be found in <a class="reference internal" href="../user_manual/modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Shape Classifier</span></a>.
+<p>The Roof Classifier’s methodology has been presented in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type classifier</span></a>, and examples showing how to use it can be found in <a class="reference internal" href="../user_manual/modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Shape Classifier</span></a>.
 This section presents its validation against three datasets.</p>
 <div class="section" id="dataset-1-compare-with-openstreetmap-labels">
 <h2>Dataset 1: Compare with OpenStreetMap Labels<a class="headerlink" href="#dataset-1-compare-with-openstreetmap-labels" title="Permalink to this headline">¶</a></h2>
@@ -207,7 +207,7 @@ We firstly obtained a set of randomly selected buildings in the United States wi
 We then downloaded the satellite images from Google Maps for each building.
 We removed images in which we didn’t clearly see there is a roof.
 The resulting dataset contains roof images in three categories: 32 flat, 40 gabled, 52 hipped.
-Examples of these satellite images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type</span></a>.</p>
+Examples of these satellite images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type classifier</span></a>.</p>
 <p>For this dataset, the prediction accuracy is 90.3%. Precision is 90.3%. Recall is 90.3%. F1 is 90.3%.</p>
 <p>Run the following python script to test on this dataset.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
@@ -266,7 +266,7 @@ Examples of these satellite images can be found in <a class="reference internal"
 This dataset contains satellite images of building, most are taken before Hurricane Laura.</p>
 <p>From StEER, we obtained a list of addresses with their roof types labelled.
 For each address, we downloaded an satellite image from Google Maps Static API.</p>
-<p>Examples of these satellite images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type</span></a>.</p>
+<p>Examples of these satellite images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type classifier</span></a>.</p>
 <p>The labeling system of StEER is different from the BRAILS roof classification system.
 The StEER labels include the following classes:</p>
 <ul class="simple">
@@ -388,6 +388,38 @@ For each address, we downloaded an satellite image from Google Maps Static API.
 It should be noted that these images were taken after the Hurricane Irma.</p>
 <p><span class="red">These post-disaster images are very different from the training dataset, in which all images are taken before the disasters. Keep in mind, the BRAILS roof model is not designed to recognize the post-disaster images. The aim of this validation is to see how BRAILS performs on these post-disaster images, though the model is not trained for this purpose.</span></p>
 <p>Examples of these satellite images can be found in <a class="reference internal" href="#irma-roof-examples"><span class="std std-numref">Table 2.1.1</span></a>.</p>
+<span id="irma-roof-examples"></span><table class="docutils align-default" id="id5">
+<caption><span class="caption-number">Table 2.1.1 </span><span class="caption-text">Example post-hurricane satellite images</span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id6">
+<img alt="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" src="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">A severely damaged building with its roof cover totally removed</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id7">
+<img alt="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">A gabled roof with a temporary fix by partial covering with a blue tarp</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id8">
+<img alt="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" src="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">A building removed from the land, leaving an empty lot</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id9">
+<img alt="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" src="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">A building with a hipped roof that was not damaged</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p>The labeling system of StEER is different from the BRAILS roof classification system.
 The StEER labels include the following classes:</p>
 <ul class="simple">
@@ -510,10 +542,10 @@ At the end, the script will plot a confusion matrix and print the accuracy.</p>
 </div>
 <p>In the files you downloaded, there are folders with names like gabled-hipped, which means those are images that are labelled as ‘gabled’ in StEER dataset,
 but they are predicted as ‘hipped’. You can browse those images to investigate deeper.</p>
-<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-irma"><span class="std std-numref">Fig. 2.1.3</span></a>.</p>
-<div class="figure align-default" id="id5">
+<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-irma"><span class="std std-numref">Fig. 2.1.7</span></a>.</p>
+<div class="figure align-default" id="id10">
 <span id="fig-confusion-roof-irma"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_roof_irma.png"><img alt="Confusion matrix roof Irma" src="../../_images/fig_confusion_roof_irma.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Irma</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1.7 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Irma</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <p>The accuracy for three classes are:</p>
 <ul class="simple">
@@ -523,14 +555,15 @@ but they are predicted as ‘hipped’. You can browse those images to investiga
 </ul>
 <p>It shows the accuracy for the gable is not as high as the other classes.
 A further look into the images we found the following facts:</p>
-<ul class="simple">
-<li><p>Most roofs that are labelled as ‘flat’ and ‘hipped’ are not damaged during the hurricane.</p></li>
-<li><p>Roofs labelled as ‘gabled’ are the class got most damages.</p></li>
-<li><p>When roofs are damaged, their satellite images are different from pre-disaster images.</p></li>
+<ol class="arabic simple">
+<li><p>Most roofs that are labelled as ‘hipped’ are not damaged during the hurricane, examples are in <a class="reference internal" href="#irma-roof-examples-hipped"><span class="std std-numref">Table 2.1.2</span></a>.</p></li>
+<li><p>Roofs labelled as ‘flat’ and ‘gabled’ are the classes got most damages, examples are in <a class="reference internal" href="#irma-roof-examples-flat"><span class="std std-numref">Table 2.1.3</span></a> and <a class="reference internal" href="#irma-roof-examples-gable"><span class="std std-numref">Table 2.1.4</span></a>.</p></li>
+<li><p>When roofs are damaged, their satellite images are different from pre-disaster images, examples are shown in <a class="reference internal" href="#irma-roof-examples-sever"><span class="std std-numref">Table 2.1.5</span></a>, This could cause difficulties to the model to recognize features.</p></li>
 <li><p>This validation doesn’t remove those images with an empty lot, which negatively influences the accuracy.</p></li>
-<li><p>This validation doesn’t consider the possible bias in the StEER labels, which also negatively influences the accuracy.</p></li>
-</ul>
-<table class="docutils align-default" id="irma-roof-examples">
+<li><p>Bias in dataset is very common. This validation doesn’t consider the possible bias in the StEER labels (examples can be found in <a class="reference internal" href="#irma-roof-examples-bias"><span class="std std-numref">Table 2.1.6</span></a>), which also negatively influences the accuracy.</p></li>
+</ol>
+<span id="irma-roof-examples-hipped"></span><table class="docutils align-default" id="id11">
+<caption><span class="caption-number">Table 2.1.2 </span><span class="caption-text">Examples of post-hurricane satellite images: hipped</span><a class="headerlink" href="#id11" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -538,24 +571,182 @@ A further look into the images we found the following facts:</p>
 <col style="width: 25%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id6">
-<img alt="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" src="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">A severely damaged building with its roof cover totally removed</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<tr class="row-odd"><td><div class="figure align-default">
+<img alt="../../_images/TopViewx31-Jimmy-Mark-Pl-St.-Augustine-St.-Johns-FL-.png" src="../../_images/TopViewx31-Jimmy-Mark-Pl-St.-Augustine-St.-Johns-FL-.png" />
 </div>
 </td>
-<td><div class="figure align-default" id="id7">
-<img alt="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">A gabled roof with a temporary fix by partial covering with a blue tarp</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx50-Jimmy-Mark-St.-Augustine-St.-Johns-FL-.png" src="../../_images/TopViewx50-Jimmy-Mark-St.-Augustine-St.-Johns-FL-.png" />
 </div>
 </td>
-<td><div class="figure align-default" id="id8">
-<img alt="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" src="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">A building removed from the land, leaving an empty lot</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx202-Datura-Street-East-Naples-Collier-County-Florida-.png" src="../../_images/TopViewx202-Datura-Street-East-Naples-Collier-County-Florida-.png" />
 </div>
 </td>
-<td><div class="figure align-default" id="id9">
-<img alt="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" src="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.7 </span><span class="caption-text">A building with a hipped roof that was not damaged</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx295-Porter-St-Naples-Collier-FL-.png" src="../../_images/TopViewx295-Porter-St-Naples-Collier-FL-.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<span id="irma-roof-examples-flat"></span><table class="docutils align-default" id="id12">
+<caption><span class="caption-number">Table 2.1.3 </span><span class="caption-text">Examples of post-hurricane satellite images: flat</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default">
+<img alt="../../_images/TopViewx518-Bay-Shore-Dr-Ramrod-Key-Monroe-FL-.png" src="../../_images/TopViewx518-Bay-Shore-Dr-Ramrod-Key-Monroe-FL-.png" />
+</div>
+</td>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx2000-Cocoa-Plum-Drive-Marathon-Monroe-County-Florida-.png" src="../../_images/TopViewx2000-Cocoa-Plum-Drive-Marathon-Monroe-County-Florida-.png" />
+</div>
+</td>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx30918-Edward-Road-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx30918-Edward-Road-Big-Pine-Key-Monroe-County-Florida-.png" />
+</div>
+</td>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx31108-Avenue-J-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx31108-Avenue-J-Big-Pine-Key-Monroe-County-Florida-.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<span id="irma-roof-examples-gable"></span><table class="docutils align-default" id="id13">
+<caption><span class="caption-number">Table 2.1.4 </span><span class="caption-text">Examples of post-hurricane satellite images: gabled</span><a class="headerlink" href="#id13" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default">
+<img alt="../../_images/TopViewx3979-Gordon-Road-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx3979-Gordon-Road-Big-Pine-Key-Monroe-County-Florida-.png" />
+</div>
+</td>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx2056-Coral-Way-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx2056-Coral-Way-Big-Pine-Key-Monroe-County-Florida-.png" />
+</div>
+</td>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx1231-6th-Ave-Marco-Island-Collier-FL-.png" src="../../_images/TopViewx1231-6th-Ave-Marco-Island-Collier-FL-.png" />
+</div>
+</td>
+<td><div class="figure align-default">
+<img alt="../../_images/TopViewx877-Grenada-Lane-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx877-Grenada-Lane-Little-Torch-Key-Monroe-FL-.png" />
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<span id="irma-roof-examples-sever"></span><table class="docutils align-default" id="id14">
+<caption><span class="caption-number">Table 2.1.5 </span><span class="caption-text">Examples of post-hurricane satellite images: severely damaged buildings / empty lot</span><a class="headerlink" href="#id14" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id15">
+<img alt="../../_images/TopViewx518-Bay-Shore-Dr-Ramrod-Key-Monroe-FL-1.png" src="../../_images/TopViewx518-Bay-Shore-Dr-Ramrod-Key-Monroe-FL-1.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.8 </span><span class="caption-text">A severely damaged roof</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id16">
+<img alt="../../_images/TopViewx31353-Avenue-H-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx31353-Avenue-H-Big-Pine-Key-Monroe-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.9 </span><span class="caption-text">A severely damaged roof</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id17">
+<img alt="../../_images/TopViewx31373-Avenue-C-Big-Pine-Key-Monroe-FL-.png" src="../../_images/TopViewx31373-Avenue-C-Big-Pine-Key-Monroe-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.10 </span><span class="caption-text">A severely damaged roof</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id18">
+<img alt="../../_images/TopViewx57642-Overseas-Hwy-Grassy-Key-Monroe-FL-.png" src="../../_images/TopViewx57642-Overseas-Hwy-Grassy-Key-Monroe-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.11 </span><span class="caption-text">A severely damaged roof</span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="figure align-default" id="id19">
+<img alt="../../_images/TopViewx193-Sunset-Drive-Islamorada-Monroe-County-Florida-.png" src="../../_images/TopViewx193-Sunset-Drive-Islamorada-Monroe-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.12 </span><span class="caption-text">An empty lot</span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id20">
+<img alt="../../_images/TopViewx7905-NW-36th-St-Doral-Miami-Dade-FL-.png" src="../../_images/TopViewx7905-NW-36th-St-Doral-Miami-Dade-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.13 </span><span class="caption-text">An empty lot</span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id21">
+<img alt="../../_images/TopViewx31395-Avenue-G-Big-Pine-Key-Monroe-FL-.png" src="../../_images/TopViewx31395-Avenue-G-Big-Pine-Key-Monroe-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.14 </span><span class="caption-text">An empty lot</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id22">
+<img alt="../../_images/TopViewx31465-Avenue-F-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx31465-Avenue-F-Big-Pine-Key-Monroe-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.15 </span><span class="caption-text">An empty lot</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<span id="irma-roof-examples-bias"></span><table class="docutils align-default" id="id23">
+<caption><span class="caption-number">Table 2.1.6 </span><span class="caption-text">Example of post-hurricane satellite images: Bias in the labels</span><a class="headerlink" href="#id23" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id24">
+<img alt="../../_images/TopViewx37-Cherokee-Trail-Naples-Collier-County-Florida-.png" src="../../_images/TopViewx37-Cherokee-Trail-Naples-Collier-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.16 </span><span class="caption-text">Label: Flat, BRAILS Prediction: Gabled</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id25">
+<img alt="../../_images/TopViewx512-Coconut-Ave-Goodland-Collier-FL-.png" src="../../_images/TopViewx512-Coconut-Ave-Goodland-Collier-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.17 </span><span class="caption-text">Label: Flat, BRAILS Prediction: Gabled</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id26">
+<img alt="../../_images/TopViewx219-Northwest-109th-Avenue-Miami-Miami-Dade-County-Florida-.png" src="../../_images/TopViewx219-Northwest-109th-Avenue-Miami-Miami-Dade-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.18 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Flat</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id27">
+<img alt="../../_images/TopViewx738-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx738-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.19 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Flat</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="figure align-default" id="id28">
+<img alt="../../_images/TopViewx40-Jimmy-Mark-Pl-St.-Augustine-St.-Johns-FL-.png" src="../../_images/TopViewx40-Jimmy-Mark-Pl-St.-Augustine-St.-Johns-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.20 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Hipped</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id29">
+<img alt="../../_images/TopViewx237-Goodland-Dr-E-Goodland-Collier-FL-.png" src="../../_images/TopViewx237-Goodland-Dr-E-Goodland-Collier-FL-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.21 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Hipped</span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id30">
+<img alt="../../_images/TopViewx75-Seaview-Avenue-Conch-Key-Monroe-Florida-.png" src="../../_images/TopViewx75-Seaview-Avenue-Conch-Key-Monroe-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.22 </span><span class="caption-text">Label: Hipped, BRAILS Prediction: Flat</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id31">
+<img alt="../../_images/TopViewx302-North-Storter-Avenue-Everglades-City-Collier-County-Florida-.png" src="../../_images/TopViewx302-North-Storter-Avenue-Everglades-City-Collier-County-Florida-.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.23 </span><span class="caption-text">Label: Hipped, BRAILS Prediction: Gabled</span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
 </div>
 </td>
 </tr>

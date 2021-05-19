@@ -257,3 +257,28 @@ The accuracy for the two classes are:
 * RES: Accuracy = 0.8, F1 = 0.8
 * COM: Accuracy = 0.7, F1 = 0.8
 
+
+.. note::
+    Bias in dataset is very common. 
+    This validation doesn't consider the possible bias in the labels (examples can be found in :numref:`atlantic_roof_examples_bias`), which also negatively influences the accuracy. 
+
+
+.. _atlantic_roof_examples_bias:
+.. list-table:: Example of street view images: Bias in the labels
+
+    * - .. figure:: ../../images/technical/atlantic/bias/COM-RES/StreetViewx-74.386810x39.393053.png
+
+            Label: COM, BRAILS Prediction: RES
+
+      - .. figure:: ../../images/technical/atlantic/bias/COM-RES/StreetViewx-74.412273x39.368244.png
+
+            Label: COM), BRAILS Prediction: RES
+
+    * - .. figure:: ../../images/technical/atlantic/bias/RES-COM/StreetViewx-74.413082x39.365280.png
+
+            Label: RES), BRAILS Prediction: COM
+
+      - .. figure:: ../../images/technical/atlantic/bias/RES-COM/StreetViewx-74.445166x39.354932.png
+
+            Label: RES), BRAILS Prediction: COM
+

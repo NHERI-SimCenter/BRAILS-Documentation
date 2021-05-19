@@ -215,7 +215,7 @@ listing the filenames and classification result.</p>
 images to classify houses into decades. However, the code does not make
 assumptions about the semantic meaning of the provided folders. They
 have to be consistent between the training, validation and test folders but
-can be decades or shorter or longer and even uneven timespans.</p>
+can be categorized by decades, or short or longer than a decade, and any specified timespans.</p>
 <p>The predictions fall in 6 categories:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="p">:</span> <span class="n">before</span> <span class="mi">1969</span>
 <span class="mi">1</span> <span class="p">:</span> <span class="mi">1970</span><span class="o">-</span><span class="mi">1979</span>
@@ -243,7 +243,14 @@ imgs = glob(&#39;image_examples/Year/*/*.jpg&#39;)
 predictions = model.predict(imgs)
 </pre></div>
 </div>
-<p>More details about the training, modification, improvement of this module can be found <a class="reference external" href="https://github.com/NHERI-SimCenter/BRAILS/tree/master/brails/modules/Year_Built_Classifier">here</a>.</p>
+<p>The module is currently under active development and testing.
+More details about the training, modification, improvement of this module can be found <a class="reference external" href="https://github.com/NHERI-SimCenter/BRAILS/tree/master/brails/modules/Year_Built_Classifier">here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The classifier takes an image as the input and will always produce a prediction.
+Since the classifier is trained to classify only a specific category of images,
+its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
+</div>
 </div>
 </div>
 
