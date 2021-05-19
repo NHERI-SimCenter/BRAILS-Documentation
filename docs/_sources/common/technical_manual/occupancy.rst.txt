@@ -272,13 +272,13 @@ The accuracy for the two classes are:
 
       - .. figure:: ../../images/technical/atlantic/bias/COM-RES/StreetViewx-74.412273x39.368244.png
 
-            Label: COM), BRAILS Prediction: RES
+            Label: COM, BRAILS Prediction: RES
 
     * - .. figure:: ../../images/technical/atlantic/bias/RES-COM/StreetViewx-74.413082x39.365280.png
 
-            Label: RES), BRAILS Prediction: COM
+            Label: RES, BRAILS Prediction: COM
 
       - .. figure:: ../../images/technical/atlantic/bias/RES-COM/StreetViewx-74.445166x39.354932.png
 
-            Label: RES), BRAILS Prediction: COM
+            Label: RES, BRAILS Prediction: COM
 
