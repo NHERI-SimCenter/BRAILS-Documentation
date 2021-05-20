@@ -409,6 +409,28 @@ The accuracy for three classes are:
 * hipped: Accuracy = 0.9, F1 = 0.6
 * flat:   Accuracy = 0.8, F1 = 0.3
 
+
+Examples of false predictions are shown in :numref:`irma_roof_examples_false`.
+
+.. _irma_roof_examples_false:
+.. list-table:: Examples of false predictions
+
+    * - .. figure:: ../../images/technical/irma/false/gable-flat/TopViewx35-Blue-Water-Drive-Key-West-Monroe-FL-.png
+
+            Label: Gabled, BRAILS Prediction: Flat
+
+      - .. figure:: ../../images/technical/irma/false/gable-flat/TopViewx43-Blue-Water-Dr-Key-West-Monroe-FL-.png
+
+            Label: Gabled, BRAILS Prediction: Flat
+
+      - .. figure:: ../../images/technical/irma/false/gable-hip/TopViewx13-Boulder-Dr-Key-West-Monroe-FL-.png
+
+            Label: Gabled, BRAILS Prediction: Hipped
+
+      - .. figure:: ../../images/technical/irma/false/gable-hip/TopViewx208-North-Storter-Avenue-Everglades-City-Collier-County-Florida-.png
+
+            Label: Gabled, BRAILS Prediction: Hipped
+
 It shows the accuracy for the gable is not as high as the other classes.
 A further look into the images we found the following facts:
 
