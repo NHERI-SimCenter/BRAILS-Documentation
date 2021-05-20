@@ -12,7 +12,27 @@ Dataset 1: Compare with OpenStreetMap Labels
 The trained classifier is first tested on a ground truth dataset that can be downloaded from `here <http://doi.org/10.5281/zenodo.4520781>`_.
 We firstly obtained a set of randomly selected buildings in the United States with their roof type labelled on OpenStreetMap.
 We then downloaded the satellite images from Google Maps for each building. 
-We removed images in which we didn't clearly see there is a roof. 
+We removed images in which we didn't clearly see there is a roof, examples are shown in :numref:`random_roof_empty`.
+
+.. _random_roof_empty:
+.. list-table:: Images removed from the test dataset
+
+    * - .. figure:: ../../images/technical/bad/TopViewx-76.78538744x38.978670699999995.png
+
+
+
+      - .. figure:: ../../images/technical/bad/TopViewx-76.84497884x38.71229606.png
+
+
+
+      - .. figure:: ../../images/technical/bad/TopViewx-76.93814628x39.06148106.png
+
+
+
+      - .. figure:: ../../images/technical/bad/TopViewx-76.86937465999999x39.10108044.png
+
+
+
 The resulting dataset contains roof images in three categories: 32 flat, 40 gabled, 52 hipped. 
 Examples of these satellite images can be found in :ref:`roofTheory`. 
 
