@@ -324,10 +324,10 @@ Examples of false predictions are shown in :numref:`atlantic_occupancy_examples_
 
 .. note::
     Bias in dataset is very common. 
-    This validation doesn't consider the possible bias in the labels (examples can be found in :numref:`atlantic_roof_examples_bias`), which also negatively influences the accuracy. 
+    This validation doesn't consider the possible bias in the labels (examples can be found in :numref:`njdep_occupancy_examples_bias`), which also negatively influences the accuracy. 
 
 
-.. _atlantic_roof_examples_bias:
+.. _njdep_occupancy_examples_bias:
 .. list-table:: Example of street view images: Bias in the labels
 
     * - .. figure:: ../../images/technical/njdep/RES1-COM/StreetViewx-74.544719x39.459546.png
