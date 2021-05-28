@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -30,11 +32,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -185,23 +186,15 @@
             
   <div class="section" id="about">
 <span id="lblabout"></span><h1><span class="section-number">2. </span>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
-<p>This is an open-source research application, <a class="reference external" href="https://github.com/NHERI-SimCenter/BRAILS">BRAILS Github page</a>,
-released under a <strong>BSD clause 2</strong> license, <a class="reference internal" href="../license.html#lbllicense"><span class="std std-numref">Section 8</span></a>.
-<em>BRAILS</em> focuses on harvesting and analyzing regional building information based on data from multiple sources to
-assist decision makings in various sections, such as urban plan, risk management, etc.</p>
-<p>In SimCenter, one of the successful applications of <em>BRAILS</em> is in assisting
-the assessment of natural hazards and their imparts on the built environment.
-The increase in the intensity of natural hazards is magnifying the impact of such events on our society.
-In order to quantify and mitigate the risk due to the hazards and to prepare for the potential impacts in a region,
-it is necessary to analyze existing buildings that are pertinent to natural hazard analysis and risk management.
-However, gathering the building information in a region- or city-scale and analyzing them is a laborious and expensive undertaking.</p>
-<p><em>BRAILS</em> provides a framework for building information generation/gathering to support regional hazard analysis.
-In this framework, different types of data are acquired from multiple sources
-and are fused to semantically profile each building in a region.
-Specifically, deep learning technique is employed to analyze street or satellite images.
-Pretrained convolutional neural networks shipped with <em>BRAILS</em> are capable of analyzing images and detecting building properties that indicate vulnerabilities to natural hazards.
-A novel data mining tool is integrated to overcome the data scarcity issue, quantify the uncertainty and enrich the data repository.
-With this framework, building inventories of cities can be analyzed and the results provide the insights for further disaster and risk management planning and simulations.</p>
+<p>BRAILS is an open-source software framework maintained at the <a class="reference external" href="https://github.com/NHERI-SimCenter/BRAILS">BRAILS Github page</a> and
+released under a <strong>BSD clause 2</strong> license, <a class="reference internal" href="../license.html#lbllicense"><span class="std std-numref">Section 8</span></a>. The function of
+<em>BRAILS</em> is to generate regional asset information, presently information on buildings, utilizing data from multiple sources. The gathering such information for a region, or even for city, is a laborious and expensive undertaking. The purpose of <em>BRAILS</em> is to assist researchers and decision makers in various fields, such as urban planning, risk management, etc. in this assest building task.</p>
+<p><a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a>, which provides applications that are used in the assessment of the impact of natural hazard at the regional scale, is currently using <em>BRAILS</em> to generate inventories for use in it’s <a class="reference external" href="https://nheri-simcenter.github.io/R2D-Documentation/">testbeds</a> and will in the future include <em>BRAILS</em> applications in it’s <a class="reference external" href="https://simcenter.designsafe-ci.org/research-tools/r2dtool/">R2D</a> application.</p>
+<p>The <em>BRAILS</em> software framework provides applications that will first gather and then process the data to generate these asset inventories. The framework consists of individual modules that can be stiched together to form applications that will gather data from online resources, e.g. Google Street View, on-line databases, tax assessors offices and will then process the data to generate assest inventories, e.g. building inventory for a county or region. Many of the modules use machine learning to determine individual asseet attributes, e.g. roof shape, number of stores, occupancy. For machine learning algorithm modules, SimCenter releases python scripts for both training, teasting and processing. For processing, the SimCenter releases on Zenodo a number of previosuly trained models that allows users to use the models without the need to train the models. The trained models are continuously being updated as SimCenter expands the training sets it uses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DISCLAIMER: The modules are implemented to demonstrate the potentials of ML methods to help establish building attributes and inventories for regional scale simulation. The modules are tested extensively using the data sets as reported herein for validations. How these modules generalize to new and unseen data from different geographical locations depends on how similar they are to the training data. Generalization of machine learning models remains an active research area. Users should exercise cautions when the modules are used beyond their intended purposes and trained model ability.</p>
+</div>
 </div>
 
 
