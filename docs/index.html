@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
 
   
@@ -30,11 +32,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -110,6 +111,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="common/technical_manual/theory.html">1. Theory and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/technical_manual/vnv.html">2. Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/technical_manual/understand.html">3. Generalization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Manual</span></p>
 <ul>
@@ -187,12 +189,9 @@
 <a class="reference internal image-reference" href="_images/brails-demo.gif"><img alt="BRAILS" src="_images/brails-demo.gif" style="width: 700px;" /></a>
 <div class="section" id="what-is-brailsname">
 <h2>What is BRAILS<a class="headerlink" href="#what-is-brailsname" title="Permalink to this headline">¶</a></h2>
-<p>The SimCenter tool - Building Recognition using AI at Large-Scale (BRAILS) is an AI-enabled software to assist regional-scale simulations. BRAILS is a prototype development that utilizes machine learning (ML), deep learning (DL), and computer vision (CV) to extract information from satellite and street view images for being used in computational modeling and risk assessment of the built environment. It also provides the architecture, engineering, and construction professionals the insight and tools to more efficiently plan, design, construct, and manage buildings and infrastructure systems.</p>
-<p>The released v2.0 is re-structured with modules for performing specific analyses of images.
-The expanded module library enables BRAILS’ capability of predicting a broader spectrum of building attributes including occupancy class, roof type, foundation elevation, year built, soft-story.</p>
-<p>The new release also features a streamlined workflow, CityBuilder, for automatic creation of regional-scale building inventories by fusing multiple sources of data, including OpenStreetMap, Microsoft Footprint Data, Google Maps, and extracting information from them using the modules.</p>
-<p>Examples of BRAILS’ application in natural hazard engineering include:
-The identification of roof shapes, occupancy type, number of stories, construction year, and foundation elevation to improve the damage and loss calculations for the hurricane workflow; The identification of soft-story buildings to improve models in earthquake workflows.</p>
+<p>The software framework Building Recognition using AI at Large-Scale, <em>BRAILS</em>, is  provided by <a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a> to assist in creating the assest inventories needed to perform regional scale simulations to study the effects of a hazard on a region. The <em>BRAILS</em> framework provides a set of modules that utilize machine learning (ML), deep learning (DL), and computer vision (CV) techniques to extract information from satellite and street view images. Each of the modules performs a specific task. For example, for building assets inventories, seperate modules provide information on occupancy class, roof type, foundation elevation, roof elevation, and year built among others. The <em>BRAILS</em> framework will also provide workflows that allow the users to put the individual modules together to determine multiple attributes in a single pass. One such workflow application, CityBuilder, is an application released with <em>BRAILS</em> to  create regional-scale building inventories by utilizing multiple sources of data, including OpenStreetMap, Microsoft Footprint Data, Google Maps, and extracting information from them using the <em>BRAILS</em> modules.</p>
+<p><a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a>, which provides applications that are used in the assessment of the impact of natural hazard at the regional scale, is currently developing <em>BRAILS</em> in order to generate inventories for use in its <a class="reference external" href="https://nheri-simcenter.github.io/R2D-Documentation/">testbeds</a> and will in the future include <em>BRAILS</em> applications in it’s <a class="reference external" href="https://simcenter.designsafe-ci.org/research-tools/r2dtool/">R2D</a> application. <em>BRAILS</em>, as a consequence, is under constant development with new modules and workflows being constantly added.</p>
+<p><a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a> also provides trained models so that users can immediately use of many of the modules within <em>BRAILS</em>. These trained models, which are released on Zenodo, are the product of <a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a> ML development/validation efforts and are being constantly updated as the <a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a> training sets are expanded upon. While use of these training sets are encouraged, it should be noted that the models are trained using data obtained and labelled for <a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a> testbeds and using the sparse data available from <a class="reference external" href="https://www.openstreetmap.org/#map=5/38.007/-95.844">OpenStreetMap</a>. How these modules generalize to new and unseen data from different geographical locations depends on how similar they are to the training data. Generalization of machine learning models remains an active research area. Users should exercise cautions when the modules are used beyond their intended purposes and trained model ability.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">User Manual</span></p>
 <ul>
@@ -207,10 +206,11 @@ The identification of roof shapes, occupancy type, number of stories, constructi
 </ul>
 </div>
 <div class="toctree-wrapper compound" id="lbl-technical-manual">
-<p class="caption"><span class="caption-text">Technical Manual</span><a class="headerlink" href="#lbl-technical-manual" title="Permalink to this toctree">¶</a></p>
+<p class="caption"><span class="caption-text">Technical Manual</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="common/technical_manual/theory.html">1. Theory and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/technical_manual/vnv.html">2. Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/technical_manual/understand.html">3. Generalization</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -227,7 +227,7 @@ The identification of roof shapes, occupancy type, number of stories, constructi
 </div>
 <div class="section" id="contact">
 <h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
-<p>Charles Wang, NHERI SimCenter, University of California, Berkeley, <a class="reference external" href="mailto:c_w&#37;&#52;&#48;berkeley&#46;edu">c_w<span>&#64;</span>berkeley<span>&#46;</span>edu</a></p>
+<p>NHERI-SimCenter <a class="reference external" href="mailto:nheri-simcenter&#37;&#52;&#48;berkeley&#46;edu">nheri-simcenter<span>&#64;</span>berkeley<span>&#46;</span>edu</a></p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>

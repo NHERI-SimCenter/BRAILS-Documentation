@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
 
   
@@ -30,11 +32,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -102,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../about.html">2. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../userGuide.html">4. User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../1.x.html">4.1. 1.x User Guide (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dataPrep.html">4.1. Data Preperation for Training and Inference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modules.html">4.2. Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="genericImageClassifier.html">Generic Image Classifier</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Roof Shape Classifier</a><ul>
@@ -129,6 +130,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../technical_manual/theory.html">1. Theory and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical_manual/vnv.html">2. Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical_manual/understand.html">3. Generalization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Manual</span></p>
 <ul>
@@ -207,15 +209,75 @@
             
   <div class="section" id="roof-shape-classifier">
 <span id="lbl-roofclassifier"></span><h1>Roof Shape Classifier<a class="headerlink" href="#roof-shape-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Roof Shape Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module.</p>
-<p>The module is shipped with BRAILS,
-so you don’t have to install it standalone if you’ve installed BRAILS following the <a class="reference internal" href="../installation.html#lbl-install"><span class="std std-ref">Installation</span></a> instruction.</p>
-<p>It takes a list of satellite images of roof tops as the input, and classify the roof types into three categories: gabled, hipped, and flat.</p>
+<p>The Roof Shape Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module. It’s purpose is to classify the roof shape of a building.  The roof classifier takes a list of satellite images as the input and will classify the roof type into one of three categories: gabled, hipped, and flat.</p>
+<span id="roof-types"></span><table class="docutils align-default" id="id1">
+<caption><span class="caption-number">Table 4.2.1 </span><span class="caption-text">Roof prototypes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id2">
+<img alt="../../../_images/flat.jpg" src="../../../_images/flat.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.1 </span><span class="caption-text">Flat</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id3">
+<img alt="../../../_images/gable.jpg" src="../../../_images/gable.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.2 </span><span class="caption-text">Gabled</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id4">
+<img alt="../../../_images/hip.jpg" src="../../../_images/hip.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.3 </span><span class="caption-text">Hipped</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>The Roof shape classifier will only identify one roof type per image. As a consequence, the image you provide should only contain the building whose roof type is to be determined.</p></li>
+<li><p>Many roof shapes found these days are classified as <cite>complex</cite>.  The categories <cite>hipped</cite>, <cite>flat</cite>, and <cite>gabled</cite> were chosen as these are the classifications used in Hazus.</p></li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The classifier takes an image as the input and will always produce a prediction.
+Since the classifier is trained to classify only a specific category of images,
+its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
+</div>
 <div class="section" id="use-the-module">
 <h2>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
-<p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
-<p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
-<p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4562949/files/image_examples.zip">here</a>.</p>
+<p>Suppose you had a number of images in a folder named image_examples/Roof.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id5">
+<img alt="../../../_images/76.png" src="../../../_images/76.png" />
+<p class="caption"><span class="caption-number">Fig. 4.2.4 </span><span class="caption-text">image_examples/Roof/gabled/76.png Gabled</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id6">
+<img alt="../../../_images/54.png" src="../../../_images/54.png" />
+<p class="caption"><span class="caption-number">Fig. 4.2.5 </span><span class="caption-text">image_examples/Roof/hipped/54.png  Hipped</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id7">
+<img alt="../../../_images/94.png" src="../../../_images/94.png" />
+<p class="caption"><span class="caption-number">Fig. 4.2.6 </span><span class="caption-text">image_examples/Roof/flat/94.png  Flat</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The following is a python script you would create to use the RoofClassifier to predict the roof shapes for these images:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
 from brails.modules import RoofClassifier
 
@@ -231,51 +293,42 @@ imgs = [&#39;image_examples/Roof/gabled/76.png&#39;,
 predictions = roofModel.predict(imgs)
 </pre></div>
 </div>
-<p>The predictions look like this:</p>
+<p>The predictions obtained when the script runs will look like following:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Image :  image_examples/Roof/gabled/76.png     Class : gabled (83.21%)
 Image :  image_examples/Roof/hipped/54.png     Class : hipped (100.0%)
-Image :  image_examples/Roof/flat/94.png     Class : flat (97.68%)
+Image :  image_examples/Roof/flat/94.png       Class : flat (97.68%)
 Results written in file roofType_preds.csv
 </pre></div>
 </div>
-<p>Sample images used in this example are:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id1">
-<img alt="../../../_images/761.png" src="../../../_images/761.png" />
-<p class="caption"><span class="caption-number">Fig. 4.2.1 </span><span class="caption-text">image_examples/Roof/gabled/76.png Gabled</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id2">
-<img alt="../../../_images/541.png" src="../../../_images/541.png" />
-<p class="caption"><span class="caption-number">Fig. 4.2.2 </span><span class="caption-text">image_examples/Roof/hipped/54.png  Hipped</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id3">
-<img alt="../../../_images/941.png" src="../../../_images/941.png" />
-<p class="caption"><span class="caption-number">Fig. 4.2.3 </span><span class="caption-text">image_examples/Roof/flat/94.png  Flat</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The classifier takes an image as the input and will always produce a prediction.
-Since the classifier is trained to classify only a specific category of images,
-its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
+<ol class="arabic">
+<li><p>The reference to a pretrained model is in a file shipped with BRAILS and the first time you use this module, it will download that model from the internet to your local computer. This will allow you to use it directly without training your own model.</p></li>
+<li><p>The current pretrained model was trained with 6,000 labeled images utilizing ResNet50. To perform the training a number of buildings with the roof classifications desired were identified utilizing OpenStreetMaps, including 2,000 ‘flat’, ‘gabled’, and ‘hipped’, respectively. Satellite images for those buildings were obtained using Google Maps, and these images were placed into one of three folders as discussed in <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module. Prior to training the model, the images in the folders were reviewed to ensure they contained an image of a roof and were of the correct roof shape. The noise in this dataset is negligible.</p></li>
+<li><p>As mentioned in the introduction, SimCenter is constantly updating these trained models. The simplest way to get the latest model is to update your BRAILS installation. This can be done by issuing the following in a terminal/powershell window:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install -U BRAILS --upgrade
+</pre></div>
+</div>
+</li>
+<li><p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4562949/files/image_examples.zip">Zenodo</a>.</p></li>
+</ol>
 </div>
 </div>
 <div class="section" id="retrain-the-model">
 <h2>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this headline">¶</a></h2>
-<p>You can retrain the existing model with your own data.</p>
+<p>You can retrain the existing model with your own data. To do so, you would place each of your labeled images (images of type .png) into one three seperate folders.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_roof_shapes
+│── flat
+│       └── *.png
+│── hipped
+|      └── *.png
+└── gabled
+       └── *.png
+</pre></div>
+</div>
+<p>Then you would create a python script as shown below and run finally run that script to train the model.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Load images from a folder
-roofModel.loadData(&#39;folder-of-images&#39;)
+roofModel.loadData(&#39;my_roof_shapes&#39;)
 
 # Re-train it for only 1 epoch for this demo. You can increase it.
 roofModel.retrain(initial_epochs=1)
@@ -284,7 +337,23 @@ roofModel.retrain(initial_epochs=1)
 predictions = roofModel.predict(imgs)
 
 # Save the re-trained model
-roofModel.save(&#39;myCoolNewModelv0.1&#39;)
+roofModel.save(&#39;myCoolNewRoofModelv0.1&#39;)
+</pre></div>
+</div>
+<p>To use your newly trained model with the Roof Shape classifier, you would include in the RoofClassifier’s constructor the name of the trained model as shown in the following script.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
+from brails.modules import RoofClassifier
+
+# initialize a roof classifier
+roofModel = RoofClassifier(&#39;myCoolNewRoofModelv0.1&#39;)
+
+# define the paths of images in a list
+imgs = [&#39;image_examples/Roof/gabled/76.png&#39;,
+        &#39;image_examples/Roof/hipped/54.png&#39;,
+        &#39;image_examples/Roof/flat/94.png&#39;]
+
+# use the model to predict
+predictions = roofModel.predict(imgs)
 </pre></div>
 </div>
 </div>

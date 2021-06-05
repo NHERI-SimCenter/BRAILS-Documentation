@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
 
   
@@ -30,11 +32,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -102,7 +103,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../about.html">2. About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">3. Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../userGuide.html">4. User Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../1.x.html">4.1. 1.x User Guide (Legacy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dataPrep.html">4.1. Data Preperation for Training and Inference</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="modules.html">4.2. Modules</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="genericImageClassifier.html">Generic Image Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="roofClassifier.html">Roof Shape Classifier</a></li>
@@ -129,6 +130,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../technical_manual/theory.html">1. Theory and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical_manual/vnv.html">2. Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical_manual/understand.html">3. Generalization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Manual</span></p>
 <ul>
@@ -207,16 +209,60 @@
             
   <div class="section" id="occupancy-classifier">
 <span id="lbl-occupancyclassifier"></span><h1>Occupancy Classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Occupancy Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module.</p>
-<p>The module is shipped with BRAILS,
-so you don’t have to install it standalone if you’ve installed BRAILS following the <a class="reference internal" href="../installation.html#lbl-install"><span class="std std-ref">Installation</span></a> instruction.</p>
-<p>It takes a list of street view images of residential buildings as the input, and classify the buildings into three categories:
-RES1 (single family building), RES3 (multi-family building), COM(Commercial building).</p>
+<p>The Occupancy Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module. It’s purpose is to label a building based on occupancy class. The occupancy classifier takes a list of street view images as the input and will classify the building into one of three categories: RES1, RES3, COM1.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>RES1 - Single Family</p></li>
+<li><p>RES2 - Multi-Familiy</p></li>
+<li><p>COM1 - Commercial</p></li>
+</ol>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>The Occupancy class classifier will only identify one class per image. As a consequence, the image you provide should only contain the building whose type is to be determined.</p></li>
+<li><p>There are many possible divisions for buildings other than those presented here, e.g. schools, hospitals, industrial. The ones used here are a consequence of the types required for SimCenter’s Atlantic City testbed and the availability of data needed to train a model for use by the classifier.</p></li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The classifier takes an image as the input and will always produce a prediction.
+Since the classifier is trained to classify only a specific category of images,
+its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
+</div>
 <div class="section" id="use-the-module">
 <h2>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
-<p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
-<p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
-<p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4627958/files/image_examples.zip">here</a>.</p>
+<p>Suppose you had a number of images in a folder named image_examples/Occupancy.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The images used in this example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4627958/files/image_examples.zip">Zenodo</a>.</p>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id1">
+<img alt="../../../_images/36887.jpg" src="../../../_images/36887.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.7 </span><span class="caption-text">Single-family Building (36887.png)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id2">
+<img alt="../../../_images/37902.jpg" src="../../../_images/37902.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.8 </span><span class="caption-text">Multi-family Building (37902.jpg)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id3">
+<img alt="../../../_images/42915.jpg" src="../../../_images/42915.jpg" />
+<p class="caption"><span class="caption-number">Fig. 4.2.9 </span><span class="caption-text">Commercial Building (42915.jpg)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The following python script can be used to classify these images using the Occupancy Classifier:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
 from brails.modules import OccupancyClassifier
 
@@ -232,51 +278,42 @@ imgs = [&#39;image_examples/Occupancy/RES1/36887.jpg&#39;,
 predictions = occupancyModel.predict(imgs)
 </pre></div>
 </div>
-<p>The predictions look like this:</p>
+<p>The predictions obtained when the script runs will look like following:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Image :  image_examples/Occupancy/RES1/36887.jpg     Class : RES1 (100.0%)
 Image :  image_examples/Occupancy/RES3/37902.jpg     Class : RES3 (100.0%)
 Image :  image_examples/Occupancy/COM/42915.jpg     Class : COM (100.0%)
 Results written in file tmp/occupancy_preds.csv
 </pre></div>
 </div>
-<p>Sample images used in this example are:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id1">
-<img alt="../../../_images/36887.jpg" src="../../../_images/36887.jpg" />
-<p class="caption"><span class="caption-number">Fig. 4.2.4 </span><span class="caption-text">Predicted as Single-family Building</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id2">
-<img alt="../../../_images/37902.jpg" src="../../../_images/37902.jpg" />
-<p class="caption"><span class="caption-number">Fig. 4.2.5 </span><span class="caption-text">Predicted as Multi-family Building</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id3">
-<img alt="../../../_images/429151.jpg" src="../../../_images/429151.jpg" />
-<p class="caption"><span class="caption-number">Fig. 4.2.6 </span><span class="caption-text">Predicted as Commercial Building</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The classifier takes an image as the input and will always produce a prediction.
-Since the classifier is trained to classify only a specific category of images,
-its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
+<ol class="arabic">
+<li><p>The reference to a pretrained model is in a file that is shipped with BRAILS and the first time you use this module, it will download that model from the internet to your local computer. This will allow you to use it directly without training your own model.</p></li>
+<li><p>The current pretrained model was trained with 15,743 labeled images utilizing ResNet50. To perform the training a number of buildings with the occupancy classifications desired were identified from OpenStreetMaps and a dataset provided by New Jersey Department of Environmental Protection (NJDEP), including 7,868 RES1 (2,868 ‘detached’ from OpenStreetMap + 4,999 ‘RES1’ from NJDEP), 5,074 RES3 (2,207 ‘apartment’ from OpenStreetMap and 2,867 ‘RES3’ from NJDEP), and 2,804 COM (2,418 ‘commercial’ from OpenStreetMap + 386 ‘COM’ from NJDEP), respectively. Satellite images for those buildings were obtained using Google Maps, and these images were placed into one of three folders as discussed in <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module.</p></li>
+<li><p><strong>NJDEP</strong>: is a dateset that SimCenter uses as part of it’s Atlantic City Testbed. Information on the data and it’s contents is explained in the <a class="reference external" href="https://nheri-simcenter.github.io/R2D-Documentation/common/testbeds/atlantic_city/index.html">documentation for that testbed</a>. The NJDEP information was made possible through the ongoing collaboration between the University of Notre dame and the New Jersey Department of Community Affairs (NJ DCA) through the NJcoast project. NJ DCA’s Keith Henderson’s sustained support and collaboration is greatly appreciated.</p></li>
+<li><p>As mentioned in the introduction, SimCenter is constantly updating these trained models. The simplest way to get the latest model is to update your BRAILS installation. This can be done by issuing the following in a terminal/powershell window:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install -U BRAILS --upgrade
+</pre></div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="retrain-the-model">
 <h2>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this headline">¶</a></h2>
-<p>You can retrain the existing model with your own data.</p>
+<p>You can retrain the existing model with your own data. To do so, you would place each of your labeled images (images of type .png) into one three seperate folders.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_occupancy_images
+│── RES1
+│       └── *.png
+│── RES3
+|      └── *.png
+└── COM1
+       └── *.png
+</pre></div>
+</div>
+<p>Then you would create a python script as shown below and run finally run that script to train the model.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Load images from a folder
-occupancyModel.loadData(&#39;folder-of-images&#39;)
+occupancyModel.loadData(&#39;my_occupancy_images&#39;)
 
 # Re-train it for only 1 epoch for this demo. You can increase it.
 occupancyModel.retrain(initial_epochs=1)
@@ -285,7 +322,23 @@ occupancyModel.retrain(initial_epochs=1)
 predictions = occupancyModel.predict(imgs)
 
 # Save the re-trained model
-occupancyModel.save(&#39;myCoolNewModelv0.1&#39;)
+occupancyModel.save(&#39;myCoolNewOccupancyModelv0.1&#39;)
+</pre></div>
+</div>
+<p>To use your newly trained model with the Occupancy type classifier, you would include in the OccupancyModels’s constructor the name of the trained model as shown in the following script.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
+from brails.modules import OccupancyClassifier
+
+# initialize an occupancy classifier
+occupancyModel = OccupancyClassifier(&#39;myCoolNewOccupancyModelv0.1&#39;)
+
+# define the paths of images in a list
+imgs = [&#39;image_examples/Occupancy/RES1/36887.jpg&#39;,
+    &#39;image_examples/Occupancy/RES3/37902.jpg&#39;,
+    &#39;image_examples/Occupancy/COM/42915.jpg&#39;]
+
+# use the model to predict
+predictions = occupancyModel.predict(imgs)
 </pre></div>
 </div>
 </div>

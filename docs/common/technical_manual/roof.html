@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -30,11 +32,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/language_data.js"></script>
-        <script async="async" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -114,7 +115,6 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">2.1. Roof Classifier</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dataset-1-compare-with-openstreetmap-labels">Dataset 1: Compare with OpenStreetMap Labels</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dataset-2-compare-with-steer-hurricane-laura-dataset">Dataset 2: Compare with StEER Hurricane Laura Dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#dataset-3-compare-with-steer-hurricane-irma-dataset-with-post-disaster-images">Dataset 3: Compare with StEER Hurricane Irma Dataset with Post-disaster Images</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="occupancy.html">2.2. Occupancy Classifier</a></li>
@@ -122,6 +122,7 @@
 <li class="toctree-l2"><a class="reference internal" href="nfloor.html">2.4. Number of Floors Detector</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="understand.html">3. Generalization</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Developer Manual</span></p>
 <ul>
@@ -198,16 +199,12 @@
             
   <div class="section" id="roof-classifier">
 <span id="lbl-roofclassifier-vnv"></span><h1><span class="section-number">2.1. </span>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
-<p>The Roof Classifier’s methodology has been presented in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type classifier</span></a>, and examples showing how to use it can be found in <a class="reference internal" href="../user_manual/modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Shape Classifier</span></a>.
-This section presents its validation against three datasets.</p>
+<p>The Roof Classifier’s methodology has been presented in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type classifier</span></a>, and examples showing how to use it can be found in <a class="reference internal" href="../user_manual/modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Shape Classifier</span></a>. This section presents its validation against two datasets.</p>
 <div class="section" id="dataset-1-compare-with-openstreetmap-labels">
 <h2>Dataset 1: Compare with OpenStreetMap Labels<a class="headerlink" href="#dataset-1-compare-with-openstreetmap-labels" title="Permalink to this headline">¶</a></h2>
-<p>The trained classifier is first tested on a ground truth dataset that can be downloaded from <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">here</a>.
-We firstly obtained a set of randomly selected buildings in the United States with their roof type labelled on OpenStreetMap.
-We then downloaded the satellite images from Google Maps for each building.
-We removed images in which we didn’t clearly see there is a roof, examples are shown in <a class="reference internal" href="#random-roof-empty"><span class="std std-numref">Table 2.1.1</span></a>.</p>
-<span id="random-roof-empty"></span><table class="docutils align-default" id="id3">
-<caption><span class="caption-number">Table 2.1.1 </span><span class="caption-text">Images removed from the test dataset</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<p>The trained classifier is first tested on a ground truth dataset that can be downloaded from <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">Zenodo</a>. This data set was obtained by randomly selecting from OpenStreetMap a series of buildings for which a <cite>roof:shape</cite> entry existed and it was one of: hipped, flat or gabled. Some options in <a class="reference external" href="https://wiki.openstreetmap.org/wiki/Key:roof:shape">Open Street Maps</a>  include: gambrel, pyramidal skillion, half-hipped, gambrel, dome, onion, round, sailbox. The google map API was then used to download satellite images of these buildings. From the downloaded images, images for which no roof was visible were removed, examples of removed images are as shown in <a class="reference internal" href="#random-roof-empty"><span class="std std-numref">Table 2.1.1</span></a>.</p>
+<span id="random-roof-empty"></span><table class="docutils align-default" id="id2">
+<caption><span class="caption-number">Table 2.1.1 </span><span class="caption-text">Images removed from the test dataset</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -234,9 +231,34 @@ We removed images in which we didn’t clearly see there is a roof, examples are
 </tr>
 </tbody>
 </table>
-<p>The resulting dataset contains roof images in three categories: 32 flat, 40 gabled, 52 hipped.
-Examples of these satellite images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type classifier</span></a>.</p>
-<p>Run the following python script to test on this dataset.</p>
+<p>The <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">resulting dataset</a> contained little over a hundred images: 32 flat, 40 gabled, 52 hipped. Examples of these satellite images are as shown below:</p>
+<table class="docutils align-default" id="id3">
+<caption><span class="caption-number">Table 2.1.2 </span><span class="caption-text">Example satellite images of different roof types</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><div class="figure align-default" id="id4">
+<img alt="../../_images/94.png" src="../../_images/94.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.1 </span><span class="caption-text">Flat</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id5">
+<img alt="../../_images/76.png" src="../../_images/76.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.2 </span><span class="caption-text">Gabled</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+<td><div class="figure align-default" id="id6">
+<img alt="../../_images/54.png" src="../../_images/54.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">Hipped</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The following code was then used to predict the roof shape.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -281,20 +303,29 @@ Examples of these satellite images can be found in <a class="reference internal"
 <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Confusion matrix&#39;</span><span class="p">,</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Labels&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Predictions&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code presented is similar to what was shown in the <a class="reference internal" href="../user_manual/modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Shape Classifier</span></a>. It demonstrates how python can be used to generate the list of images to be classified.</p>
+</div>
 <p>The prediction accuracy on this dataset is 90.3%. Precision is 90.3%. Recall is 90.3%. F1 is 90.3%.</p>
-<p>The confusion matrix for this validation is shown in <a class="reference internal" href="#fig-confusion-roof"><span class="std std-numref">Fig. 2.1.1</span></a>.</p>
-<div class="figure align-default" id="id4">
+<p>The confusion matrix for this validation is shown in <a class="reference internal" href="#fig-confusion-roof"><span class="std std-numref">Fig. 2.1.4</span></a>.</p>
+<div class="figure align-default" id="id7">
 <span id="fig-confusion-roof"></span><a class="reference internal image-reference" href="../../_images/confusion_roof.png"><img alt="Confusion matrix roof" src="../../_images/confusion_roof.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1.1 </span><span class="caption-text">Confusion matrix - Roof type classification for OpenStreetMap</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">Confusion matrix - Roof type classification for OpenStreetMap</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="dataset-2-compare-with-steer-hurricane-laura-dataset">
 <h2>Dataset 2: Compare with StEER Hurricane Laura Dataset<a class="headerlink" href="#dataset-2-compare-with-steer-hurricane-laura-dataset" title="Permalink to this headline">¶</a></h2>
-<p>The second validation dataset is from StEER.
-This dataset contains satellite images of building, most are taken before Hurricane Laura.</p>
-<p>From StEER, we obtained a list of addresses with their roof types labelled.
+<p>The second validation dataset was obtained from <a class="reference external" href="https://www.steer.network/">StEER</a>.
+From StEER, we obtained a list of addresses with their roof types labelled.
 For each address, we downloaded an satellite image from Google Maps Static API.</p>
-<p>Examples of these satellite images can be found in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type classifier</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>This dataset contains satellite images of buildings, most images were taken before Hurricane Laura.</p></li>
+<li><p>The dataset is available from <a class="reference external" href="https://zenodo.org/record/4768487/files/Laura_roof_validation.zip">Zenodo</a>.</p></li>
+</ol>
+</div>
 <p>The labeling system of StEER is different from the BRAILS roof classification system.
 The StEER labels include the following classes:</p>
 <ul class="simple">
@@ -304,22 +335,19 @@ The StEER labels include the following classes:</p>
 <li><p>Complex</p></li>
 <li><p>Flat</p></li>
 </ul>
-<p>The BRAILS roof types include the following classes:</p>
+<p>While the BRAILS roof types only include the following classes:</p>
 <ul class="simple">
 <li><p>gabled</p></li>
 <li><p>hipped</p></li>
 <li><p>flat</p></li>
 </ul>
-<p>To compare these two systems, we selected addresses labeled as ‘Flat’, ‘Gable’, ‘Hip’ from StEER.
-As a result we got the following numbers of StEER labels:</p>
+<p>To compare these two systems, from the StEER dataset we selected only addresses labeled as ‘Flat’, ‘Gable’, ‘Hip’. As a consequence, the set of buildings for which the validation was perfomed contained the following number of images:</p>
 <ul class="simple">
 <li><p>hipped,    33</p></li>
 <li><p>gabled,    21</p></li>
 <li><p>flat  ,     2</p></li>
 </ul>
-<p>Download the labels, images, scripts for this validation from <a class="reference external" href="https://zenodo.org/record/4768487/files/Laura_roof_validation.zip">here</a>.</p>
-<p>The following shows the script to run this validation.
-At the end, the script will plot a confusion matrix and print the accuracy.</p>
+<p>The following shows the script to run this validation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ### Load labels and predictions from The Lake Charles Testbed</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -393,426 +421,17 @@ At the end, the script will plot a confusion matrix and print the accuracy.</p>
 <span class="n">copyfiles</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In the files you downloaded, there are folders with names like gabled-hipped, which means those are images that are labelled as ‘gabled’ in StEER dataset,
-but they are predicted as ‘hipped’. You can browse those images to investigate deeper.</p>
-<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-laura"><span class="std std-numref">Fig. 2.1.2</span></a>.</p>
-<div class="figure align-default" id="id5">
+<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-laura"><span class="std std-numref">Fig. 2.1.5</span></a>.</p>
+<div class="figure align-default" id="id8">
 <span id="fig-confusion-roof-laura"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_roof_laura.png"><img alt="Confusion matrix roof Laura" src="../../_images/fig_confusion_roof_laura.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1.2 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Laura</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Laura</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
-<p>The accuracy for three classes are:</p>
+<p>The accuracy for the three classes are:</p>
 <ul class="simple">
 <li><p>flat: Accuracy = 1.0, F1 = 0.4</p></li>
 <li><p>hipped: Accuracy = 0.7, F1 = 0.7</p></li>
 <li><p>gabled: Accuracy = 0.7, F1 = 0.8</p></li>
 </ul>
-</div>
-<div class="section" id="dataset-3-compare-with-steer-hurricane-irma-dataset-with-post-disaster-images">
-<h2>Dataset 3: Compare with StEER Hurricane Irma Dataset with Post-disaster Images<a class="headerlink" href="#dataset-3-compare-with-steer-hurricane-irma-dataset-with-post-disaster-images" title="Permalink to this headline">¶</a></h2>
-<style> .red {color:#aa0060; font-weight:bold; font-size:16px} </style><p>The third validation dataset is also from StEER.
-This dataset contains satellite images of building that are taken after Hurricane Irma and labels of roof shapes.</p>
-<p>From StEER, we obtained a list of addresses with their roof types labelled.
-For each address, we downloaded an satellite image from Google Maps Static API.
-It should be noted that these images were taken after the Hurricane Irma.</p>
-<p><span class="red">These post-disaster images are very different from the training dataset, in which all images are taken before the disasters. Keep in mind, the BRAILS roof model is not designed to recognize the post-disaster images. The aim of this validation is to see how BRAILS performs on these post-disaster images, though the model is not trained for this purpose.</span></p>
-<p>Examples of these satellite images can be found in <a class="reference internal" href="#irma-roof-examples"><span class="std std-numref">Table 2.1.2</span></a>.</p>
-<span id="irma-roof-examples"></span><table class="docutils align-default" id="id6">
-<caption><span class="caption-number">Table 2.1.2 </span><span class="caption-text">Example post-hurricane satellite images</span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id7">
-<img alt="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" src="../../_images/TopViewx17346-Keystone-Road-Sugarloaf-Key-Monroe-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">A severely damaged building with its roof cover totally removed</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id8">
-<img alt="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx728-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">A gabled roof with a temporary fix by partial covering with a blue tarp</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id9">
-<img alt="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" src="../../_images/TopViewx1114-Chokoloskee-Dr-Chokoloskee-Collier-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">A building removed from the land, leaving an empty lot</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id10">
-<img alt="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" src="../../_images/TopViewx216-Goodland-Drive-East-Goodland-Collier-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">A building with a hipped roof that was not damaged</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p>The labeling system of StEER is different from the BRAILS roof classification system.
-The StEER labels include the following classes:</p>
-<ul class="simple">
-<li><p>Gable</p></li>
-<li><p>Hip</p></li>
-<li><p>Complex</p></li>
-<li><p>Flat</p></li>
-<li><p>Hip/Gable</p></li>
-<li><p>Hip,Complex</p></li>
-<li><p>Gable,Complex</p></li>
-<li><p>Other</p></li>
-<li><p>Gable,Flat</p></li>
-<li><p>Hip/Gable,Complex</p></li>
-<li><p>Hip,Flat</p></li>
-<li><p>Gambrel</p></li>
-<li><p>Hip,Gable</p></li>
-<li><p>Hip,Other</p></li>
-<li><p>Hip/Gable,Flat</p></li>
-</ul>
-<p>The BRAILS roof types include the following classes:</p>
-<ul class="simple">
-<li><p>gabled</p></li>
-<li><p>hipped</p></li>
-<li><p>flat</p></li>
-</ul>
-<p>To compare these two systems, we selected addresses labeled as ‘Flat’, ‘Gable’, ‘Hip’ from StEER.
-As a result we got the following numbers of StEER labels:</p>
-<ul class="simple">
-<li><p>gabled,    459</p></li>
-<li><p>hipped,    180</p></li>
-<li><p>flat,       72</p></li>
-</ul>
-<p>Download the labels, images, scripts for this validation from <a class="reference external" href="https://zenodo.org/record/4767858/files/Irma_roof_validation.zip">here</a>.</p>
-<p>The following shows the script to run this validation.
-It will use BRAILS to download images from Google Map Static API and perform predictions on these images.
-At the end, the script will plot a confusion matrix and print the accuracy.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Irma_validation.csv&quot;</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-
-
-<span class="c1"># ### Use BRAILS to download satellite images</span>
-
-<span class="c1"># You don&#39;t have to download again, it&#39;s already included in this example</span>
-<span class="c1"># But feel free to uncomment and download again. You need a Google API Key, and set reDownloadImgs=True</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">from brails.workflow.Images import getGoogleImagesByAddrOrCoord</span>
-
-<span class="sd">addrs =  list(data[&#39;Addr&#39;])</span>
-<span class="sd">getGoogleImagesByAddrOrCoord(Addrs=addrs, GoogleMapAPIKey=&#39;Your-Key&#39;,</span>
-<span class="sd">                             imageTypes=[&#39;TopView&#39;],imgDir=&#39;tmp/images&#39;,ncpu=2,</span>
-<span class="sd">                             fov=60,pitch=0,reDownloadImgs=False)</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;TopViewImg&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;tmp/images/TopView/TopViewx&#39;</span><span class="o">+</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Addr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.png&#39;</span>
-
-
-<span class="c1"># ### Predict</span>
-
-<span class="kn">from</span> <span class="nn">brails.modules</span> <span class="kn">import</span> <span class="n">RoofClassifier</span>
-<span class="n">roofModel</span> <span class="o">=</span> <span class="n">RoofClassifier</span><span class="p">()</span>
-<span class="n">roofPreds</span> <span class="o">=</span> <span class="n">roofModel</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;TopViewImg&#39;</span><span class="p">]))</span>
-
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">roofPreds</span><span class="p">[</span><span class="s1">&#39;prediction&#39;</span><span class="p">])</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;prob_RoofShape(BRAILS)&#39;</span><span class="p">]</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">roofPreds</span><span class="p">[</span><span class="s1">&#39;probability&#39;</span><span class="p">])</span>
-<span class="n">roofDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Gable&#39;</span><span class="p">:</span><span class="s1">&#39;gabled&#39;</span><span class="p">,</span><span class="s1">&#39;Flat&#39;</span><span class="p">:</span><span class="s1">&#39;flat&#39;</span><span class="p">,</span><span class="s1">&#39;Hip&#39;</span><span class="p">:</span><span class="s1">&#39;hipped&#39;</span><span class="p">}</span>
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;roof_shape&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">roofDict</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-
-
-<span class="c1"># ### Plot confusion matrix</span>
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">plotUtils</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span><span class="p">,</span><span class="n">accuracy_score</span><span class="p">,</span><span class="n">f1_score</span>
-
-<span class="n">class_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
-
-<span class="n">predictions</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span>
-
-<span class="n">cnf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
-<span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;BRAILS&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;StEER&#39;</span><span class="p">)</span>
-
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">cname</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">class_names</span><span class="p">):</span>
-    <span class="n">accuracy</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-    <span class="n">TP</span> <span class="o">=</span> <span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">FP</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">FN</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">-</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">F1</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">TP</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">FP</span><span class="o">+</span><span class="n">FN</span><span class="p">)))</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{cname}</span><span class="s1">: Accuracy = </span><span class="si">{accuracy}</span><span class="s1">, F1 = </span><span class="si">{F1}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-
-
-<span class="c1"># ### Copy images to directories {label}-{prediction} for inspection</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;tmp/images/roof_predictions/&#39;</span><span class="p">):</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;tmp/images/roof_predictions/&#39;</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="n">addrstr</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Addr&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
-    <span class="n">picname</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;tmp/images/TopView/TopViewx</span><span class="si">{addrstr}</span><span class="s1">.png&#39;</span>
-
-    <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;RoofShape(StEER)&#39;</span><span class="p">]</span>
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;RoofShape(BRAILS)&#39;</span><span class="p">]</span>
-    <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">thisFileDir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;tmp/images/roof_predictions/</span><span class="si">{label}</span><span class="s1">-</span><span class="si">{pred}</span><span class="s1">/&#39;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">thisFileDir</span><span class="p">):</span>
-            <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">thisFileDir</span><span class="p">)</span>
-        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">picname</span><span class="p">,</span> <span class="n">thisFileDir</span><span class="o">+</span><span class="n">picname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-<p>In the files you downloaded, there are folders with names like gabled-hipped, which means those are images that are labelled as ‘gabled’ in StEER dataset,
-but they are predicted as ‘hipped’. You can browse those images to investigate deeper.</p>
-<p>The confusion matrix tested on this dataset is shown in <a class="reference internal" href="#fig-confusion-roof-irma"><span class="std std-numref">Fig. 2.1.7</span></a>.</p>
-<div class="figure align-default" id="id11">
-<span id="fig-confusion-roof-irma"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_roof_irma.png"><img alt="Confusion matrix roof Irma" src="../../_images/fig_confusion_roof_irma.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.1.7 </span><span class="caption-text">Confusion matrix - Roof type classification for Hurricane Irma</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
-</div>
-<p>The accuracy for three classes are:</p>
-<ul class="simple">
-<li><p>gabled: Accuracy = 0.2, F1 = 0.3</p></li>
-<li><p>hipped: Accuracy = 0.9, F1 = 0.6</p></li>
-<li><p>flat:   Accuracy = 0.8, F1 = 0.3</p></li>
-</ul>
-<p>Examples of false predictions are shown in <a class="reference internal" href="#irma-roof-examples-false"><span class="std std-numref">Table 2.1.3</span></a>.</p>
-<span id="irma-roof-examples-false"></span><table class="docutils align-default" id="id12">
-<caption><span class="caption-number">Table 2.1.3 </span><span class="caption-text">Examples of false predictions</span><a class="headerlink" href="#id12" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id13">
-<img alt="../../_images/TopViewx35-Blue-Water-Drive-Key-West-Monroe-FL-.png" src="../../_images/TopViewx35-Blue-Water-Drive-Key-West-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.8 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Flat</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id14">
-<img alt="../../_images/TopViewx43-Blue-Water-Dr-Key-West-Monroe-FL-.png" src="../../_images/TopViewx43-Blue-Water-Dr-Key-West-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.9 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Flat</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id15">
-<img alt="../../_images/TopViewx13-Boulder-Dr-Key-West-Monroe-FL-.png" src="../../_images/TopViewx13-Boulder-Dr-Key-West-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.10 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Hipped</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id16">
-<img alt="../../_images/TopViewx208-North-Storter-Avenue-Everglades-City-Collier-County-Florida-.png" src="../../_images/TopViewx208-North-Storter-Avenue-Everglades-City-Collier-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.11 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Hipped</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p>It shows the accuracy for the gable is not as high as the other classes.
-A further look into the images we found the following facts:</p>
-<ol class="arabic simple">
-<li><p>Most roofs that are labelled as ‘hipped’ are not damaged during the hurricane, examples are in <a class="reference internal" href="#irma-roof-examples-hipped"><span class="std std-numref">Table 2.1.4</span></a>.</p></li>
-<li><p>Roofs labelled as ‘flat’ and ‘gabled’ are the classes got most damages, examples are in <a class="reference internal" href="#irma-roof-examples-flat"><span class="std std-numref">Table 2.1.5</span></a> and <a class="reference internal" href="#irma-roof-examples-gable"><span class="std std-numref">Table 2.1.6</span></a>.</p></li>
-<li><p>When roofs are damaged, their satellite images are different from pre-disaster images, examples are shown in <a class="reference internal" href="#irma-roof-examples-sever"><span class="std std-numref">Table 2.1.7</span></a>, This could cause difficulties to the model to recognize features.</p></li>
-<li><p>This validation doesn’t remove those images with an empty lot, which negatively influences the accuracy.</p></li>
-<li><p>Bias in dataset is very common. This validation doesn’t consider the possible bias in the StEER labels (examples can be found in <a class="reference internal" href="#irma-roof-examples-bias"><span class="std std-numref">Table 2.1.8</span></a>), which also negatively influences the accuracy.</p></li>
-</ol>
-<span id="irma-roof-examples-hipped"></span><table class="docutils align-default" id="id17">
-<caption><span class="caption-number">Table 2.1.4 </span><span class="caption-text">Examples of post-hurricane satellite images: hipped</span><a class="headerlink" href="#id17" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default">
-<img alt="../../_images/TopViewx31-Jimmy-Mark-Pl-St.-Augustine-St.-Johns-FL-.png" src="../../_images/TopViewx31-Jimmy-Mark-Pl-St.-Augustine-St.-Johns-FL-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx50-Jimmy-Mark-St.-Augustine-St.-Johns-FL-.png" src="../../_images/TopViewx50-Jimmy-Mark-St.-Augustine-St.-Johns-FL-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx202-Datura-Street-East-Naples-Collier-County-Florida-.png" src="../../_images/TopViewx202-Datura-Street-East-Naples-Collier-County-Florida-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx295-Porter-St-Naples-Collier-FL-.png" src="../../_images/TopViewx295-Porter-St-Naples-Collier-FL-.png" />
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<span id="irma-roof-examples-flat"></span><table class="docutils align-default" id="id18">
-<caption><span class="caption-number">Table 2.1.5 </span><span class="caption-text">Examples of post-hurricane satellite images: flat</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default">
-<img alt="../../_images/TopViewx518-Bay-Shore-Dr-Ramrod-Key-Monroe-FL-.png" src="../../_images/TopViewx518-Bay-Shore-Dr-Ramrod-Key-Monroe-FL-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx2000-Cocoa-Plum-Drive-Marathon-Monroe-County-Florida-.png" src="../../_images/TopViewx2000-Cocoa-Plum-Drive-Marathon-Monroe-County-Florida-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx30918-Edward-Road-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx30918-Edward-Road-Big-Pine-Key-Monroe-County-Florida-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx31108-Avenue-J-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx31108-Avenue-J-Big-Pine-Key-Monroe-County-Florida-.png" />
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<span id="irma-roof-examples-gable"></span><table class="docutils align-default" id="id19">
-<caption><span class="caption-number">Table 2.1.6 </span><span class="caption-text">Examples of post-hurricane satellite images: gabled</span><a class="headerlink" href="#id19" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default">
-<img alt="../../_images/TopViewx3979-Gordon-Road-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx3979-Gordon-Road-Big-Pine-Key-Monroe-County-Florida-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx2056-Coral-Way-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx2056-Coral-Way-Big-Pine-Key-Monroe-County-Florida-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx1231-6th-Ave-Marco-Island-Collier-FL-.png" src="../../_images/TopViewx1231-6th-Ave-Marco-Island-Collier-FL-.png" />
-</div>
-</td>
-<td><div class="figure align-default">
-<img alt="../../_images/TopViewx877-Grenada-Lane-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx877-Grenada-Lane-Little-Torch-Key-Monroe-FL-.png" />
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<span id="irma-roof-examples-sever"></span><table class="docutils align-default" id="id20">
-<caption><span class="caption-number">Table 2.1.7 </span><span class="caption-text">Examples of post-hurricane satellite images: severely damaged buildings / empty lot</span><a class="headerlink" href="#id20" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id21">
-<img alt="../../_images/TopViewx518-Bay-Shore-Dr-Ramrod-Key-Monroe-FL-1.png" src="../../_images/TopViewx518-Bay-Shore-Dr-Ramrod-Key-Monroe-FL-1.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.12 </span><span class="caption-text">A severely damaged roof</span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id22">
-<img alt="../../_images/TopViewx31353-Avenue-H-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx31353-Avenue-H-Big-Pine-Key-Monroe-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.13 </span><span class="caption-text">A severely damaged roof</span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id23">
-<img alt="../../_images/TopViewx31373-Avenue-C-Big-Pine-Key-Monroe-FL-.png" src="../../_images/TopViewx31373-Avenue-C-Big-Pine-Key-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.14 </span><span class="caption-text">A severely damaged roof</span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id24">
-<img alt="../../_images/TopViewx57642-Overseas-Hwy-Grassy-Key-Monroe-FL-.png" src="../../_images/TopViewx57642-Overseas-Hwy-Grassy-Key-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.15 </span><span class="caption-text">A severely damaged roof</span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="figure align-default" id="id25">
-<img alt="../../_images/TopViewx193-Sunset-Drive-Islamorada-Monroe-County-Florida-.png" src="../../_images/TopViewx193-Sunset-Drive-Islamorada-Monroe-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.16 </span><span class="caption-text">An empty lot</span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id26">
-<img alt="../../_images/TopViewx7905-NW-36th-St-Doral-Miami-Dade-FL-.png" src="../../_images/TopViewx7905-NW-36th-St-Doral-Miami-Dade-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.17 </span><span class="caption-text">An empty lot</span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id27">
-<img alt="../../_images/TopViewx31395-Avenue-G-Big-Pine-Key-Monroe-FL-.png" src="../../_images/TopViewx31395-Avenue-G-Big-Pine-Key-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.18 </span><span class="caption-text">An empty lot</span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id28">
-<img alt="../../_images/TopViewx31465-Avenue-F-Big-Pine-Key-Monroe-County-Florida-.png" src="../../_images/TopViewx31465-Avenue-F-Big-Pine-Key-Monroe-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.19 </span><span class="caption-text">An empty lot</span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<span id="irma-roof-examples-bias"></span><table class="docutils align-default" id="id29">
-<caption><span class="caption-number">Table 2.1.8 </span><span class="caption-text">Example of post-hurricane satellite images: Bias in the labels</span><a class="headerlink" href="#id29" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><div class="figure align-default" id="id30">
-<img alt="../../_images/TopViewx37-Cherokee-Trail-Naples-Collier-County-Florida-.png" src="../../_images/TopViewx37-Cherokee-Trail-Naples-Collier-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.20 </span><span class="caption-text">Label: Flat, BRAILS Prediction: Gabled</span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id31">
-<img alt="../../_images/TopViewx512-Coconut-Ave-Goodland-Collier-FL-.png" src="../../_images/TopViewx512-Coconut-Ave-Goodland-Collier-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.21 </span><span class="caption-text">Label: Flat, BRAILS Prediction: Gabled</span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id32">
-<img alt="../../_images/TopViewx219-Northwest-109th-Avenue-Miami-Miami-Dade-County-Florida-.png" src="../../_images/TopViewx219-Northwest-109th-Avenue-Miami-Miami-Dade-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.22 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Flat</span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id33">
-<img alt="../../_images/TopViewx738-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" src="../../_images/TopViewx738-Grenada-Ln-Little-Torch-Key-Monroe-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.23 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Flat</span><a class="headerlink" href="#id33" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-<tr class="row-even"><td><div class="figure align-default" id="id34">
-<img alt="../../_images/TopViewx40-Jimmy-Mark-Pl-St.-Augustine-St.-Johns-FL-.png" src="../../_images/TopViewx40-Jimmy-Mark-Pl-St.-Augustine-St.-Johns-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.24 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Hipped</span><a class="headerlink" href="#id34" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id35">
-<img alt="../../_images/TopViewx237-Goodland-Dr-E-Goodland-Collier-FL-.png" src="../../_images/TopViewx237-Goodland-Dr-E-Goodland-Collier-FL-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.25 </span><span class="caption-text">Label: Gabled, BRAILS Prediction: Hipped</span><a class="headerlink" href="#id35" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id36">
-<img alt="../../_images/TopViewx75-Seaview-Avenue-Conch-Key-Monroe-Florida-.png" src="../../_images/TopViewx75-Seaview-Avenue-Conch-Key-Monroe-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.26 </span><span class="caption-text">Label: Hipped, BRAILS Prediction: Flat</span><a class="headerlink" href="#id36" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-<td><div class="figure align-default" id="id37">
-<img alt="../../_images/TopViewx302-North-Storter-Avenue-Everglades-City-Collier-County-Florida-.png" src="../../_images/TopViewx302-North-Storter-Avenue-Everglades-City-Collier-County-Florida-.png" />
-<p class="caption"><span class="caption-number">Fig. 2.1.27 </span><span class="caption-text">Label: Hipped, BRAILS Prediction: Gabled</span><a class="headerlink" href="#id37" title="Permalink to this image">¶</a></p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 
