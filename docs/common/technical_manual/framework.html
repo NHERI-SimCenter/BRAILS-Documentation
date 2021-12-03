@@ -98,7 +98,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">User Manual</span></p>
+              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/acknowledgments.html">1. Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/about.html">2. About</a></li>
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical Manual</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="theory.html">1. Theory and Implementation</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">1.1. Framework</a><ul>
@@ -123,11 +123,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vnv.html">2. Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="understand.html">3. Generalization</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Developer Manual</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../developer_manual/how_to_extend/how_to_extend.html">1. How to Extend</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_manual/coding_style/coding_style.html">2. Coding Style</a></li>
 </ul>
 
             
@@ -204,9 +199,9 @@ changed by additional user-written codes with user-provided input data,
 thus providing a region-specific building information harvesting tool.
 The framework provides a standard way to create realistic building inventory databases and it is a universal, reusable environment that provides particular functionalities facilitating regional-scale building information modeling.</p>
 <p>As shown in <a class="reference internal" href="#brailspipeline"><span class="std std-numref">Fig. 1.1.1</span></a>, the framework consists of two steps: data fusion and data enhancement.</p>
-<div class="align-center figure" id="id12">
+<div class="align-center figure" id="id70">
 <span id="brailspipeline"></span><img alt="../../_images/pipeline.png" src="../../_images/pipeline.png" />
-<p class="caption"><span class="caption-number">Fig. 1.1.1 </span><span class="caption-text">Framework</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.1.1 </span><span class="caption-text">Framework</span><a class="headerlink" href="#id70" title="Permalink to this image">¶</a></p>
 </div>
 <p>Due to the complexity and the size of source data and the cost to collect it,
 building information at the regional-scale is usually not able to be inferred
@@ -235,7 +230,7 @@ Based on the indexing information, satellite or street view images of each build
 Then, the deep learning technique ConvNet is utilized to extract building features
 (that don’t exist in the initial database) from these images.
 ConvNet is a class of deep neural networks inspired by biological processes in that the connectivity pattern
-between neurons resembles the organization of the animal visual cortex <a class="bibtex reference internal" href="../../index.html#hubel1968receptive" id="id1">[HW68]</a> and
+between neurons resembles the organization of the animal visual cortex <span id="id1">[<a class="reference internal" href="../../index.html#id34" title="David H Hubel and Torsten N Wiesel. Receptive fields and functional architecture of monkey striate cortex. The Journal of physiology, 195(1):215–243, 1968.">HW68</a>]</span> and
 is most commonly applied to analyzing images.
 Individual cortical neurons respond to stimuli only in a restricted region of the visual field known as the receptive field.
 The receptive fields of different neurons partially overlap such that they cover the entire visual field.</p>
@@ -274,9 +269,9 @@ There are two starting points of the data flow pipeline: one is the address list
 Once raw data is fetched from these sources, it will be filtered and cleaned to remove duplicated properties and then merged while missing values represented by place holders.</p>
 <p>The building footprint is an important supporting data the framework relies on.
 The method that is commonly used to get building footprints at a large scale is semantic segmentation on high-resolution
-satellite maps <a class="bibtex reference internal" href="../../index.html#li2019semantic" id="id2">[LHF+19]</a><a class="bibtex reference internal" href="../../index.html#zhao2018building" id="id3">[ZKJS18]</a><a class="bibtex reference internal" href="../../index.html#bischke2019multi" id="id4">[BHF+19]</a>.
+satellite maps <span id="id2">[<a class="reference internal" href="../../index.html#id58" title="Benjamin Bischke, Patrick Helber, Joachim Folz, Damian Borth, and Andreas Dengel. Multi-task learning for segmentation of building footprints with deep neural networks. 2019 IEEE International Conference on Image Processing (ICIP), pages 1480–1484, 2019.">BHF+19</a>, <a class="reference internal" href="../../index.html#id56" title="Weijia Li, Conghui He, Jiarui Fang, Juepeng Zheng, Haohuan Fu, and Le Yu. Semantic segmentation-based building footprint extraction using very high-resolution satellite images and multi-source gis data. Remote Sensing, 11(4):403, 2019.">LHF+19</a>, <a class="reference internal" href="../../index.html#id57" title="Kang Zhao, Jungwon Kang, Jaewook Jung, and Gunho Sohn. Building extraction from satellite images using mask r-cnn with building boundary regularization. CVPR Workshops, pages 247–251, 2018.">ZKJS18</a>]</span>.
 Since it is out of the focus of this study, instead of performing segmentation in the proposed framework on the fly,
-the framework retrieves footprints from a dataset released by <a class="bibtex reference internal" href="../../index.html#msfootprint" id="id5">[Mic]</a>.
+the framework retrieves footprints from a dataset released by <span id="id3">[<a class="reference internal" href="../../index.html#id49" title="Microsoft. US Building Footprints. URL: https://github.com/microsoft/USBuildingFootprints.">Mic</a>]</span>.
 This dataset contains footprints for almost all buildings in the United States extracted from high-resolution satellite maps.
 For regions outside of the United States, footprints can be inferred from satellite images using semantic segmentation methods in aforementioned  references.
 Each geotagged address has a unique coordinate, therefore can be merged with corresponding building footprints.</p>
@@ -285,9 +280,9 @@ multiple data sources can now be merged into the main stream of the data flow pi
 satellite and street view images of each building are then retrieved and fed into pretrained ConvNets,
 and predictions on the building features such as number of stories, roof types, etc., can be obtained.
 Merging the predicted values into the data stream results in the initial building database.</p>
-<div class="align-center figure" id="id13">
+<div class="align-center figure" id="id71">
 <span id="brailsfusion"></span><img alt="../../_images/Fusion.png" src="../../_images/Fusion.png" />
-<p class="caption"><span class="caption-number">Fig. 1.1.2 </span><span class="caption-text">Framework</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.1.2 </span><span class="caption-text">Framework</span><a class="headerlink" href="#id71" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="data-enhancement">
@@ -321,9 +316,9 @@ such as household income or race.
 For example, as the city shown in the map <a class="reference internal" href="#brailsmapsf"><span class="std std-numref">Fig. 1.1.3</span></a>,
 there are areas denser with buildings than others and clusters of
 certain types of building are easy to be found in certain regions.</p>
-<div class="align-center figure" id="id14">
+<div class="align-center figure" id="id72">
 <span id="brailsmapsf"></span><img alt="../../_images/mapSF.png" src="../../_images/mapSF.png" />
-<p class="caption"><span class="caption-number">Fig. 1.1.3 </span><span class="caption-text">Satellite view of buildings in San Francisco</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.1.3 </span><span class="caption-text">Satellite view of buildings in San Francisco</span><a class="headerlink" href="#id72" title="Permalink to this image">¶</a></p>
 </div>
 <p>The capability of evaluating spatial patterns is a prerequisite to understanding the
 complicated spatial processes underlying the distribution of a phenomenon.</p>
@@ -333,7 +328,7 @@ As such, statistics of spatial semivariogram provide a useful indicator of spati
 Semivariogram is essentially  a meassure of the degree of dissimilarity between
 observations as a function of distance. It equals to half the variance of two
 random variables separated by a vector distance <span class="math notranslate nohighlight">\(\boldsymbol{h}\)</span>
-<a class="bibtex reference internal" href="../../index.html#goovaerts1997geostatistics" id="id6">[Goo97]</a><a class="bibtex reference internal" href="../../index.html#vanmarcke2010random" id="id7">[Van10]</a><a class="bibtex reference internal" href="../../index.html#wang2017spatial" id="id8">[WCSJ17]</a><a class="bibtex reference internal" href="../../index.html#wang2017hybrid" id="id9">[WC18]</a>.</p>
+<span id="id4">[<a class="reference internal" href="../../index.html#id59" title="Pierre Goovaerts. Geostatistics for natural resources evaluation. Oxford University Press on Demand, 1997.">Goo97</a>, <a class="reference internal" href="../../index.html#id39" title="Erik Vanmarcke. Random fields: analysis and synthesis. World Scientific, 2010.">Van10</a>, <a class="reference internal" href="../../index.html#id35" title="C Wang and Q Chen. A hybrid geotechnical and geological data-based framework for multiscale regional liquefaction hazard mapping. Géotechnique, 68(7):614–625, 2018.">WC18</a>, <a class="reference internal" href="../../index.html#id36" title="Chaofeng Wang, Qiushi Chen, Mengfen Shen, and C Hsein Juang. On the spatial variability of cpt-based geotechnical parameters for regional liquefaction evaluation. Soil Dynamics and Earthquake Engineering, 95:153–166, 2017.">WCSJ17</a>]</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-gamma">
 <span class="eqno">(1.1.1)<a class="headerlink" href="#equation-eq-gamma" title="Permalink to this equation">¶</a></span>\[\gamma (\boldsymbol{h})= \frac{1}{2}Var[Z(\boldsymbol{\mu}) - Z(\boldsymbol{\mu}+\boldsymbol{h})]\]</div>
 <p>where <span class="math notranslate nohighlight">\(Z(\boldsymbol{\mu})\)</span> is the observation at a spatial location <span class="math notranslate nohighlight">\(\mu\)</span>;
@@ -363,13 +358,13 @@ Another note that deserves to be taken here is the curves revealed in <a class="
 are city- or region-specific, i.e., the semivariogram curve may reflect the truth of the region being investigated, and may not be exactly
 correct or directly applicable for describing another region.
 In other words, the spatial dependence of building features are regional-specific and the semivariogram curves vary regionally.</p>
-<div class="align-center figure" id="id15">
+<div class="align-center figure" id="id73">
 <span id="numofstories-semivariogram"></span><img alt="../../_images/correlation_numofstories.png" src="../../_images/correlation_numofstories.png" />
-<p class="caption"><span class="caption-number">Fig. 1.1.4 </span><span class="caption-text">Spatial patterns of building information expressed in semivariogram of the number of stories (The horizontal axis represents the distance between a pair of buildings, while the vertical axis represents the dis-similarity of these buildings.) These curves are calculated based on a building dataset covering four coastal cities in the Atlantic County, New Jersey</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.1.4 </span><span class="caption-text">Spatial patterns of building information expressed in semivariogram of the number of stories (The horizontal axis represents the distance between a pair of buildings, while the vertical axis represents the dis-similarity of these buildings.) These curves are calculated based on a building dataset covering four coastal cities in the Atlantic County, New Jersey</span><a class="headerlink" href="#id73" title="Permalink to this image">¶</a></p>
 </div>
-<div class="align-center figure" id="id16">
+<div class="align-center figure" id="id74">
 <span id="yearofbuilt-semivariogram"></span><img alt="../../_images/correlation_yearbuilt.png" src="../../_images/correlation_yearbuilt.png" />
-<p class="caption"><span class="caption-number">Fig. 1.1.5 </span><span class="caption-text">Spatial patterns of building information expressed in semivariogram of the year of construction (The horizontal axis represents the distance between a pair of buildings, while the vertical axis represents the dis-similarity of these buildings.) These curves are calculated based on a building dataset covering four coastal cities in the Atlantic County, New Jersey</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.1.5 </span><span class="caption-text">Spatial patterns of building information expressed in semivariogram of the year of construction (The horizontal axis represents the distance between a pair of buildings, while the vertical axis represents the dis-similarity of these buildings.) These curves are calculated based on a building dataset covering four coastal cities in the Atlantic County, New Jersey</span><a class="headerlink" href="#id74" title="Permalink to this image">¶</a></p>
 </div>
 <p>Since the semivariograms (<a class="reference internal" href="#numofstories-semivariogram"><span class="std std-numref">Fig. 1.1.4</span></a> and <a class="reference internal" href="#yearofbuilt-semivariogram"><span class="std std-numref">Fig. 1.1.5</span></a> )
 clearly show there is a spatial pattern of the distribution of a certain building property,
@@ -384,9 +379,9 @@ However, it is possible to predict the features of the building in the middle ba
 because <a class="reference internal" href="#numofstories-semivariogram"><span class="std std-numref">Fig. 1.1.4</span></a> and <a class="reference internal" href="#yearofbuilt-semivariogram"><span class="std std-numref">Fig. 1.1.5</span></a>  indicates that
 the attributes of buildings within a community are correlated with each other.
 The correlations can be learned by neural networks using <a class="reference external" href="https://github.com/NHERI-SimCenter/SURF">SURF</a>.</p>
-<div class="align-center figure" id="id17">
+<div class="align-center figure" id="id75">
 <span id="neighborhood"></span><img alt="../../_images/neighbor.png" src="../../_images/neighbor.png" />
-<p class="caption"><span class="caption-number">Fig. 1.1.6 </span><span class="caption-text">A neighborhood street view</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.1.6 </span><span class="caption-text">A neighborhood street view</span><a class="headerlink" href="#id75" title="Permalink to this image">¶</a></p>
 </div>
 <p>As mentioned in the previous sections,
 there is a significant portion of building information still missing from the
@@ -395,32 +390,47 @@ Using <a class="reference external" href="https://github.com/NHERI-SimCenter/SUR
 the missing values can be predicted based on known values of neighboring buildings,
 hence the gaps in the initial database are filled and the regional building information database is enhanced.
 Details about how to do this can be found in the documentation of <a class="reference external" href="https://github.com/NHERI-SimCenter/SURF">SURF</a>.</p>
-<p id="bibtex-bibliography-common/technical_manual/framework-0"><dl class="citation">
-<dt class="bibtex label" id="bischke2019multi"><span class="brackets"><a class="fn-backref" href="#id4">BHF+19</a></span></dt>
+<p id="id7"><dl class="citation">
+<dt class="label" id="id64"><span class="brackets"><a class="fn-backref" href="#id2">BHF+19</a></span></dt>
 <dd><p>Benjamin Bischke, Patrick Helber, Joachim Folz, Damian Borth, and Andreas Dengel. Multi-task learning for segmentation of building footprints with deep neural networks. <em>2019 IEEE International Conference on Image Processing (ICIP)</em>, pages 1480–1484, 2019.</p>
 </dd>
-<dt class="bibtex label" id="goovaerts1997geostatistics"><span class="brackets"><a class="fn-backref" href="#id6">Goo97</a></span></dt>
+<dt class="label" id="id65"><span class="brackets"><a class="fn-backref" href="#id4">Goo97</a></span></dt>
 <dd><p>Pierre Goovaerts. <em>Geostatistics for natural resources evaluation</em>. Oxford University Press on Demand, 1997.</p>
 </dd>
-<dt class="bibtex label" id="hubel1968receptive"><span class="brackets"><a class="fn-backref" href="#id1">HW68</a></span></dt>
+<dt class="label" id="id69"><span class="brackets">HZRS16</span></dt>
+<dd><p>Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em>, 770–778. 2016.</p>
+</dd>
+<dt class="label" id="id40"><span class="brackets"><a class="fn-backref" href="#id1">HW68</a></span></dt>
 <dd><p>David H Hubel and Torsten N Wiesel. Receptive fields and functional architecture of monkey striate cortex. <em>The Journal of physiology</em>, 195(1):215–243, 1968.</p>
 </dd>
-<dt class="bibtex label" id="li2019semantic"><span class="brackets"><a class="fn-backref" href="#id2">LHF+19</a></span></dt>
+<dt class="label" id="id62"><span class="brackets"><a class="fn-backref" href="#id2">LHF+19</a></span></dt>
 <dd><p>Weijia Li, Conghui He, Jiarui Fang, Juepeng Zheng, Haohuan Fu, and Le Yu. Semantic segmentation-based building footprint extraction using very high-resolution satellite images and multi-source gis data. <em>Remote Sensing</em>, 11(4):403, 2019.</p>
 </dd>
-<dt class="bibtex label" id="msfootprint"><span class="brackets"><a class="fn-backref" href="#id5">Mic</a></span></dt>
+<dt class="label" id="id55"><span class="brackets"><a class="fn-backref" href="#id3">Mic</a></span></dt>
 <dd><p>Microsoft. US Building Footprints. URL: <a class="reference external" href="https://github.com/microsoft/USBuildingFootprints">https://github.com/microsoft/USBuildingFootprints</a>.</p>
 </dd>
-<dt class="bibtex label" id="vanmarcke2010random"><span class="brackets"><a class="fn-backref" href="#id7">Van10</a></span></dt>
+<dt class="label" id="id66"><span class="brackets">SVI+16</span></dt>
+<dd><p>Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew Wojna. Rethinking the inception architecture for computer vision. <em>Proceedings of the IEEE conference on computer vision and pattern recognition</em>, pages 2818–2826, 2016.</p>
+</dd>
+<dt class="label" id="id45"><span class="brackets"><a class="fn-backref" href="#id4">Van10</a></span></dt>
 <dd><p>Erik Vanmarcke. <em>Random fields: analysis and synthesis</em>. World Scientific, 2010.</p>
 </dd>
-<dt class="bibtex label" id="wang2017hybrid"><span class="brackets"><a class="fn-backref" href="#id9">WC18</a></span></dt>
+<dt class="label" id="id41"><span class="brackets"><a class="fn-backref" href="#id4">WC18</a></span></dt>
 <dd><p>C Wang and Q Chen. A hybrid geotechnical and geological data-based framework for multiscale regional liquefaction hazard mapping. <em>Géotechnique</em>, 68(7):614–625, 2018.</p>
 </dd>
-<dt class="bibtex label" id="wang2017spatial"><span class="brackets"><a class="fn-backref" href="#id8">WCSJ17</a></span></dt>
+<dt class="label" id="id68"><span class="brackets">Wan20</span></dt>
+<dd><p>Chaofeng Wang. Occupancy test. December 2020. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.4386991">https://doi.org/10.5281/zenodo.4386991</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.4386991">doi:10.5281/zenodo.4386991</a>.</p>
+</dd>
+<dt class="label" id="id42"><span class="brackets"><a class="fn-backref" href="#id4">WCSJ17</a></span></dt>
 <dd><p>Chaofeng Wang, Qiushi Chen, Mengfen Shen, and C Hsein Juang. On the spatial variability of cpt-based geotechnical parameters for regional liquefaction evaluation. <em>Soil Dynamics and Earthquake Engineering</em>, 95:153–166, 2017.</p>
 </dd>
-<dt class="bibtex label" id="zhao2018building"><span class="brackets"><a class="fn-backref" href="#id3">ZKJS18</a></span></dt>
+<dt class="label" id="id67"><span class="brackets">Wan19</span></dt>
+<dd><p>Charles Wang. Random satellite images of buildings. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">https://doi.org/10.5281/zenodo.3521067</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3521067">doi:10.5281/zenodo.3521067</a>.</p>
+</dd>
+<dt class="label" id="id44"><span class="brackets">WYM+19</span></dt>
+<dd><p>Charles Wang, Qian Yu, Frank McKenna, Barbaros Cetiner, Stella X. Yu, Ertugrul Taciroglu, and Kincho H. Law. Nheri-simcenter/brails: v1.0.1. October 2019. URL: <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">https://doi.org/10.5281/zenodo.3483208</a>, <a class="reference external" href="https://doi.org/10.5281/zenodo.3483208">doi:10.5281/zenodo.3483208</a>.</p>
+</dd>
+<dt class="label" id="id63"><span class="brackets"><a class="fn-backref" href="#id2">ZKJS18</a></span></dt>
 <dd><p>Kang Zhao, Jungwon Kang, Jaewook Jung, and Gunho Sohn. Building extraction from satellite images using mask r-cnn with building boundary regularization. <em>CVPR Workshops</em>, pages 247–251, 2018.</p>
 </dd>
 </dl>

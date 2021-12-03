@@ -20,5 +20,8 @@ The following is the set of current modules available in BRAILS:
    softstoryClassifier
    yearClassifier
    foundationElevationClassifier
+   garageDetector
+   chimneyDetector   
    nFloorDetector
+
    

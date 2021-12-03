@@ -97,7 +97,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">User Manual</span></p>
+              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/acknowledgments.html">1. Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/about.html">2. About</a></li>
@@ -108,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical Manual</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="theory.html">1. Theory and Implementation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="vnv.html">2. Validation</a><ul class="current">
@@ -123,11 +123,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="understand.html">3. Generalization</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Developer Manual</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../developer_manual/how_to_extend/how_to_extend.html">1. How to Extend</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_manual/coding_style/coding_style.html">2. Coding Style</a></li>
 </ul>
 
             
@@ -230,7 +225,7 @@ Examples of these street view images can be found in <a class="reference interna
 <span class="n">labels</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">clas</span> <span class="ow">in</span> <span class="n">class_names</span><span class="p">:</span>
-    <span class="n">imgs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;occupancy_validation_images/</span><span class="si">{clas}</span><span class="s1">/*.jpg&#39;</span><span class="p">)</span>
+    <span class="n">imgs</span> <span class="o">=</span> <span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;occupancy_validation_images/</span><span class="si">{</span><span class="n">clas</span><span class="si">}</span><span class="s1">/*.jpg&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">:</span>
         <span class="n">labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">clas</span><span class="p">)</span>
         <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
@@ -375,7 +370,7 @@ At the end, the script will plot a confusion matrix and print the accuracy.</p>
                              <span class="n">fov</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span><span class="n">pitch</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">reDownloadImgs</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 
-<span class="n">data</span><span class="p">[</span><span class="s1">&#39;StreetViewImg&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;tmp/images/StreetView/StreetViewx{&#39;</span><span class="si">%.6f</span><span class="s2">&#39;</span><span class="si">%r</span><span class="s2">ow[&#39;Longitude&#39;]}x{&#39;</span><span class="si">%.6f</span><span class="s2">&#39;</span><span class="si">%r</span><span class="s2">ow[&#39;Latitude&#39;]}.png&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;StreetViewImg&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;tmp/images/StreetView/StreetViewx</span><span class="si">{</span><span class="s1">&#39;</span><span class="si">%.6f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">x</span><span class="si">{</span><span class="s1">&#39;</span><span class="si">%.6f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
@@ -423,7 +418,7 @@ At the end, the script will plot a confusion matrix and print the accuracy.</p>
     <span class="n">FN</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">-</span><span class="n">cnf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
     <span class="n">F1</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.1f</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">TP</span><span class="o">/</span><span class="p">(</span><span class="n">TP</span><span class="o">+</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">FP</span><span class="o">+</span><span class="n">FN</span><span class="p">)))</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{cname}</span><span class="s1">: Accuracy = </span><span class="si">{accuracy}</span><span class="s1">, F1 = </span><span class="si">{F1}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">cname</span><span class="si">}</span><span class="s1">: Accuracy = </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s1">, F1 = </span><span class="si">{</span><span class="n">F1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 
 <span class="c1"># ### Copy images to directories {label}-{prediction} for inspection</span>
@@ -443,10 +438,10 @@ At the end, the script will plot a confusion matrix and print the accuracy.</p>
 
         <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%.6f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Longitude&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="si">%.6f</span><span class="s1">&#39;</span><span class="o">%</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Latitude&#39;</span><span class="p">]</span>
 
-        <span class="n">oldfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;tmp/images/StreetView/StreetViewx</span><span class="si">{lon}</span><span class="s1">x</span><span class="si">{lat}</span><span class="s1">.png&#39;</span>
-        <span class="n">newfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{predDir}</span><span class="s1">/</span><span class="si">{label}</span><span class="s1">-</span><span class="si">{pred}</span><span class="s1">/StreetViewx</span><span class="si">{lon}</span><span class="s1">x</span><span class="si">{lat}</span><span class="s1">.png&#39;</span>
+        <span class="n">oldfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;tmp/images/StreetView/StreetViewx</span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s1">x</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s1">.png&#39;</span>
+        <span class="n">newfile</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">predDir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">pred</span><span class="si">}</span><span class="s1">/StreetViewx</span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s1">x</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s1">.png&#39;</span>
 
-        <span class="n">thisFileDir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{predDir}</span><span class="s1">/</span><span class="si">{label}</span><span class="s1">-</span><span class="si">{pred}</span><span class="s1">/&#39;</span>
+        <span class="n">thisFileDir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">predDir</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s1">-</span><span class="si">{</span><span class="n">pred</span><span class="si">}</span><span class="s1">/&#39;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">thisFileDir</span><span class="p">):</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">thisFileDir</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>

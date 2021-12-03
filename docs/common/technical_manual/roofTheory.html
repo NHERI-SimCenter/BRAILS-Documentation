@@ -97,7 +97,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">User Manual</span></p>
+              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/acknowledgments.html">1. Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/about.html">2. About</a></li>
@@ -108,7 +108,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical Manual</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="theory.html">1. Theory and Implementation</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="framework.html">1.1. Framework</a></li>
@@ -123,11 +123,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vnv.html">2. Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="understand.html">3. Generalization</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Developer Manual</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../developer_manual/how_to_extend/how_to_extend.html">1. How to Extend</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_manual/coding_style/coding_style.html">2. Coding Style</a></li>
 </ul>
 
             
@@ -262,7 +257,7 @@ In the attempt to determine roof type for every building in a region,
 a ConvNet classifier
 is trained to take a satellite image of a building and predicts its roof type.
 A training data set of 6,000 satellite images (2,000 for each roof type: flat, gabled, hipped) is collected.
-Specifically,  ResNet <a class="bibtex reference internal" href="../../index.html#he2016deep" id="id1">[HZRS16]</a>, which is a widely-used ConvNet architecture for image feature recognition,
+Specifically,  ResNet <span id="id1">[<a class="reference internal" href="../../index.html#id63" title="Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition, 770–778. 2016.">HZRS16</a>]</span>, which is a widely-used ConvNet architecture for image feature recognition,
 is employed.</p>
 <p>The architecture of the model is shown in <a class="reference internal" href="softstoryTheory.html#fig-resnet"><span class="std std-numref">Fig. 1.2.14</span></a>.
 In this module, we used a 50-layer ResNet.</p>

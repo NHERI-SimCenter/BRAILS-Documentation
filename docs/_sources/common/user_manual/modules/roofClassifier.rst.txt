@@ -23,7 +23,7 @@ The Roof Shape Classifier is a module built upon the :ref:`lbl-genericImageClass
 
    #. The Roof shape classifier will only identify one roof type per image. As a consequence, the image you provide should only contain the building whose roof type is to be determined.
 
-   #. Many roof shapes found these days are classified as `complex`.  The categories `hipped`, `flat`, and `gabled` were chosen as these are the classifications used in Hazus.
+   #. Many roof shapes found these days are classified as `complex`.  The categories `hipped`, `flat`, and `gabled` were chosen as these are the classifications used in Hazus which we use in our testbeds.
 
 .. warning:: 
 

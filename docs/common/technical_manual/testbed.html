@@ -95,7 +95,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">User Manual</span></p>
+              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/acknowledgments.html">1. Acknowledgments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/about.html">2. About</a></li>
@@ -106,16 +106,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical Manual</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="theory.html">1. Theory and Implementation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vnv.html">2. Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="understand.html">3. Generalization</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Developer Manual</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../developer_manual/how_to_extend/how_to_extend.html">1. How to Extend</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer_manual/coding_style/coding_style.html">2. Coding Style</a></li>
 </ul>
 
             
@@ -204,14 +199,14 @@ The first source is the tax assessment records which are scraped from the admini
 <a class="reference external" href="https://www.state.nj.us/treasury/taxation/lpt/TaxListSearchPublicWebpage.shtml">the Department of Treasure of New Jersey</a>
 as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:tax_record</span></code>,
 including number of stories, year of construction, structure type, occupancy.
-The second source is the United State Building Footprint dataset <a class="bibtex reference internal" href="../../index.html#msfootprint" id="id1">[Mic]</a>.
+The second source is the United State Building Footprint dataset <span id="id1">[<a class="reference internal" href="../../index.html#id49" title="Microsoft. US Building Footprints. URL: https://github.com/microsoft/USBuildingFootprints.">Mic</a>]</span>.
 The third source is satellite images, which can be download by calling Google Maps API.
 When evaluating the loss caused by hurricanes, the roof type (flat, gabled, or hipped) is an important parameter to be considered.
 To obtain the roof type of every building in these coastal cities,
 the authors trained a ConvNet classifier, which takes a satellite image of a building as
 input and predict the roof type as the output, as shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:roofClassifier</span></code>.
 The training data contains 6,000 satellite images (2,000 for each roof type).
-The ConvNet architecture used here is InceptionV3 <a class="bibtex reference internal" href="../../index.html#szegedy2016rethinking" id="id2">[SVI+16]</a>,
+The ConvNet architecture used here is InceptionV3 <span id="id2">[<a class="reference internal" href="../../index.html#id60" title="Christian Szegedy, Vincent Vanhoucke, Sergey Ioffe, Jon Shlens, and Zbigniew Wojna. Rethinking the inception architecture for computer vision. Proceedings of the IEEE conference on computer vision and pattern recognition, pages 2818–2826, 2016.">SVI+16</a>]</span>,
 which is a widely-used image recognition model that has been shown to attain greater than 78.1% accuracy on the ImageNet dataset.
 The model is the culmination of many ideas developed by multiple researchers over the years.
 The model itself is made up of symmetric and asymmetric building blocks,
@@ -219,7 +214,7 @@ including convolutions, average pooling, max pooling, concats, dropouts, and ful
 Batchnorm is used extensively throughout the model and applied to activation inputs.
 Loss is computed via Softmax. By using the InceptionV3 model pretrained on the large scale dataset ImageNet as a startpoint,
 transfer learning is performed to train a roof classifier based on the satellite images.
-The accuracy of the trained classifier tested on a ground truth dataset <a class="bibtex reference internal" href="../../index.html#charles-wang-2019-3521067" id="id3">[Wan19]</a> is 85%.</p>
+The accuracy of the trained classifier tested on a ground truth dataset <span id="id3">[<a class="reference internal" href="../../index.html#id61" title="Charles Wang. Random satellite images of buildings. October 2019. URL: https://doi.org/10.5281/zenodo.3521067, doi:10.5281/zenodo.3521067.">Wan19</a>]</span> is 85%.</p>
 <div class="align-center figure" id="id7">
 <span id="fig-roofclassifier"></span><img alt="../../_images/roofCNN.png" src="../../_images/roofCNN.png" />
 <p class="caption"><span class="caption-text">Convolutional neural network for roof type classification</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
@@ -262,9 +257,9 @@ one can add more building attributes of interests
 crucial to natural hazard loss estimation.) into the database by training ConvNets
 for each attribute as long as these attributes are visually comprehensible by the ConvNets.
 In addition to the semantic representations, geometric features (such as building outlines)
-can also be extracted from images using ConvNets-based segmentation <a class="bibtex reference internal" href="../../index.html#bischke2019multi" id="id4">[BHF+19]</a>.
+can also be extracted from images using ConvNets-based segmentation <span id="id4">[<a class="reference internal" href="../../index.html#id58" title="Benjamin Bischke, Patrick Helber, Joachim Folz, Damian Borth, and Andreas Dengel. Multi-task learning for segmentation of building footprints with deep neural networks. 2019 IEEE International Conference on Image Processing (ICIP), pages 1480–1484, 2019.">BHF+19</a>]</span>.
 However, segmentation is not the focus of this study, therefore not elaborated here.
-The code, data, pre-trained ConvNets, and BIM database created by the implementation can be found in <a class="bibtex reference internal" href="../../index.html#brails" id="id5">[WYM+19]</a>.</p>
+The code, data, pre-trained ConvNets, and BIM database created by the implementation can be found in <span id="id5">[<a class="reference internal" href="../../index.html#id38" title="Charles Wang, Qian Yu, Frank McKenna, Barbaros Cetiner, Stella X. Yu, Ertugrul Taciroglu, and Kincho H. Law. Nheri-simcenter/brails: v1.0.1. October 2019. URL: https://doi.org/10.5281/zenodo.3483208, doi:10.5281/zenodo.3483208.">WYM+19</a>]</span>.</p>
 <p>The BIM information shown in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig:demo</span></code> is enough for describing a building
 when it comes to regional loss estimation of natural hazards, such as hurricanes.</p>
 </div>
