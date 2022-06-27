@@ -105,7 +105,7 @@
 <li class="toctree-l1"><a class="reference internal" href="userGuide.html">4. User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">5. Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feature Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
@@ -183,12 +183,20 @@
   <div class="section" id="installation">
 <span id="lbl-install"></span><h1><span class="section-number">3. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>BRAILS is developed in Python3.
-You can install BRAILS using pip3 (you can use pip is your default pip is pip3):</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip3 install -U BRAILS
+You can install BRAILS using <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">pip</a> package management system by issuing the command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/NHERI-SimCenter/BRAILS
 </pre></div>
 </div>
-<p>Windows users may experience difficulties because of two dependencies required: GDAL and Fiona.</p>
-<p>If you have difficulties installing BRAILS using the above command, please check the <a class="reference internal" href="troubleshooting.html#lbltroubleshooting"><span class="std std-ref">Troubleshooting</span></a> section.</p>
+<p>To install an earlier release of BRAILS using <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">pip</a>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install https://github.com/NHERI-SimCenter/BRAILS/releases/download/{Release Tag}/BRAILS-{Release Tag}.zip
+</pre></div>
+</div>
+<p>For example, to install v1.9.0 of BRAILS:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install https://github.com/NHERI-SimCenter/BRAILS/releases/download/v1.9.0/BRAILS-v1.9.0.zip
+</pre></div>
+</div>
+<p>Windows users may experience difficulty installing BRAILS because of two required dependencies: GDAL and Fiona.
+Please see the <a class="reference internal" href="troubleshooting.html#lbltroubleshooting"><span class="std std-ref">Troubleshooting</span></a> section for further assistance with installation issues.</p>
 </div>
 
 
@@ -236,12 +244,17 @@ You can install BRAILS using pip3 (you can use pip is your default pip is pip3):
   
   
     
-    
-
-  <style>
-         .wy-nav-content { max-width: none; }
-  </style>
-
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
 
 
 </body>

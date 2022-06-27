@@ -269,12 +269,17 @@ Users should exercise cautions when the modules are used beyond their intended p
   
   
     
-    
-
-  <style>
-         .wy-nav-content { max-width: none; }
-  </style>
-
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
 
 
 </body>

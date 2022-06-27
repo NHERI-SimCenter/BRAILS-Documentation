@@ -42,7 +42,7 @@
     
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Soft-story Building Classifier" href="softstoryClassifier.html" />
+    <link rel="next" title="Number of Floors Detector" href="nFloorDetector.html" />
     <link rel="prev" title="Roof Shape Classifier" href="roofClassifier.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
@@ -112,10 +112,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#retrain-the-model">Retrain the model</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="softstoryClassifier.html">Soft-story Building Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nFloorDetector.html">Number of Floors Detector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yearClassifier.html">Year Built Classification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="foundationElevationClassifier.html">Raised Foundation Classification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nFloorDetector.html">Number of Floors Detector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="garageDetector.html">Garage Detector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chimneyDetector.html">Chimney Detector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="softstoryClassifier.html">Soft-story Building Classifier</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../workflow.html">4.3. Workflow</a></li>
@@ -346,7 +348,7 @@ predictions = occupancyModel.predict(imgs)
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="softstoryClassifier.html" class="btn btn-neutral float-right" title="Soft-story Building Classifier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="nFloorDetector.html" class="btn btn-neutral float-right" title="Number of Floors Detector" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="roofClassifier.html" class="btn btn-neutral float-left" title="Roof Shape Classifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -385,12 +387,17 @@ predictions = occupancyModel.predict(imgs)
   
   
     
-    
-
-  <style>
-         .wy-nav-content { max-width: none; }
-  </style>
-
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
 
 
 </body>

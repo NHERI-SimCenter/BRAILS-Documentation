@@ -108,7 +108,7 @@
 <li class="toctree-l3"><a class="reference internal" href="genericImageClassifier.html">Generic Image Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="roofClassifier.html">Roof Shape Classifier</a></li>
 <li class="toctree-l3"><a class="reference internal" href="occupancyClassifier.html">Occupancy Classifier</a></li>
-<li class="toctree-l3"><a class="reference internal" href="softstoryClassifier.html">Soft-story Building Classifier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nFloorDetector.html">Number of Floors Detector</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yearClassifier.html">Year Built Classification</a></li>
 <li class="toctree-l3"><a class="reference internal" href="foundationElevationClassifier.html">Raised Foundation Classification</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Garage Detector</a><ul>
@@ -117,7 +117,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="chimneyDetector.html">Chimney Detector</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nFloorDetector.html">Number of Floors Detector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="softstoryClassifier.html">Soft-story Building Classifier</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../workflow.html">4.3. Workflow</a></li>
@@ -285,12 +285,17 @@ garageDetector.train(compCoeff=7,numEpochs=50)
   
   
     
-    
-
-  <style>
-         .wy-nav-content { max-width: none; }
-  </style>
-
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
 
 
 </body>

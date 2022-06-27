@@ -341,12 +341,17 @@ The generated BIM file can be visulized in a GIS software, such as QGIS.</p>
   
   
     
-    
-
-  <style>
-         .wy-nav-content { max-width: none; }
-  </style>
-
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
 
 
 </body>

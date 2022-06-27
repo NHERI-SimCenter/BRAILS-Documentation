@@ -42,7 +42,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7. Bugs &amp; Feauture Requests" href="bugs.html" />
+    <link rel="next" title="7. Bugs &amp; Feature Requests" href="bugs.html" />
     <link rel="prev" title="5. Troubleshooting" href="troubleshooting.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
@@ -110,7 +110,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-3-workflow">6.3. Example 3: Workflow</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feature Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
@@ -326,7 +326,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="bugs.html" class="btn btn-neutral float-right" title="7. Bugs &amp; Feauture Requests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bugs.html" class="btn btn-neutral float-right" title="7. Bugs &amp; Feature Requests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="troubleshooting.html" class="btn btn-neutral float-left" title="5. Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
@@ -365,12 +365,17 @@
   
   
     
-    
-
-  <style>
-         .wy-nav-content { max-width: none; }
-  </style>
-
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
 
 
 </body>

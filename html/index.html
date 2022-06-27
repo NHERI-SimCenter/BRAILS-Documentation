@@ -104,7 +104,7 @@
 <li class="toctree-l1"><a class="reference internal" href="common/user_manual/userGuide.html">4. User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/user_manual/troubleshooting.html">5. Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/user_manual/examples.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">7. Bugs &amp; Feature Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/license.html">8. Copyright and License</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
@@ -196,7 +196,7 @@
 <li class="toctree-l1"><a class="reference internal" href="common/user_manual/userGuide.html">4. User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/user_manual/troubleshooting.html">5. Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/user_manual/examples.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">7. Bugs &amp; Feature Requests</a></li>
 <li class="toctree-l1"><a class="reference internal" href="common/license.html">8. Copyright and License</a></li>
 </ul>
 </div>
@@ -311,12 +311,17 @@
   
   
     
-    
-
-  <style>
-         .wy-nav-content { max-width: none; }
-  </style>
-
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
 
 
 </body>

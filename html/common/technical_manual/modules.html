@@ -192,8 +192,8 @@
 <li class="toctree-l2"><a class="reference internal" href="occupancy.html#dataset-2-compare-with-njdep-dataset">Dataset 2: Compare with NJDEP Dataset</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="softstory.html">2.3. Soft-story Building Classifier</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nfloor.html">2.4. Number of Floors Detector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="softstory.html">2.3. Soft-story Building Classifier</a></li>
 </ul>
 </div>
 </div>
@@ -239,12 +239,17 @@
   
   
     
-    
-
-  <style>
-         .wy-nav-content { max-width: none; }
-  </style>
-
+  
+ <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+</script>
 
 
 </body>
