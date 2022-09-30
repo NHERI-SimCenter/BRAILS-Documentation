@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>5. Troubleshooting &mdash; BRAILS 2.0 documentation</title>
+  <title>3. Troubleshooting &mdash; BRAILS 2.0.0 documentation</title>
   
 
   
@@ -15,6 +16,10 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -35,15 +40,18 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="6. Examples" href="examples.html" />
-    <link rel="prev" title="4.3. Workflow" href="workflow.html" />
+    <link rel="next" title="4. Examples" href="examples.html" />
+    <link rel="prev" title="2.2.10. Soft-story Building Classifier" href="modules/softstoryClassifier.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -97,20 +105,27 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../about/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgements.html">2. Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/license.html">3. Copyright and License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/cite.html">4. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/glossary.html">5. Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/abbreviations.html">6. Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/releasenotes.html">7. Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="acknowledgments.html">1. Acknowledgments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">2. About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">3. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="userGuide.html">4. User Guide</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Troubleshooting</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#installation">5.1. Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#internet-connection">5.2. Internet connection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userGuide.html">2. User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cuda-errors">3.1. CUDA Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-key-errors">3.2. API Key Errors</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bugs.html">7. Bugs &amp; Feauture Requests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">4. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bugs.html">5. Bugs &amp; Feature Requests</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
 <ul>
@@ -165,7 +180,7 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">5. </span>Troubleshooting</li>
+      <li><span class="section-number">3. </span>Troubleshooting</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -184,41 +199,44 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="troubleshooting">
-<span id="lbltroubleshooting"></span><h1><span class="section-number">5. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="installation">
-<h2><span class="section-number">5.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Windows users may experience difficulties because of two dependencies required: GDAL and Fiona.</p>
-<p>If you are a Conda user and you are installing BRAILS in the Conda environment, this is unlikely to happen.</p>
-<p>If you are not a Conda user, the solution is to download Fiona and GDAL’s wheel
-files (<a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a>) and manually install them.</p>
-<p>Make sure you choose the correct files based on your Python version.</p>
-<p>For example, if you are using Python3.8:</p>
+  <section id="troubleshooting">
+<span id="lbltroubleshooting"></span><h1><span class="section-number">3. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h1>
+<section id="cuda-errors">
+<h2><span class="section-number">3.1. </span>CUDA Errors<a class="headerlink" href="#cuda-errors" title="Permalink to this heading">¶</a></h2>
+<p>The most common type of error observed when running BRAILS is a CUDA runtime error. If you see an error message similar to the one below when BRAILS attempts to run a deep learning model, PyTorch detected an incompatibility between the PyTorch and CUDA versions installed on your system.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">RuntimeError: CUDA error: no kernel image is available for execution on the device</span>
+</pre></div>
+</div>
+<p>Installation instructions install the latest PyTorch version and the associated default CUDA version by default. If your computer is equipped with a graphics card (GPU) that does not support this default CUDA installation, you will need to reinstall PyTorch following the steps below.</p>
 <ol class="arabic">
-<li><p>Go to <a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pythonlibs/">https://www.lfd.uci.edu/~gohlke/pythonlibs/</a> and download these files:</p>
-<blockquote>
-<div><p>GDAL-3.1.4-cp38-cp38-win_amd64.whl</p>
-<p>Fiona-1.8.18-cp38-cp38-win_amd64.whl</p>
-</div></blockquote>
+<li><p>Uninstall PyTorch and Torchvision:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">uninstall</span> <span class="n">torch</span> <span class="n">torchvision</span>
+</pre></div>
+</div>
+</li>
+<li><p>Identify the highest CUDA version compatible with your GPU driver using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nvidia</span><span class="o">-</span><span class="n">smi</span>
+</pre></div>
+</div>
+<p>For example, in the sample output shown below, the GPU driver installed on this system supports CUDA versions up to 11.6 (highlighted in the red box).</p>
 </li>
 </ol>
-<blockquote>
-<div><p>here cp38 means python3.8.</p>
-</div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>pip install GDAL-3.1.4-cp38-cp38-win_amd64.whl</p></li>
-<li><p>pip install Fiona-1.8.18-cp38-cp38-win_amd64.whl</p></li>
+<a class="reference internal image-reference" href="../../_images/nvidia-smi_output.svg"><img alt="A sample output obtained after running the nvidia-smi command" class="align-center" src="../../_images/nvidia-smi_output.svg" width="60%" /></a>
+<ol class="arabic" start="3">
+<li><p>Determine the command for the PyTorch installation compatible with your CUDA version using the <a class="reference external" href="https://pytorch.org/get-started/locally/">PyTorch website</a> by selecting the operating system (OS) and CUDA version (as determined in Step 2) for your system. Please make sure to set the Package type and Language to <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">pip</a> and Python, respectively.</p>
+<p>The following example shows the command for installing PyTorch on a Linux system supporting CUDA versions up to 11.6.</p>
+</li>
 </ol>
-<p>Then you’ll be able to:</p>
-<p>pip3 install BRAILS</p>
-</div>
-<div class="section" id="internet-connection">
-<h2><span class="section-number">5.2. </span>Internet connection<a class="headerlink" href="#internet-connection" title="Permalink to this headline">¶</a></h2>
-<p>The trained models and accompanying datasets, when called the first time, need to be downloaded from the internet.</p>
-<p>Images also need to be downloaded during the running.</p>
-<p>Therefore, please make sure you are connected to the internet.</p>
-</div>
-</div>
+<a class="reference internal image-reference" href="../../_images/pytorch_install_command.svg"><img alt="Determining the pip install command for a Linux system supporting CUDA versions up to 11.6 using PyTorch website" class="align-center" src="../../_images/pytorch_install_command.svg" width="65%" /></a>
+<ol class="arabic simple" start="4">
+<li><p>Run the <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">pip</a> install command determined in Step 3. Please note that <code class="docutils literal notranslate"><span class="pre">torchaudio</span></code> is not required for running BRAILS, hence can be removed from this command.</p></li>
+</ol>
+</section>
+<section id="api-key-errors">
+<h2><span class="section-number">3.2. </span>API Key Errors<a class="headerlink" href="#api-key-errors" title="Permalink to this heading">¶</a></h2>
+<p>The trained models and accompanying datasets, when called the first time, need to be downloaded from the internet. Images also need to be downloaded during the running. Therefore, please make sure you are connected to the internet.</p>
+</section>
+</section>
 
 
            </div>
@@ -226,15 +244,15 @@ files (<a class="reference external" href="https://www.lfd.uci.edu/~gohlke/pytho
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="examples.html" class="btn btn-neutral float-right" title="6. Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="workflow.html" class="btn btn-neutral float-left" title="4.3. Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="examples.html" class="btn btn-neutral float-right" title="4. Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules/softstoryClassifier.html" class="btn btn-neutral float-left" title="2.2.10. Soft-story Building Classifier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, NHERI SimCenter.
+        &#169; Copyright 2022, The Regents of the University of California.
 
     </p>
   </div>

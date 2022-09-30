@@ -4,10 +4,11 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>1. Theory and Implementation &mdash; BRAILS 2.0 documentation</title>
+  <title>1. Theory and Implementation &mdash; BRAILS 2.0.0 documentation</title>
   
 
   
@@ -15,6 +16,10 @@
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/css/lightbox.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
 
   
@@ -35,7 +40,10 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+        <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -43,7 +51,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1.1. Framework" href="framework.html" />
-    <link rel="prev" title="8. Copyright and License" href="../license.html" />
+    <link rel="prev" title="5. Bugs &amp; Feature Requests" href="../user_manual/bugs.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -97,16 +105,23 @@
               
             
             
-              <p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+              <p class="caption" role="heading"><span class="caption-text">About</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../user_manual/acknowledgments.html">1. Acknowledgments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_manual/about.html">2. About</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_manual/installation.html">3. Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_manual/userGuide.html">4. User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_manual/troubleshooting.html">5. Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_manual/examples.html">6. Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_manual/bugs.html">7. Bugs &amp; Feauture Requests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../license.html">8. Copyright and License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/about.html">1. About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/acknowledgements.html">2. Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/license.html">3. Copyright and License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/cite.html">4. How to Cite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/glossary.html">5. Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/abbreviations.html">6. Abbreviations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about/releasenotes.html">7. Release Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/installation.html">1. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/userGuide.html">2. User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/troubleshooting.html">3. Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/examples.html">4. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_manual/bugs.html">5. Bugs &amp; Feature Requests</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical Manual</span></p>
 <ul class="current">
@@ -184,8 +199,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="theory-and-implementation">
-<span id="lbl-theory"></span><h1><span class="section-number">1. </span>Theory and Implementation<a class="headerlink" href="#theory-and-implementation" title="Permalink to this headline">¶</a></h1>
+  <section id="theory-and-implementation">
+<span id="lbl-theory"></span><h1><span class="section-number">1. </span>Theory and Implementation<a class="headerlink" href="#theory-and-implementation" title="Permalink to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="framework.html">1.1. Framework</a><ul>
@@ -203,7 +218,7 @@
 </li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>
@@ -212,14 +227,14 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="framework.html" class="btn btn-neutral float-right" title="1.1. Framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../license.html" class="btn btn-neutral float-left" title="8. Copyright and License" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../user_manual/bugs.html" class="btn btn-neutral float-left" title="5. Bugs &amp; Feature Requests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2021, NHERI SimCenter.
+        &#169; Copyright 2022, The Regents of the University of California.
 
     </p>
   </div>
