@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Occupancy classifier &mdash; BRAILS 2.0.0 documentation</title>
+  <title>Occupancy classifier &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -209,8 +207,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="occupancy-classifier">
-<span id="occupancytheory"></span><h1>Occupancy classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="occupancy-classifier">
+<span id="occupancytheory"></span><h1>Occupancy classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this headline">¶</a></h1>
 <p>Occupancy class is an important parameter for natural hazard risk analysis of a building.
 The occupancy model in the current version of BRAILS is trained on a dataset consists of residential buildings
 that are classified into three categories: single-family buildings (RES1),
@@ -224,39 +222,31 @@ multi-family buildings (RES3) and commercial buildings (COM). Data of other occu
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id3">
+<tr class="row-odd"><td><div class="figure align-default" id="id3">
 <img alt="../../_images/RES1.jpg" src="../../_images/RES1.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.2.8 </span><span class="caption-text">Single-Family Building</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 1.2.8 </span><span class="caption-text">Single-Family Building</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id4">
+<td><div class="figure align-default" id="id4">
 <img alt="../../_images/RES3.jpg" src="../../_images/RES3.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.2.9 </span><span class="caption-text">Multi-Family Building</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 1.2.9 </span><span class="caption-text">Multi-Family Building</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id5">
+<td><div class="figure align-default" id="id5">
 <img alt="../../_images/42915.jpg" src="../../_images/42915.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 1.2.10 </span><span class="caption-text">Commercial Building</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 1.2.10 </span><span class="caption-text">Commercial Building</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
 </td>
 </tr>
 </tbody>
 </table>
 <p>The classifier is trained using a 50-layer ResNet <span id="id1">[<a class="reference internal" href="framework.html#id69" title="Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition, 770–778. 2016.">HZRS16</a>]</span>, a widely used ConvNet architecture for images feature recognition.</p>
 <p>Its architecture is shown in <a class="reference internal" href="softstoryTheory.html#fig-resnet"><span class="std std-numref">Fig. 1.2.14</span></a>.</p>
-<figure class="align-default" id="id6">
+<div class="figure align-default" id="id6">
 <span id="fig-resnet"></span><a class="reference internal image-reference" href="../../_images/ResNet.png"><img alt="ResNet" src="../../_images/ResNet.png" style="width: 70%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 1.2.11 </span><span class="caption-text">ResNet</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
+<p class="caption"><span class="caption-number">Fig. 1.2.11 </span><span class="caption-text">ResNet</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 
 
            </div>

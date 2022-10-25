@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>3. Generalization &mdash; BRAILS 2.0.0 documentation</title>
+  <title>3. Generalization &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -194,8 +192,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="generalization">
-<span id="lbl-understand"></span><h1><span class="section-number">3. </span>Generalization<a class="headerlink" href="#generalization" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="generalization">
+<span id="lbl-understand"></span><h1><span class="section-number">3. </span>Generalization<a class="headerlink" href="#generalization" title="Permalink to this headline">¶</a></h1>
 <p>When applying the pre-trained models or training models with your own data,
 it is important to review the results for a sample of the data. This is
 because how well these models perform to new and unseen data depends on how similar they are to the training data. Generalization is a term used in machine learning to describe how well an algorithm performs with unseen data, and measures to make algorithms more generalizable remains an active research area.  In this section, we show an example to demonstrate that different training datasets can produce difference accuracies emphasizing how important it is to review sample results and retrain the models as necessary.</p>
@@ -216,12 +214,10 @@ because how well these models perform to new and unseen data depends on how simi
 </ul>
 <p>A ResNet50 model is trained on the training set and tested on the testing set following the procedure described in <a class="reference internal" href="../user_manual/modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">Occupancy Classifier</span></a>. We name this model, <strong>model-1</strong>. For each class the accuracy when classifying the images using OSM-2  was 100%, as shown in the confusion matrix <a class="reference internal" href="#fig-confusion-x-occupancy-osm"><span class="std std-numref">Fig. 3.1</span></a>.
 The performance is exceedingly high, indicating that the images were very similar.</p>
-<figure class="align-default" id="id1">
+<div class="figure align-default" id="id1">
 <span id="fig-confusion-x-occupancy-osm"></span><a class="reference internal image-reference" href="../../_images/confusion_occupancy_v1.png"><img alt="Confusion matrix occupancy class" src="../../_images/confusion_occupancy_v1.png" style="width: 40%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Confusion matrix (model-1 on OSM-2)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Confusion matrix (model-1 on OSM-2)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>We obtained another dataset as part of our Atlantic City testbed, from New Jersey Department of Environmental Protection (NJDEP). This dataset only covers buildings from New Jersey, in which each building’s occupancy type is labeled. Form this inventory consisting over XX buildings, two sample sets weere chosen:</p>
 <p>The first set (NJDEP-1) contains:</p>
 <ul class="simple">
@@ -237,29 +233,23 @@ The performance is exceedingly high, indicating that the images were very simila
 </ul>
 <p>We tested model-1 on the NJDEP-2 dataset. It’s performance is plotted in the confusion matrix <a class="reference internal" href="#fig-confusion-x-occupancy-njdep"><span class="std std-numref">Fig. 3.2</span></a>.
 The performance dropped significantly on this dataset.</p>
-<figure class="align-default" id="id2">
+<div class="figure align-default" id="id2">
 <span id="fig-confusion-x-occupancy-njdep"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_occupancy_njdep.png"><img alt="Confusion matrix occupancy class" src="../../_images/fig_confusion_occupancy_njdep.png" style="width: 40%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Confusion matrix (model-1 on NJDEP-2)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Confusion matrix (model-1 on NJDEP-2)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 <p>Later, another ResNet50 model (model-2) is trained on the combined dataset OSM-1 + NJDEP-1.
 The new model is tested on two datasets, OSM-2 and NJDEP-2, again.
 As shown in <a class="reference internal" href="#fig-confusion-x-occupancy-model2-osm2"><span class="std std-numref">Fig. 3.3</span></a> and <a class="reference internal" href="#fig-confusion-x-occupancy-model2-njdep2"><span class="std std-numref">Fig. 3.4</span></a>.
 The new models’ performance on the OSM-2 dataset drops a bit, while it improved significantly on the NJDEP-2 dataset.</p>
-<figure class="align-default" id="id3">
+<div class="figure align-default" id="id3">
 <span id="fig-confusion-x-occupancy-model2-osm2"></span><a class="reference internal image-reference" href="../../_images/confusion_occupancy_v2.png"><img alt="Confusion matrix occupancy class" src="../../_images/confusion_occupancy_v2.png" style="width: 40%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Confusion matrix (model-2 on OSM-2)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="id4">
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Confusion matrix (model-2 on OSM-2)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id4">
 <span id="fig-confusion-x-occupancy-model2-njdep2"></span><a class="reference internal image-reference" href="../../_images/fig_confusion_occupancy_njdep_v2.png"><img alt="Confusion matrix occupancy class" src="../../_images/fig_confusion_occupancy_njdep_v2.png" style="width: 40%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Confusion matrix (model-2 on NJDEP-2)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
+<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Confusion matrix (model-2 on NJDEP-2)</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 
 
            </div>

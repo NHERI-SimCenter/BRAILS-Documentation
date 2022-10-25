@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.10. Soft-story Building Classifier &mdash; BRAILS 2.0.0 documentation</title>
+  <title>2.2.10. Soft-story Building Classifier &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -219,14 +217,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="soft-story-building-classifier">
-<span id="lbl-softstoryclassifier"></span><h1><span class="section-number">2.2.10. </span>Soft-story Building Classifier<a class="headerlink" href="#soft-story-building-classifier" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="soft-story-building-classifier">
+<span id="lbl-softstoryclassifier"></span><h1><span class="section-number">2.2.10. </span>Soft-story Building Classifier<a class="headerlink" href="#soft-story-building-classifier" title="Permalink to this headline">¶</a></h1>
 <p>The Soft-story Building Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module.</p>
 <p>The module is shipped with BRAILS,
 so you don’t have to install it standalone if you’ve installed BRAILS following the <a class="reference internal" href="../installation.html#lbl-install"><span class="std std-ref">Installation</span></a> instruction.</p>
 <p>It takes a list of street view images of buildings as the input, and classify the buildings into two categories: soft-story building and  other building.</p>
-<section id="use-the-module">
-<h2><span class="section-number">2.2.10.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="use-the-module">
+<h2><span class="section-number">2.2.10.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
 <p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
 <p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
 <p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4562949/files/image_examples.zip">here</a>.</p>
@@ -257,19 +255,15 @@ Results written in file softstory_preds.csv
 <col style="width: 50%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id1">
+<tr class="row-odd"><td><div class="figure align-default" id="id1">
 <img alt="../../../_images/3110.jpg" src="../../../_images/3110.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.14 </span><span class="caption-text">image_examples/Softstory/Others/3110.jpg Non-Soft-story Building</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.14 </span><span class="caption-text">image_examples/Softstory/Others/3110.jpg Non-Soft-story Building</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id2">
+<td><div class="figure align-default" id="id2">
 <img alt="../../../_images/901.jpg" src="../../../_images/901.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.15 </span><span class="caption-text">image_examples/Softstory/Softstory/901.jpg Soft-story Building</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.15 </span><span class="caption-text">image_examples/Softstory/Softstory/901.jpg Soft-story Building</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 </td>
 </tr>
 </tbody>
@@ -280,9 +274,9 @@ Results written in file softstory_preds.csv
 Since the classifier is trained to classify only a specific category of images,
 its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
 </div>
-</section>
-<section id="retrain-the-model">
-<h2><span class="section-number">2.2.10.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="retrain-the-model">
+<h2><span class="section-number">2.2.10.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this headline">¶</a></h2>
 <p>You can retrain the existing model with your own data.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Load images from a folder
 ssModel.loadData(&#39;folder-of-images&#39;)
@@ -297,8 +291,8 @@ predictions = ssModel.predict(imgs)
 ssModel.save(&#39;myCoolNewModelv0.1&#39;)
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

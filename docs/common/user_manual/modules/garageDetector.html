@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.8. Garage Detector &mdash; BRAILS 2.0.0 documentation</title>
+  <title>2.2.8. Garage Detector &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -219,12 +217,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="garage-detector">
-<span id="lbl-garagedetector"></span><h1><span class="section-number">2.2.8. </span>Garage Detector<a class="headerlink" href="#garage-detector" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="garage-detector">
+<span id="lbl-garagedetector"></span><h1><span class="section-number">2.2.8. </span>Garage Detector<a class="headerlink" href="#garage-detector" title="Permalink to this headline">¶</a></h1>
 <p>The module is bundled with BRAILS, hence its use does not require a separate installation if BRAILS was installed following the <a class="reference internal" href="../installation.html#lbl-install"><span class="std std-ref">Installation</span></a> instructions.</p>
 <p>This module enables automated detection of existence of garages or carpool in or next to a building from image input. It takes the directory for an image or folder of images as input and writes the existence of garages in each image into a CSV file. As the module is developed for performing predictions on only street-level building imagery, meaningful model outputs for other classes of images shall not be expected.</p>
-<section id="use-the-module">
-<h2><span class="section-number">2.2.8.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="use-the-module">
+<h2><span class="section-number">2.2.8.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Import the module
 from brails.modules import GarageDetector
 
@@ -243,17 +241,17 @@ garageDetector.load_train_data(rootDir=&quot;datasets/&quot;)
 garageDetector.train(compCoeff=7,numEpochs=50)
 </pre></div>
 </div>
-</section>
-<section id="garage-detection-using-object-detection">
-<h2><span class="section-number">2.2.8.2. </span>Garage detection using Object Detection<a class="headerlink" href="#garage-detection-using-object-detection" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="garage-detection-using-object-detection">
+<h2><span class="section-number">2.2.8.2. </span>Garage detection using Object Detection<a class="headerlink" href="#garage-detection-using-object-detection" title="Permalink to this headline">¶</a></h2>
 <p>The garage detections performed by this module are based on image-based detections of garages visible in street-level images. The current pretrained model that comes with this module was trained on the  <a class="reference external" href="https://arxiv.org/abs/1911.09070">EfficientDet-D4 architecture</a> using a dataset of 1,887 building images retrieved from California, New Jersey, and Louisiana. 80%, 10%, and 10% of the samples in dataset were used for training, validation, and testing, respectively. All three sets were formed to be disjoint from each other to eliminate data contamination. In training the model, to ensure faster model convergence, initial weights of the model were set to model weights of the (pretrained) object detection model that, at the time, achieved state-of-the-art performance on the 2017 COCO Detection set. For this specific implementation, the peak model performance was achieved using the Adam optimizer at a learning rate of 0.0001 (batch size: 2) after 50 epochs. Figure <code class="xref std std-numref docutils literal notranslate"><span class="pre">_fig_GarageDetections</span></code> shows examples of garage detections performed by the model.</p>
-<figure class="align-default" id="fig-garagedetections">
+<div class="figure align-default" id="fig-garagedetections">
 <a class="reference internal image-reference" href="../../../_images/sampleGarageDetections.gif"><img alt="Sample garage detections" src="../../../_images/sampleGarageDetections.gif" style="width: 70%;" /></a>
-</figure>
+</div>
 <p>Sample garage detections of the pretrained model provided with this module, shown by bright green bounding boxes. The percentage value shown on the top right corner of each bounding box indicates the model’s confidence level associated with that prediction.</p>
 <p>For a given image, the described garage detection model generates the bounding box output for its detections and calculates the confidence level associated with each detection. A post-processor that converts bounding boxes detections into garage existence information is provided as a part of this module. Recognizing an image may contain more than one building at a time, this post-processor is capable of detecting garages for multiple building instances in an input image.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

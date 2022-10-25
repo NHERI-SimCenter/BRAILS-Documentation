@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.4. Occupancy Classifier &mdash; BRAILS 2.0.0 documentation</title>
+  <title>2.2.4. Occupancy Classifier &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -219,8 +217,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="occupancy-classifier">
-<span id="lbl-occupancyclassifier"></span><h1><span class="section-number">2.2.4. </span>Occupancy Classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="occupancy-classifier">
+<span id="lbl-occupancyclassifier"></span><h1><span class="section-number">2.2.4. </span>Occupancy Classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this headline">¶</a></h1>
 <p>The Occupancy Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module. It’s purpose is to label a building based on occupancy class. The occupancy classifier takes a list of street view images as the input and will classify the building into one of three categories: RES1, RES3, COM1.</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -242,8 +240,8 @@
 Since the classifier is trained to classify only a specific category of images,
 its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
 </div>
-<section id="use-the-module">
-<h2><span class="section-number">2.2.4.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="use-the-module">
+<h2><span class="section-number">2.2.4.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
 <p>Suppose you had a number of images in a folder named image_examples/Occupancy.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -256,26 +254,20 @@ its prediction is meaningful only if the input image belongs to the category the
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id1">
+<tr class="row-odd"><td><div class="figure align-default" id="id1">
 <img alt="../../../_images/36887.jpg" src="../../../_images/36887.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.7 </span><span class="caption-text">Single-family Building (36887.png)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.7 </span><span class="caption-text">Single-family Building (36887.png)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id2">
+<td><div class="figure align-default" id="id2">
 <img alt="../../../_images/37902.jpg" src="../../../_images/37902.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.8 </span><span class="caption-text">Multi-family Building (37902.jpg)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.8 </span><span class="caption-text">Multi-family Building (37902.jpg)</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id3">
+<td><div class="figure align-default" id="id3">
 <img alt="../../../_images/42915.jpg" src="../../../_images/42915.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.9 </span><span class="caption-text">Commercial Building (42915.jpg)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.9 </span><span class="caption-text">Commercial Building (42915.jpg)</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 </td>
 </tr>
 </tbody>
@@ -317,9 +309,9 @@ Results written in file tmp/occupancy_preds.csv
 <li><p>As will be shown in <a class="reference internal" href="../../technical_manual/understand.html#lbl-understand"><span class="std std-ref">Generalization</span></a>, it is important to review sample results and possible retrain the model yourself.</p></li>
 </ol>
 </div>
-</section>
-<section id="retrain-the-model">
-<h2><span class="section-number">2.2.4.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="retrain-the-model">
+<h2><span class="section-number">2.2.4.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this headline">¶</a></h2>
 <p>You can retrain the existing model with your own data. To do so, you would place each of your labeled images (images of type .png) into one three seperate folders.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_occupancy_images
 │── RES1
@@ -360,8 +352,8 @@ imgs = [&#39;image_examples/Occupancy/RES1/36887.jpg&#39;,
 predictions = occupancyModel.predict(imgs)
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

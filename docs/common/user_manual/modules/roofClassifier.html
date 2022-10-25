@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.3. Roof Shape Classifier &mdash; BRAILS 2.0.0 documentation</title>
+  <title>2.2.3. Roof Shape Classifier &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -219,8 +217,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="roof-shape-classifier">
-<span id="lbl-roofclassifier"></span><h1><span class="section-number">2.2.3. </span>Roof Shape Classifier<a class="headerlink" href="#roof-shape-classifier" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="roof-shape-classifier">
+<span id="lbl-roofclassifier"></span><h1><span class="section-number">2.2.3. </span>Roof Shape Classifier<a class="headerlink" href="#roof-shape-classifier" title="Permalink to this headline">¶</a></h1>
 <p>The Roof Shape Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module. It’s purpose is to classify the roof shape of a building.  The roof classifier takes a list of satellite images as the input and will classify the roof type into one of three categories: gabled, hipped, and flat.</p>
 <span id="roof-types"></span><table class="docutils align-default" id="id1">
 <caption><span class="caption-number">Table 2.2.1 </span><span class="caption-text">Roof prototypes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
@@ -230,26 +228,20 @@
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id2">
+<tr class="row-odd"><td><div class="figure align-default" id="id2">
 <img alt="../../../_images/flat.jpg" src="../../../_images/flat.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.1 </span><span class="caption-text">Flat</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.1 </span><span class="caption-text">Flat</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id3">
+<td><div class="figure align-default" id="id3">
 <img alt="../../../_images/gable.jpg" src="../../../_images/gable.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">Gabled</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">Gabled</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id4">
+<td><div class="figure align-default" id="id4">
 <img alt="../../../_images/hip.jpg" src="../../../_images/hip.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.3 </span><span class="caption-text">Hipped</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.3 </span><span class="caption-text">Hipped</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 </td>
 </tr>
 </tbody>
@@ -267,8 +259,8 @@
 Since the classifier is trained to classify only a specific category of images,
 its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
 </div>
-<section id="use-the-module">
-<h2><span class="section-number">2.2.3.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="use-the-module">
+<h2><span class="section-number">2.2.3.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
 <p>Suppose you had a number of images in a folder named image_examples/Roof.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -277,26 +269,20 @@ its prediction is meaningful only if the input image belongs to the category the
 <col style="width: 33%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id5">
+<tr class="row-odd"><td><div class="figure align-default" id="id5">
 <img alt="../../../_images/76.png" src="../../../_images/76.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.4 </span><span class="caption-text">image_examples/Roof/gabled/76.png Gabled</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.4 </span><span class="caption-text">image_examples/Roof/gabled/76.png Gabled</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id6">
+<td><div class="figure align-default" id="id6">
 <img alt="../../../_images/54.png" src="../../../_images/54.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.5 </span><span class="caption-text">image_examples/Roof/hipped/54.png  Hipped</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.5 </span><span class="caption-text">image_examples/Roof/hipped/54.png  Hipped</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id7">
+<td><div class="figure align-default" id="id7">
 <img alt="../../../_images/94.png" src="../../../_images/94.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.6 </span><span class="caption-text">image_examples/Roof/flat/94.png  Flat</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.6 </span><span class="caption-text">image_examples/Roof/flat/94.png  Flat</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
 </td>
 </tr>
 </tbody>
@@ -337,9 +323,9 @@ Results written in file roofType_preds.csv
 <li><p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4562949/files/image_examples.zip">Zenodo</a>.</p></li>
 </ol>
 </div>
-</section>
-<section id="retrain-the-model">
-<h2><span class="section-number">2.2.3.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="retrain-the-model">
+<h2><span class="section-number">2.2.3.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this headline">¶</a></h2>
 <p>You can retrain the existing model with your own data. To do so, you would place each of your labeled images (images of type .png) into one three seperate folders.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_roof_shapes
 │── flat
@@ -380,8 +366,8 @@ imgs = [&#39;image_examples/Roof/gabled/76.png&#39;,
 predictions = roofModel.predict(imgs)
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

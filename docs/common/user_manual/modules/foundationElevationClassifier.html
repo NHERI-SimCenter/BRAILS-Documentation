@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.7. Raised Foundation Classification &mdash; BRAILS 2.0.0 documentation</title>
+  <title>2.2.7. Raised Foundation Classification &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -219,15 +217,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="raised-foundation-classification">
-<span id="lbl-foundationelevationclassifier"></span><h1><span class="section-number">2.2.7. </span>Raised Foundation Classification<a class="headerlink" href="#raised-foundation-classification" title="Permalink to this heading">¶</a></h1>
-<section id="what-is-raised-foundation-classification">
-<h2><span class="section-number">2.2.7.1. </span>What is Raised Foundation Classification<a class="headerlink" href="#what-is-raised-foundation-classification" title="Permalink to this heading">¶</a></h2>
+  <div class="section" id="raised-foundation-classification">
+<span id="lbl-foundationelevationclassifier"></span><h1><span class="section-number">2.2.7. </span>Raised Foundation Classification<a class="headerlink" href="#raised-foundation-classification" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-raised-foundation-classification">
+<h2><span class="section-number">2.2.7.1. </span>What is Raised Foundation Classification<a class="headerlink" href="#what-is-raised-foundation-classification" title="Permalink to this headline">¶</a></h2>
 <p>The code in this package enables to see if a building is elevated on piles piers or posts (PPP).</p>
 <p>For classification, the path of a folder holding the images has to be supplied. The result will be a comma separated value file in that folder, listing the filenames, classification (1: elevated, 0: not elevated), and the confidence of the prediction.</p>
-</section>
-<section id="use-the-module">
-<h2><span class="section-number">2.2.7.2. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="use-the-module">
+<h2><span class="section-number">2.2.7.2. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
 <p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
 <p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
 <p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4562949/files/image_examples.zip">here</a>.</p>
@@ -262,33 +260,25 @@ Results written in file tmp/FoundationElevation.csv
 <col style="width: 25%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><figure class="align-default" id="id2">
+<tr class="row-odd"><td><div class="figure align-default" id="id2">
 <img alt="../../../_images/a.jpg" src="../../../_images/a.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.10 </span><span class="caption-text">Elevated</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.10 </span><span class="caption-text">Elevated</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id3">
+<td><div class="figure align-default" id="id3">
 <img alt="../../../_images/b.jpg" src="../../../_images/b.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.11 </span><span class="caption-text">Elevated</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.11 </span><span class="caption-text">Elevated</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id4">
+<td><div class="figure align-default" id="id4">
 <img alt="../../../_images/c.jpg" src="../../../_images/c.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.12 </span><span class="caption-text">Not Elevated</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.12 </span><span class="caption-text">Not Elevated</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
 </td>
-<td><figure class="align-default" id="id5">
+<td><div class="figure align-default" id="id5">
 <img alt="../../../_images/d.jpg" src="../../../_images/d.jpg" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.2.13 </span><span class="caption-text">Not Elevated</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2.2.13 </span><span class="caption-text">Not Elevated</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
 </td>
 </tr>
 </tbody>
@@ -303,8 +293,8 @@ More details about the training, modification, improvement of this module can be
 Since the classifier is trained to classify only a specific category of images,
 its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

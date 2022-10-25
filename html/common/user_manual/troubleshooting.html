@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>3. Troubleshooting &mdash; BRAILS 2.0.0 documentation</title>
+  <title>3. Troubleshooting &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -199,10 +197,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="troubleshooting">
-<span id="lbltroubleshooting"></span><h1><span class="section-number">3. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h1>
-<section id="cuda-errors">
-<h2><span class="section-number">3.1. </span>CUDA Errors<a class="headerlink" href="#cuda-errors" title="Permalink to this heading">¶</a></h2>
+  <div class="section" id="troubleshooting">
+<span id="lbltroubleshooting"></span><h1><span class="section-number">3. </span>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cuda-errors">
+<h2><span class="section-number">3.1. </span>CUDA Errors<a class="headerlink" href="#cuda-errors" title="Permalink to this headline">¶</a></h2>
 <p>The most common type of error observed when running BRAILS is a CUDA runtime error. If you see an error message similar to the one below when BRAILS attempts to run a deep learning model, PyTorch detected an incompatibility between the PyTorch and CUDA versions installed on your system.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">RuntimeError: CUDA error: no kernel image is available for execution on the device</span>
 </pre></div>
@@ -231,12 +229,12 @@
 <ol class="arabic simple" start="4">
 <li><p>Run the <a class="reference external" href="https://pip.pypa.io/en/stable/installation/">pip</a> install command determined in Step 3. Please note that <code class="docutils literal notranslate"><span class="pre">torchaudio</span></code> is not required for running BRAILS, hence can be removed from this command.</p></li>
 </ol>
-</section>
-<section id="api-key-errors">
-<h2><span class="section-number">3.2. </span>API Key Errors<a class="headerlink" href="#api-key-errors" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="api-key-errors">
+<h2><span class="section-number">3.2. </span>API Key Errors<a class="headerlink" href="#api-key-errors" title="Permalink to this headline">¶</a></h2>
 <p>The trained models and accompanying datasets, when called the first time, need to be downloaded from the internet. Images also need to be downloaded during the running. Therefore, please make sure you are connected to the internet.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

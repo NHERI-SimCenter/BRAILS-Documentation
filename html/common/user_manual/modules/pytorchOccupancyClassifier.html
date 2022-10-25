@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>PyTorch Occupancy Classifier &mdash; BRAILS 2.0.0 documentation</title>
+  <title>PyTorch Occupancy Classifier &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -193,8 +191,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="pytorch-occupancy-classifier">
-<span id="lbl-pytorchoccupancyclassifier"></span><h1>PyTorch Occupancy Classifier<a class="headerlink" href="#pytorch-occupancy-classifier" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="pytorch-occupancy-classifier">
+<span id="lbl-pytorchoccupancyclassifier"></span><h1>PyTorch Occupancy Classifier<a class="headerlink" href="#pytorch-occupancy-classifier" title="Permalink to this headline">¶</a></h1>
 <p>The PyTorch Occupancy Image Classifier is a subclass of PyTorch generic image classifier. It can be used for inference and fine-tuning.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
@@ -252,12 +250,12 @@
 </li>
 </ol>
 </div>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>This class implements an occupancy classifier which is a subsclass of Pytorch generic classifier. It will download the pretrained model for inference. It can also be used for fine-tuning the pre-trained model if training data is provided.</p>
-</section>
-<section id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>The following is an example, in which an occupancy classifier is created.</p>
 <p>The image dataset for this example contains street view images categorized according to occupancy.</p>
 <p>The dataset can be downloaded <a class="reference external" href="https://zenodo.org/record/6502302/files/occupancy_val.zip">here</a>.</p>
@@ -269,9 +267,9 @@
 |      └── *.jpg
 </pre></div>
 </div>
-</section>
-<section id="construct-the-image-classifier">
-<h2>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="construct-the-image-classifier">
+<h2>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
 
 from brails.modules.PytorchOccupancyClassClassifier.OccupancyClassifier import PytorchOccupancyClassifier
@@ -281,9 +279,9 @@ from brails.modules.PytorchOccupancyClassClassifier.OccupancyClassifier import P
 occupancyClassifier = PytorchOccupancyClassifier(modelName=&#39;transformer_occupancy_v1&#39;, download=True)
 </pre></div>
 </div>
-</section>
-<section id="classify-images-based-on-model">
-<h2>Classify Images Based on Model<a class="headerlink" href="#classify-images-based-on-model" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="classify-images-based-on-model">
+<h2>Classify Images Based on Model<a class="headerlink" href="#classify-images-based-on-model" title="Permalink to this headline">¶</a></h2>
 <p>Now you can use the trained model to predict the (occupancy) class for a given image.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> # If you are running the inference from another place, you need to initialize the classifier firstly:
 
@@ -300,9 +298,9 @@ from brails.modules.PytorchOccupancyClassClassifier.OccupancyClassifier import P
 </pre></div>
 </div>
 <p>The predictions will be written in preds.csv under the working directory.</p>
-</section>
-<section id="fine-tune-the-model-for-transfer-learning-transfer-learning-is-a-technique-to-overcome-the-distribution-shift-and-adapt-the-model-for-the-new-task-https-ftp-cs-wisc-edu-machine-learning-shavlik-group-torrey-handbook09-pdf-you-need-to-provide-the-training-data">
-<h2>Fine-tune the model for transfer learning. Transfer learning is a technique to overcome the distribution shift and adapt the model for the new task (<a class="reference external" href="https://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf">https://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf</a>). You need to provide the training data.<a class="headerlink" href="#fine-tune-the-model-for-transfer-learning-transfer-learning-is-a-technique-to-overcome-the-distribution-shift-and-adapt-the-model-for-the-new-task-https-ftp-cs-wisc-edu-machine-learning-shavlik-group-torrey-handbook09-pdf-you-need-to-provide-the-training-data" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="fine-tune-the-model-for-transfer-learning-transfer-learning-is-a-technique-to-overcome-the-distribution-shift-and-adapt-the-model-for-the-new-task-https-ftp-cs-wisc-edu-machine-learning-shavlik-group-torrey-handbook09-pdf-you-need-to-provide-the-training-data">
+<h2>Fine-tune the model for transfer learning. Transfer learning is a technique to overcome the distribution shift and adapt the model for the new task (<a class="reference external" href="https://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf">https://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf</a>). You need to provide the training data.<a class="headerlink" href="#fine-tune-the-model-for-transfer-learning-transfer-learning-is-a-technique-to-overcome-the-distribution-shift-and-adapt-the-model-for-the-new-task-https-ftp-cs-wisc-edu-machine-learning-shavlik-group-torrey-handbook09-pdf-you-need-to-provide-the-training-data" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from brails.modules.PytorchOccupancyClassClassifier.OccupancyClassifier import PytorchOccupancyClassifier
 
 occupancyClassifier = PytorchOccupancyClassifier(modelName=&#39;transformer_occupancy_v1&#39;, download=True,  imgDir=&#39;./occupancy_val/)
@@ -315,8 +313,8 @@ occupancyClassifier.fine_tuning(lr=0.01, batch_size=64, epochs=5)
 </div>
 <p>It is recommended to run the above example on a GPU machine.</p>
 <p>Please refer to <a class="reference external" href="https://github.com/rwightman/pytorch-image-models">https://github.com/rwightman/pytorch-image-models</a> for supported models. You may need to first install timm via pip: pip install timm. Currently, BRAILS only provides pre-trained roof type model based on Transformer.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

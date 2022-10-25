@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Enhance the data &mdash; BRAILS 2.0.0 documentation</title>
+  <title>Enhance the data &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -193,14 +191,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="enhance-the-data">
-<span id="lbl-enhance"></span><h1>Enhance the data<a class="headerlink" href="#enhance-the-data" title="Permalink to this heading">¶</a></h1>
-<figure class="align-default" id="id1">
+  <div class="section" id="enhance-the-data">
+<span id="lbl-enhance"></span><h1>Enhance the data<a class="headerlink" href="#enhance-the-data" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="id1">
 <a class="reference internal image-reference" href="common/images/enhance.gif"><img alt="BRAILS" src="common/images/enhance.gif" style="width: 700px;" /></a>
-<figcaption>
-<p><span class="caption-text">Data enhancement</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-text">Data enhancement</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 <p>To enhance the initial database, use <a class="reference external" href="https://github.com/charlesxwang/SURF">SURF</a> to predict missing building information.</p>
 <p>For more information about <em>SURF</em>, read its <a class="reference external" href="https://nheri-simcenter.github.io/SURF/">documentation</a>.</p>
 <p>To install <em>SURF</em>, run the following command in the terminal:</p>
@@ -216,31 +212,23 @@
 <p>After the running of the enhance script above, a new geojson file containing BIMs for the city will be generated.
 The missing values in the initial database are now filled with predicted values.</p>
 <p>The following figures show the prediction errors for four building properties: year built, number of stories, structure type, occupancy.</p>
-<figure class="align-center" id="id2">
+<div class="align-center figure" id="id2">
 <a class="reference internal image-reference" href="common/images/yearBuilt-prediction-error.png"><img alt="common/images/yearBuilt-prediction-error.png" src="common/images/yearBuilt-prediction-error.png" style="width: 700px;" /></a>
-<figcaption>
-<p><span class="caption-text">Prediction error of year built</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id3">
+<p class="caption"><span class="caption-text">Prediction error of year built</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id3">
 <a class="reference internal image-reference" href="common/images/stories_Predictions_classification_error.png"><img alt="common/images/stories_Predictions_classification_error.png" src="common/images/stories_Predictions_classification_error.png" style="width: 700px;" /></a>
-<figcaption>
-<p><span class="caption-text">Prediction error of number of stories</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id4">
+<p class="caption"><span class="caption-text">Prediction error of number of stories</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id4">
 <a class="reference internal image-reference" href="common/images/structureType_Predictions_classification_error.png"><img alt="common/images/structureType_Predictions_classification_error.png" src="common/images/structureType_Predictions_classification_error.png" style="width: 700px;" /></a>
-<figcaption>
-<p><span class="caption-text">Prediction error of structure type</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-<figure class="align-center" id="id5">
+<p class="caption"><span class="caption-text">Prediction error of structure type</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id5">
 <a class="reference internal image-reference" href="common/images/occupancy_Predictions_classification_error.png"><img alt="common/images/occupancy_Predictions_classification_error.png" src="common/images/occupancy_Predictions_classification_error.png" style="width: 700px;" /></a>
-<figcaption>
-<p><span class="caption-text">Prediction error of occupancy</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
+<p class="caption"><span class="caption-text">Prediction error of occupancy</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 
 
            </div>

@@ -4,11 +4,10 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.1. Generic Image Classifier &mdash; BRAILS 2.0.0 documentation</title>
+  <title>2.2.1. Generic Image Classifier &mdash; BRAILS 3.0.0 documentation</title>
   
 
   
@@ -40,7 +39,6 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -222,8 +220,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <section id="generic-image-classifier">
-<span id="lbl-genericimageclassifier"></span><h1><span class="section-number">2.2.1. </span>Generic Image Classifier<a class="headerlink" href="#generic-image-classifier" title="Permalink to this heading">¶</a></h1>
+  <div class="section" id="generic-image-classifier">
+<span id="lbl-genericimageclassifier"></span><h1><span class="section-number">2.2.1. </span>Generic Image Classifier<a class="headerlink" href="#generic-image-classifier" title="Permalink to this headline">¶</a></h1>
 <p>The Generic Image Classifier is a class that can be used for creating user defined classifier.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
@@ -279,12 +277,12 @@
 </ol>
 </div></blockquote>
 </div>
-<section id="decription">
-<h2><span class="section-number">2.2.1.1. </span>Decription<a class="headerlink" href="#decription" title="Permalink to this heading">¶</a></h2>
+<div class="section" id="decription">
+<h2><span class="section-number">2.2.1.1. </span>Decription<a class="headerlink" href="#decription" title="Permalink to this headline">¶</a></h2>
 <p>This class implements the abstraction of an image classifier, it can be first used to train the classifier and save the data needed by the classifier locally. Once trained, the classifier can be used to predict the class of each image given a set of images. The user provides categorized images to the classifier so that it can be initially trained.</p>
-</section>
-<section id="example">
-<h2><span class="section-number">2.2.1.2. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="example">
+<h2><span class="section-number">2.2.1.2. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>The following is an example, in which a classifier is created and trained.</p>
 <p>The image dataset for this example contains street view images categorized according to construction materials.</p>
 <p>The dataset can be downloaded <a class="reference external" href="https://zenodo.org/record/4416845/files/building_materials.zip">here</a>.</p>
@@ -300,9 +298,9 @@
        └── *.png
 </pre></div>
 </div>
-</section>
-<section id="construct-the-image-classifier">
-<h2><span class="section-number">2.2.1.3. </span>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="construct-the-image-classifier">
+<h2><span class="section-number">2.2.1.3. </span>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
 from brails.modules import ImageClassifier
 
@@ -313,9 +311,9 @@ materialClassifier = ImageClassifier(modelName=&#39;materialClassifierV0.1&#39;)
 materialClassifier.loadData(&#39;building_materials&#39;)
 </pre></div>
 </div>
-</section>
-<section id="train-the-model">
-<h2><span class="section-number">2.2.1.4. </span>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="train-the-model">
+<h2><span class="section-number">2.2.1.4. </span>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># train the base model for 50 epochs and then fine tune for 200 epochs
 materialClassifier.train(baseModel=&#39;InceptionV3&#39;, initial_epochs=50,fine_tune_epochs=200)
 </pre></div>
@@ -350,9 +348,9 @@ materialClassifier.train(baseModel=&#39;InceptionV3&#39;, initial_epochs=50,fine
 &#39;EfficientNetB7&#39;
 </pre></div>
 </div>
-</section>
-<section id="classify-images-based-on-model">
-<h2><span class="section-number">2.2.1.5. </span>Classify Images Based on Model<a class="headerlink" href="#classify-images-based-on-model" title="Permalink to this heading">¶</a></h2>
+</div>
+<div class="section" id="classify-images-based-on-model">
+<h2><span class="section-number">2.2.1.5. </span>Classify Images Based on Model<a class="headerlink" href="#classify-images-based-on-model" title="Permalink to this headline">¶</a></h2>
 <p>Now you can use the trained model to predict the (building materials) class for a given image.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># If you are running the inference from another place, you need to initialize the classifier firstly:
 from brails.GenericImageClassifier import ImageClassifier
@@ -375,8 +373,8 @@ The classifier takes an image as the input and will always produce a prediction.
 Since the classifier is trained to classify only a specific category of images, its prediction is meaningful only if
 the input image belongs to the category the model is trained for.</p>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
