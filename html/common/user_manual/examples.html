@@ -201,21 +201,20 @@
 <span id="lbl-examples"></span><h1><span class="section-number">4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="example-1-inventory-generator">
 <h2><span class="section-number">4.1. </span>Example 1: Inventory Generator<a class="headerlink" href="#example-1-inventory-generator" title="Permalink to this headline">¶</a></h2>
-<p>This code snippet shows you how to use BRAILS to generate a building inventory for a area. You provide the town, in this case Tiburon, CA, the number of buildings to sample from the town (remember it will start to cost you money to download images from Google), and a Google Maps API key. The code when it runs will print the inventory and also produce an inventory file, inventory.csv.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>
-<span class="linenos"> 2</span><span class="kn">from</span> <span class="nn">brails.InventoryGenerator</span> <span class="kn">import</span> <span class="n">InventoryGenerator</span>
-<span class="linenos"> 3</span>
-<span class="linenos"> 4</span><span class="c1"># Initialize InventoryGenerator:</span>
-<span class="linenos"> 5</span><span class="n">invGenerator</span> <span class="o">=</span> <span class="n">InventoryGenerator</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="s1">&#39;San Rafael, CA&#39;</span><span class="p">,</span>
-<span class="linenos"> 6</span>                                  <span class="n">nbldgs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">randomSelection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span class="linenos"> 7</span>                                  <span class="n">GoogleAPIKey</span><span class="o">=</span><span class="s2">&quot;PRIVIDE_YOUR_KEY&quot;</span><span class="p">)</span>
-<span class="linenos"> 8</span>
-<span class="linenos"> 9</span><span class="c1"># Run InventoryGenerator to generate an inventory for the entered location:</span>
-<span class="linenos">10</span><span class="c1"># To run InventoryGenerator for all enabled attributes set attributes=&#39;all&#39;:</span>
-<span class="linenos">11</span><span class="n">invGenerator</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;numstories&#39;</span><span class="p">,</span><span class="s1">&#39;roofshape&#39;</span><span class="p">,</span><span class="s1">&#39;buildingheight&#39;</span><span class="p">])</span>
-<span class="linenos">12</span>
-<span class="linenos">13</span><span class="c1"># View generated inventory:</span>
-<span class="linenos">14</span><span class="n">invGenerator</span><span class="o">.</span><span class="n">inventory</span>
+<p>This code snippet shows you how to use BRAILS InventoryGenerator module to generate a building inventory for an area. You provide the town, in this case San Rafael, CA, the number of buildings to sample from the town (remember it will start to cost you money to download images from Google and thus the nblgs option on line 6), and a Google Maps API key (line 7). The code when it runs will print the inventory and also produce an inventory file, inventory.csv.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">brails.InventoryGenerator</span> <span class="kn">import</span> <span class="n">InventoryGenerator</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1"># Initialize InventoryGenerator:</span>
+<span class="linenos"> 4</span><span class="n">invGenerator</span> <span class="o">=</span> <span class="n">InventoryGenerator</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="s1">&#39;San Rafael, CA&#39;</span><span class="p">,</span>
+<span class="linenos"> 5</span>                                  <span class="n">nbldgs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">randomSelection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos"> 6</span>                                  <span class="n">GoogleAPIKey</span><span class="o">=</span><span class="s2">&quot;PRIVIDE_YOUR_KEY&quot;</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># Run InventoryGenerator to generate an inventory for the entered location:</span>
+<span class="linenos"> 9</span><span class="c1"># To run InventoryGenerator for all enabled attributes set attributes=&#39;all&#39;:</span>
+<span class="linenos">10</span><span class="n">invGenerator</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;numstories&#39;</span><span class="p">,</span><span class="s1">&#39;roofshape&#39;</span><span class="p">,</span><span class="s1">&#39;buildingheight&#39;</span><span class="p">])</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># View generated inventory:</span>
+<span class="linenos">13</span><span class="n">invGenerator</span><span class="o">.</span><span class="n">inventory</span>
 </pre></div>
 </div>
 <p>The inventory.csv file will look something like the following:</p>
@@ -246,47 +245,65 @@
 <p class="admonition-title">Warning</p>
 <blockquote>
 <div><ol class="arabic simple">
-<li><p>The code when it runs will place additional data in the tmp folder. Additional data will include the trained modules and images downloaded from the www. In the images folder it will download images for the roofshapes and place them in “tmp/images/satellite” folder, and other images for calculating the heights will bee placed placed in the “tmp/images/street folder”. These are required to run example 2.</p></li>
-<li><p>You need to replace the text PROVIDE_YOUR_KEY with your oogle API key. The examples will fail otherwisee. Instructions on obtaining your Google API key can be found here: <a class="reference external" href="https://developers.google.com/maps/documentation/embed/get-api-key">https://developers.google.com/maps/documentation/embed/get-api-key</a>.</p></li>
+<li><p>You need to replace the text on line 7 “PROVIDE_YOUR_KEY” with your Google API key. The examples will fail otherwise. Instructions on obtaining your Google API key can be found here: <a class="reference external" href="https://developers.google.com/maps/documentation/embed/get-api-key">https://developers.google.com/maps/documentation/embed/get-api-key</a>.</p></li>
+<li><p>The code when it runs will place additional data in the tmp folder. Additional data will include the trained models (which might take awhile the first time you run the example) and images downloaded from the www, which are placed in “tmp/images” folder.  In the images folder the script will download images for the roofshapes and place them in “tmp/images/satellite” folder&gt; It will download other images for calculating the building heights and number of stories, which will be placed placed in the “tmp/images/street” folder. These folders are required to run Example 2, and this example will create and populate these folder with images.</p></li>
 </ol>
 </div></blockquote>
-<ol class="arabic simple" start="2">
-<li><p>For the classifiers, it is important to pretrain with local data first to get decent results.</p></li>
+<ol class="arabic simple" start="3">
+<li><p>For the classifiers, it is important to retrain a trained model with local data first to get decent results. How to do this will be shown in an upcoming example, Example 3.</p></li>
 </ol>
 </div>
 </div>
 <div class="section" id="example-2-modules">
 <h2><span class="section-number">4.2. </span>Example 2: Modules<a class="headerlink" href="#example-2-modules" title="Permalink to this headline">¶</a></h2>
-<p>This second example will use specific modules within BRAILS to label a set of images. For this example it assumes images are located in the current folder in the “tmp/images/satellite” and “tmp/images/street”. If this example is run after running Example 1, it will use the images already there.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">brails</span><span class="p">;</span>
-<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">os</span><span class="p">;</span>
-<span class="linenos"> 3</span><span class="kn">import</span> <span class="nn">glob</span><span class="p">;</span>
-<span class="linenos"> 4</span>
-<span class="linenos"> 5</span><span class="n">pwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<p>This second example will use specific modules within BRAILS to label a set of images. For this example it assumes images are located in two folders in the tmp folder, which is located in the current folder. These folders are “tmp/images/satellite” and “tmp/images/street”. Note: If this example is run after running Example 1, it will use the images already there.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">brails.modules</span> <span class="kn">import</span> <span class="n">PytorchRoofClassifier</span><span class="p">,</span> <span class="n">PytorchOccupancyClassifier</span>
+<span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">glob</span><span class="p">;</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># initilize a roof classifier</span>
+<span class="linenos"> 5</span><span class="n">roofModel</span> <span class="o">=</span> <span class="n">PytorchRoofClassifier</span><span class="p">()</span>
 <span class="linenos"> 6</span>
-<span class="linenos"> 7</span><span class="kn">from</span> <span class="nn">brails.modules</span> <span class="kn">import</span> <span class="n">PytorchRoofClassifier</span><span class="p">,</span> <span class="n">PytorchOccupancyClassifier</span>
-<span class="linenos"> 8</span>
-<span class="linenos"> 9</span><span class="c1"># initilize a roof classifier</span>
-<span class="linenos">10</span><span class="n">roofModel</span> <span class="o">=</span> <span class="n">PytorchRoofClassifier</span><span class="p">()</span>
-<span class="linenos">11</span>
-<span class="linenos">12</span><span class="c1"># initilize an occupancy classifier</span>
-<span class="linenos">13</span><span class="n">occupancyModel</span> <span class="o">=</span> <span class="n">PytorchOccupancyClassifier</span><span class="p">()</span>
-<span class="linenos">14</span>
-<span class="linenos">15</span><span class="c1"># use the roof classifier</span>
-<span class="linenos">16</span><span class="n">imgs</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;tmp/images/satellite/*&#39;</span><span class="p">)</span>
-<span class="linenos">17</span><span class="n">predictions</span> <span class="o">=</span> <span class="n">roofModel</span><span class="o">.</span><span class="n">predictMultipleImages</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
-<span class="linenos">18</span>
-<span class="linenos">19</span><span class="c1"># use the occupancy classifier</span>
-<span class="linenos">20</span><span class="n">imgs</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;tmp/images/street/*&#39;</span><span class="p">)</span>
-<span class="linenos">21</span><span class="n">predictions</span> <span class="o">=</span> <span class="n">occupancyModel</span><span class="o">.</span><span class="n">predictMultipleImages</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
+<span class="linenos"> 7</span><span class="c1"># initilize an occupancy classifier</span>
+<span class="linenos"> 8</span><span class="n">occupancyModel</span> <span class="o">=</span> <span class="n">PytorchOccupancyClassifier</span><span class="p">()</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="c1"># use the roof classifier</span>
+<span class="linenos">11</span><span class="n">imgs</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;tmp/images/satellite/*&#39;</span><span class="p">)</span>
+<span class="linenos">12</span><span class="n">predictions</span> <span class="o">=</span> <span class="n">roofModel</span><span class="o">.</span><span class="n">predictMultipleImages</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># use the occupancy classifier</span>
+<span class="linenos">15</span><span class="n">imgs</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;tmp/images/street/*&#39;</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">predictions</span> <span class="o">=</span> <span class="n">occupancyModel</span><span class="o">.</span><span class="n">predictMultipleImages</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>When the example runs, two files will be created containg the information deduced for each module.</p>
+<p>When the example runs, two files will be created in the tmp folder, Occupancy_preds.csv and roofType_preds.csv, containing the information deduced by each module for the particular images. The roofType_preds.csv file for the sample of buildings obtained from my running of Example 1 results in the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="n">image</span><span class="p">,</span><span class="n">prediction</span><span class="p">,</span><span class="n">probability</span>
+<span class="linenos"> 2</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">8.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">0.7034066319465637</span>
+<span class="linenos"> 3</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">9.</span><span class="n">png</span><span class="p">,</span><span class="n">gabled</span><span class="p">,</span><span class="mf">0.9944261312484741</span>
+<span class="linenos"> 4</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">14.</span><span class="n">png</span><span class="p">,</span><span class="n">hipped</span><span class="p">,</span><span class="mf">0.8674657344818115</span>
+<span class="linenos"> 5</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">15.</span><span class="n">png</span><span class="p">,</span><span class="n">gabled</span><span class="p">,</span><span class="mf">0.9547117352485657</span>
+<span class="linenos"> 6</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">17.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">0.7297888994216919</span>
+<span class="linenos"> 7</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">16.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="linenos"> 8</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">12.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">0.9999819993972778</span>
+<span class="linenos"> 9</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">13.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="linenos">10</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">11.</span><span class="n">png</span><span class="p">,</span><span class="n">hipped</span><span class="p">,</span><span class="mf">0.9999932050704956</span>
+<span class="linenos">11</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">10.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="linenos">12</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">18.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">0.9999996423721313</span>
+<span class="linenos">13</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">19.</span><span class="n">png</span><span class="p">,</span><span class="n">gabled</span><span class="p">,</span><span class="mf">0.9999415874481201</span>
+<span class="linenos">14</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">4.</span><span class="n">png</span><span class="p">,</span><span class="n">gabled</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="linenos">15</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">5.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="linenos">16</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">7.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">0.999996542930603</span>
+<span class="linenos">17</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">6.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">0.999998927116394</span>
+<span class="linenos">18</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">2.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">1.0</span>
+<span class="linenos">19</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">3.</span><span class="n">png</span><span class="p">,</span><span class="n">gabled</span><span class="p">,</span><span class="mf">0.8481845259666443</span>
+<span class="linenos">20</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">1.</span><span class="n">png</span><span class="p">,</span><span class="n">hipped</span><span class="p">,</span><span class="mf">0.9998082518577576</span>
+<span class="linenos">21</span><span class="n">tmp</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="n">satellite</span><span class="o">/</span><span class="mf">0.</span><span class="n">png</span><span class="p">,</span><span class="n">flat</span><span class="p">,</span><span class="mf">1.0</span>
+</pre></div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ol class="arabic simple">
 <li><p>This example assumes images exist in the tmp/images/satellite and tmp/images/street folders. If you ran example 1, data will exist in these folders.</p></li>
-<li><p>As for example 1, for the classifiers it is important to pretrain with local data first to get decent results.</p></li>
+<li><p>As mentioned in Example 1, for the classifiers it is important to retrain with local data first to get decent results. The steps to do this will be demonstrated in an upcomng Example 3.</p></li>
 </ol>
 </div>
 </div>
