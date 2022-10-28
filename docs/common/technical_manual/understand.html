@@ -196,8 +196,11 @@
 <span id="lbl-understand"></span><h1><span class="section-number">3. </span>Generalization<a class="headerlink" href="#generalization" title="Permalink to this headline">¶</a></h1>
 <p>When applying the pre-trained models or training models with your own data,
 it is important to review the results for a sample of the data. This is
-because how well these models perform to new and unseen data depends on how similar they are to the training data. Generalization is a term used in machine learning to describe how well an algorithm performs with unseen data, and measures to make algorithms more generalizable remains an active research area.  In this section, we show an example to demonstrate that different training datasets can produce difference accuracies emphasizing how important it is to review sample results and retrain the models as necessary.</p>
-<p>We will demonstrate this through the example of our <a class="reference internal" href="../user_manual/modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">Occupancy Classifier</span></a>, which is a classifier to predict the occupancy type of a building given the street view image of the building.</p>
+because how well these models perform to new and unseen data depends on how similar they are to the training data.
+Generalization of machine learning models remains an active research area.
+Users should exercise cautions when the modules are used beyond their intended purposes and trained model ability.</p>
+<p>In this section, we show an example to demonstrate that different training datasets can produce difference accuracies and how important it is to review sample results and retrain the models as necessary.</p>
+<p>We will demonstrate this through the example of our Occupancy classifier, <a class="reference internal" href="../user_manual/modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">Occupancy Classifier</span></a>, which is a classifier to predict the occupancy type of a building given the street view image of the building.</p>
 <p>The original training for this classifier was performed using OpenSeesMap (OSM). From  we collected images from random records of the United Sates building ineventory which had their from occupancy type labelled.  These labels include ‘detached’, ‘apartment’, and ‘commercial’. We renamed the labels to be consistent with the HAZUS naming system: ‘RES1’, ‘RES3’, ‘COM’, which was needed for our testbed. For each building a street view image was then downloaded from Google Street Maps. Buildings that were not clearly visible in the street view image were ignored.</p>
 <p>The image set was then split into a training and a testing set.</p>
 <p>The training set (OSM-1) included:</p>
@@ -212,13 +215,13 @@ because how well these models perform to new and unseen data depends on how simi
 <li><p>97 RES3</p></li>
 <li><p>98 COM</p></li>
 </ul>
-<p>A ResNet50 model is trained on the training set and tested on the testing set following the procedure described in <a class="reference internal" href="../user_manual/modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">Occupancy Classifier</span></a>. We name this model, <strong>model-1</strong>. For each class the accuracy when classifying the images using OSM-2  was 100%, as shown in the confusion matrix <a class="reference internal" href="#fig-confusion-x-occupancy-osm"><span class="std std-numref">Fig. 3.1</span></a>.
-The performance is exceedingly high, indicating that the images were very similar.</p>
+<p>A ResNet50 model (model-1) is trained on the training set and tested on the testing set following the procedure described in <a class="reference internal" href="../user_manual/modules/occupancyClassifier.html#lbl-occupancyclassifier"><span class="std std-ref">Occupancy Classifier</span></a>. For each class the accuracy is 100%, as shown in the confusion matrix <a class="reference internal" href="#fig-confusion-x-occupancy-osm"><span class="std std-numref">Fig. 3.1</span></a>.</p>
 <div class="figure align-default" id="id1">
 <span id="fig-confusion-x-occupancy-osm"></span><a class="reference internal image-reference" href="../../_images/confusion_occupancy_v1.png"><img alt="Confusion matrix occupancy class" src="../../_images/confusion_occupancy_v1.png" style="width: 40%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Confusion matrix (model-1 on OSM-2)</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
-<p>We obtained another dataset as part of our Atlantic City testbed, from New Jersey Department of Environmental Protection (NJDEP). This dataset only covers buildings from New Jersey, in which each building’s occupancy type is labeled. Form this inventory consisting over XX buildings, two sample sets weere chosen:</p>
+<p>The performance is very high on the OSM testing set.</p>
+<p>We further obtained another dataset from New Jersey Department of Environmental Protection (NJDEP). This dataset only covers buildings from New Jersey, in which each building’s occupancy type is labeled. Form this inventory consisting over XX buildings, two sample sets weere chosen:</p>
 <p>The first set (NJDEP-1) contains:</p>
 <ul class="simple">
 <li><p>4,999 RES1</p></li>
