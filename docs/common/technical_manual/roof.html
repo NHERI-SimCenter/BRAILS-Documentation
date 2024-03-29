@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.1. Roof Classifier &mdash; BRAILS 3.0.0 documentation</title>
+  <title>2.1. Roof Classifier &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -206,10 +207,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="roof-classifier">
-<span id="lbl-roofclassifier-vnv"></span><h1><span class="section-number">2.1. </span>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-roofclassifier-vnv"></span><h1><span class="section-number">2.1. </span>Roof Classifier<a class="headerlink" href="#roof-classifier" title="Permalink to this heading">¶</a></h1>
 <p>The Roof Classifier’s methodology has been presented in <a class="reference internal" href="roofTheory.html#rooftheory"><span class="std std-ref">Roof type classifier</span></a>, and examples showing how to use it can be found in <a class="reference internal" href="../user_manual/modules/roofClassifier.html#lbl-roofclassifier"><span class="std std-ref">Roof Shape Classifier</span></a>. This section presents its validation against two datasets.</p>
 <div class="section" id="dataset-1-compare-with-openstreetmap-labels">
-<h2>Dataset 1: Compare with OpenStreetMap Labels<a class="headerlink" href="#dataset-1-compare-with-openstreetmap-labels" title="Permalink to this headline">¶</a></h2>
+<h2>Dataset 1: Compare with OpenStreetMap Labels<a class="headerlink" href="#dataset-1-compare-with-openstreetmap-labels" title="Permalink to this heading">¶</a></h2>
 <p>The trained classifier is first tested on a ground truth dataset that can be downloaded from <a class="reference external" href="http://doi.org/10.5281/zenodo.4520781">Zenodo</a>. This data set was obtained by randomly selecting from OpenStreetMap a series of buildings for which a <cite>roof:shape</cite> entry existed and it was one of: hipped, flat or gabled. Some options in <a class="reference external" href="https://wiki.openstreetmap.org/wiki/Key:roof:shape">Open Street Maps</a>  include: gambrel, pyramidal skillion, half-hipped, gambrel, dome, onion, round, sailbox. The google map API was then used to download satellite images of these buildings. From the downloaded images, images for which no roof was visible were removed, examples of removed images are as shown in <a class="reference internal" href="#random-roof-empty"><span class="std std-numref">Table 2.1.4</span></a>.</p>
 <span id="random-roof-empty"></span><table class="docutils align-default" id="id2">
 <caption><span class="caption-number">Table 2.1.4 </span><span class="caption-text">Images removed from the test dataset</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
@@ -323,7 +324,7 @@
 </div>
 </div>
 <div class="section" id="dataset-2-compare-with-steer-hurricane-laura-dataset">
-<h2>Dataset 2: Compare with StEER Hurricane Laura Dataset<a class="headerlink" href="#dataset-2-compare-with-steer-hurricane-laura-dataset" title="Permalink to this headline">¶</a></h2>
+<h2>Dataset 2: Compare with StEER Hurricane Laura Dataset<a class="headerlink" href="#dataset-2-compare-with-steer-hurricane-laura-dataset" title="Permalink to this heading">¶</a></h2>
 <p>The second validation dataset was obtained from <a class="reference external" href="https://www.steer.network/">StEER</a>.
 From StEER, we obtained a list of addresses with their roof types labelled.
 For each address, we downloaded an satellite image from Google Maps Static API.</p>
@@ -457,7 +458,7 @@ The StEER labels include the following classes:</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

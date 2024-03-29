@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.2. PyTorch Image Classifier &mdash; BRAILS 3.0.0 documentation</title>
+  <title>2.2.2. PyTorch Image Classifier &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -221,7 +222,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="pytorch-image-classifier">
-<span id="lbl-pytorchimageclassifier"></span><h1><span class="section-number">2.2.2. </span>PyTorch Image Classifier<a class="headerlink" href="#pytorch-image-classifier" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-pytorchimageclassifier"></span><h1><span class="section-number">2.2.2. </span>PyTorch Image Classifier<a class="headerlink" href="#pytorch-image-classifier" title="Permalink to this heading">¶</a></h1>
 <p>The PyTorch Generic Image Classifier is a class that can be used for creating user defined classifier. It can be used for training and evaluating the model. The users can directly use the pre-trained model for making predictions or the users can fine-tune the pre-trained model with additional training data. The pre-trained model provides a good test accuracy (97.31% for rooftpye classification) if the test data come from the same distribution as the training data. However, it is recommended that the users should fine-tune the pre-trained model due to the out-of-distribution generalization issue of neural networks (<a class="reference external" href="https://arxiv.org/pdf/1903.12261.pdf">https://arxiv.org/pdf/1903.12261.pdf</a>).</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
@@ -277,11 +278,11 @@
 </ol>
 </div>
 <div class="section" id="description">
-<h2><span class="section-number">2.2.2.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.2.1. </span>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>This class implements the abstraction of an image classifier implemented based on PyTorch, it can be first used to train the classifier. Once trained, the classifier can be used to predict the class of each image given a set of images. This class can also be used to load a pre-trained model to make predictions. The loaded pre-trained model can be fine-tuned with provided images to overcome the out-of-distribution generalization issue of neural networks.</p>
 </div>
 <div class="section" id="example">
-<h2><span class="section-number">2.2.2.2. </span>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.2.2. </span>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
 <p>The following is an example, in which a classifier is created and trained.</p>
 <p>The image dataset for this example contains satellite images categorized according to roof type.</p>
 <p>The dataset can be downloaded <a class="reference external" href="https://zenodo.org/record/6231341/files/roofType.zip">here</a>.</p>
@@ -299,7 +300,7 @@
 </div>
 </div>
 <div class="section" id="construct-the-image-classifier">
-<h2><span class="section-number">2.2.2.3. </span>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.2.3. </span>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
 from brails.modules import PytorchImageClassifier
 
@@ -309,7 +310,7 @@ roofClassifier = PytorchImageClassifier(modelName=&#39;rooftype_resnet18_v1&#39;
 </div>
 </div>
 <div class="section" id="fine-tune-the-model">
-<h2><span class="section-number">2.2.2.4. </span>Fine-tune the model<a class="headerlink" href="#fine-tune-the-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.2.4. </span>Fine-tune the model<a class="headerlink" href="#fine-tune-the-model" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Fine the base model for 5 epochs with an initial learning rate of 0.01.
 
 roofClassifier.fine_tuning(lr=0.001, batch_size=64, epochs=5)
@@ -319,7 +320,7 @@ roofClassifier.fine_tuning(lr=0.001, batch_size=64, epochs=5)
 <p>Please refer to <a class="reference external" href="https://github.com/rwightman/pytorch-image-models">https://github.com/rwightman/pytorch-image-models</a> for supported models. You may need to first install timm via pip: pip install timm.</p>
 </div>
 <div class="section" id="classify-images-based-on-the-model">
-<h2><span class="section-number">2.2.2.5. </span>Classify Images Based on the Model<a class="headerlink" href="#classify-images-based-on-the-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.2.5. </span>Classify Images Based on the Model<a class="headerlink" href="#classify-images-based-on-the-model" title="Permalink to this heading">¶</a></h2>
 <p>Now you can use the trained model to predict the (roofType) class for a given image.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># If you are running the inference from another place, you need to initialize the classifier firstly:
 
@@ -360,7 +361,7 @@ the input image belongs to the categories the model is trained for.</p>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

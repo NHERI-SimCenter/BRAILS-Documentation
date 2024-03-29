@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>4. Examples &mdash; BRAILS 3.0.0 documentation</title>
+  <title>4. Examples &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -199,11 +200,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="examples">
-<span id="lbl-examples"></span><h1><span class="section-number">4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-examples"></span><h1><span class="section-number">4. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="example-1-inventory-generation-using-brails">
-<h2><span class="section-number">4.1. </span>Example 1: Inventory Generation Using BRAILS<a class="headerlink" href="#example-1-inventory-generation-using-brails" title="Permalink to this headline">¶</a></h2>
-<p>This example shows you how to use the BRAILS InventoryGenerator workflow to obtain the building inventory for an area. At the minimum, <code class="code python docutils literal notranslate"><span class="name"><span class="pre">InventoryGenerator</span></span></code> requires the user to provide location information and a Google API key using <code class="code python docutils literal notranslate"><span class="name"><span class="pre">location</span></span></code> and <code class="code python docutils literal notranslate"><span class="name"><span class="pre">GoogleAPIKey</span></span></code> input parameters. Each time <code class="code python docutils literal notranslate"><span class="name"><span class="pre">InventoryGenerator</span></span></code> is executed, it will use Google APIs to access satellite and street-level imagery of the buildings in the defined area. Given that accessing these images requires using Google credits, it is advised to experiment with <code class="code python docutils literal notranslate"><span class="name"><span class="pre">InventoryGenerator</span></span></code> for a few buildings using the <code class="code python docutils literal notranslate"><span class="name"><span class="pre">nbldgs</span></span></code> input parameter.</p>
-<p>The code snippet below runs <code class="code python docutils literal notranslate"><span class="name"><span class="pre">InventoryGenerator</span></span></code> for San Rafael, CA, and obtains the number of floors, roof shape, and building height information for a randomly selected 20 buildings from this area. Once the code is executed, it prints the obtained inventory and saves it in an inventory file titled inventory.csv in the directory the code is executed.</p>
+<h2><span class="section-number">4.1. </span>Example 1: Inventory Generation Using BRAILS<a class="headerlink" href="#example-1-inventory-generation-using-brails" title="Permalink to this heading">¶</a></h2>
+<p>This example shows you how to use the BRAILS InventoryGenerator workflow to obtain the building inventory for an area. At the minimum, <code class="code highlight python docutils literal highlight-python"><span class="n">InventoryGenerator</span></code> requires the user to provide location information and a Google API key using <code class="code highlight python docutils literal highlight-python"><span class="n">location</span></code> and <code class="code highlight python docutils literal highlight-python"><span class="n">GoogleAPIKey</span></code> input parameters. Each time <code class="code highlight python docutils literal highlight-python"><span class="n">InventoryGenerator</span></code> is executed, it will use Google APIs to access satellite and street-level imagery of the buildings in the defined area. Given that accessing these images requires using Google credits, it is advised to experiment with <code class="code highlight python docutils literal highlight-python"><span class="n">InventoryGenerator</span></code> for a few buildings using the <code class="code highlight python docutils literal highlight-python"><span class="n">nbldgs</span></code> input parameter.</p>
+<p>The code snippet below runs <code class="code highlight python docutils literal highlight-python"><span class="n">InventoryGenerator</span></code> for San Rafael, CA, and obtains the number of floors, roof shape, and building height information for a randomly selected 20 buildings from this area. Once the code is executed, it prints the obtained inventory and saves it in an inventory file titled inventory.csv in the directory the code is executed.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">brails.InventoryGenerator</span> <span class="kn">import</span> <span class="n">InventoryGenerator</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="c1"># Initialize InventoryGenerator:</span>
@@ -219,7 +220,7 @@
 <span class="linenos">13</span><span class="n">invGenerator</span><span class="o">.</span><span class="n">inventory</span>
 </pre></div>
 </div>
-<p>The contents of inventory.csv file will appear as follows. Given <code class="code python docutils literal notranslate"><span class="name"><span class="pre">randomSelection</span></span></code> was set to <code class="code python docutils literal notranslate"><span class="keyword constant"><span class="pre">True</span></span></code>, it is expected that the information stored in inventory.csv will be different each time this code is executed.</p>
+<p>The contents of inventory.csv file will appear as follows. Given <code class="code highlight python docutils literal highlight-python"><span class="n">randomSelection</span></code> was set to <code class="code highlight python docutils literal highlight-python"><span class="kc">True</span></code>, it is expected that the information stored in inventory.csv will be different each time this code is executed.</p>
 <div class="highlight-csv notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>footprint,nstories,buildingheight,roofshape
 <span class="linenos"> 2</span>&quot;POLYGON ((-122.5259147 37.9248895, -122.5258144 37.9248847, -122.5258197 37.9248163, -122.5258415 37.9248174, -122.5258465 37.9247523, -122.5259084 37.9247553, -122.5259072 37.9247703, -122.5259239 37.9247711, -122.5259147 37.9248895))&quot;,2,53.1,Flat
 <span class="linenos"> 3</span>&quot;POLYGON ((-122.5307269 37.9267442, -122.5306426 37.9266658, -122.5305552 37.9267052, -122.5305798 37.9267415, -122.5304688 37.926789, -122.5305144 37.9268474, -122.5307269 37.9267442))&quot;,2,52.8,Hip
@@ -237,13 +238,13 @@
 <p class="admonition-title">Warning</p>
 <ol class="arabic simple">
 <li><p>To successfully run this example, you need to replace the text on line 6 “PROVIDE_YOUR_KEY” with your Google API key. Instructions on obtaining a Google API key can be found here: <a class="reference external" href="https://developers.google.com/maps/documentation/embed/get-api-key">https://developers.google.com/maps/documentation/embed/get-api-key</a>. BRAILS uses Maps Static API and Street View Static API to access satellite and street-level imagery, so please make sure to enable these APIs with your Google API key.</p></li>
-<li><p>Once the code is executed, it will create tmp folder in the directory it is executed. This folder will contain the pretrained BRAILS models (which may take a moment to download the first time you run the example) in “tmp/models” and images accessed from Google APIs in “tmp/images” folder. <code class="code python docutils literal notranslate"><span class="name"><span class="pre">InventoryGenerator</span></span></code> will download satellite images for the roof shapes and place them in “tmp/images/satellite” folder. It will download street-level images for calculating the building heights and number of stories and save them in the “tmp/images/street” folder. The folders for satellite and street-level imagery are required to run Example 2.</p></li>
+<li><p>Once the code is executed, it will create tmp folder in the directory it is executed. This folder will contain the pretrained BRAILS models (which may take a moment to download the first time you run the example) in “tmp/models” and images accessed from Google APIs in “tmp/images” folder. <code class="code highlight python docutils literal highlight-python"><span class="n">InventoryGenerator</span></code> will download satellite images for the roof shapes and place them in “tmp/images/satellite” folder. It will download street-level images for calculating the building heights and number of stories and save them in the “tmp/images/street” folder. The folders for satellite and street-level imagery are required to run Example 2.</p></li>
 <li><p>For best results with BRAILS classification models, it is essential to retrain a pretrained model with data specific to the region for which inventory information is required. The procedure for retraining existing BRAILS modules is discussed in Example 3.</p></li>
 </ol>
 </div>
 </div>
 <div class="section" id="example-2-calling-individual-modules-of-brails">
-<h2><span class="section-number">4.2. </span>Example 2: Calling Individual Modules of BRAILS<a class="headerlink" href="#example-2-calling-individual-modules-of-brails" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Example 2: Calling Individual Modules of BRAILS<a class="headerlink" href="#example-2-calling-individual-modules-of-brails" title="Permalink to this heading">¶</a></h2>
 <p>This example demonstrates the use of specific modules within BRAILS to predict certain building attributes from a provided set of images. The code below assumes that the folders of images on which the inferences will be performed, i.e., “tmp/images/satellite” and “tmp/images/street”, are located in the directory where this code is executed. If this example is run after Example 1, these images will already be located in the specified directories.</p>
 <p>The following code runs BRAILS roof shape and occupancy type prediction modules for satellite and street-level imagery located in “tmp/images/satellite” and “tmp/images/street” folders.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">brails.modules</span> <span class="kn">import</span> <span class="n">PytorchRoofClassifier</span><span class="p">,</span> <span class="n">PytorchOccupancyClassifier</span>
@@ -287,8 +288,8 @@
 </div>
 </div>
 <div class="section" id="example-3-retraining-existing-modules-of-brails">
-<h2><span class="section-number">4.3. </span>Example 3: Retraining Existing Modules of BRAILS<a class="headerlink" href="#example-3-retraining-existing-modules-of-brails" title="Permalink to this headline">¶</a></h2>
-<p>This example shows the steps required to retrain an existing BRAILS module using a user-provided training dataset. The script below illustrates this process for BRAILS roof shape classifier module only, but the same steps are applicable to all other BRAILS modules.</p>
+<h2><span class="section-number">4.3. </span>Example 3: Retraining Existing Modules of BRAILS<a class="headerlink" href="#example-3-retraining-existing-modules-of-brails" title="Permalink to this heading">¶</a></h2>
+<p>This example shows the steps required to retrain an existing BRAILS module using a user-provided training dataset. The script below illustrates this process for BRAILS roof shape classifier module only, but the same steps are applicable to all other BRAILS modules. In this specific implementation, the roof classifier model is retrained for a learning rate (<code class="code highlight python docutils literal highlight-python"><span class="n">lr</span></code>) of 0.001, batch size of 64 (<code class="code highlight python docutils literal highlight-python"><span class="n">batch_size</span></code>), and the number of epochs of 5 (<code class="code highlight python docutils literal highlight-python"><span class="n">epochs</span></code>). These input parameters are training hyperparameters that may depend on the application. At the minimum, retraining a deep learning module typically requires more epochs than in this example.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span> <span class="nn">brails.modules</span> <span class="kn">import</span> <span class="n">PytorchRoofClassifier</span><span class="p">,</span> <span class="n">PytorchOccupancyClassifier</span>
 <span class="linenos"> 2</span><span class="kn">import</span> <span class="nn">glob</span>
 <span class="linenos"> 3</span>
@@ -306,7 +307,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <ol class="arabic simple">
-<li><p>This example assumes that the user has the training data stored in a folder name roofType in the directory where this code is executed. If the training data is stored elsewhere, please change the input for <code class="code python docutils literal notranslate"><span class="name"><span class="pre">imgDir</span></span></code> accordingly.</p></li>
+<li><p>This example assumes that the user has the training data stored in a folder name roofType in the directory where this code is executed. If the training data is stored elsewhere, please change the input for <code class="code highlight python docutils literal highlight-python"><span class="n">imgDir</span></code> accordingly.</p></li>
 <li><p>BRAILS, by default, expects the training data folder to contain three subfolders named flat, gabled, and hipped, with the images for each category saved under their respective folder.</p></li>
 </ol>
 </div>
@@ -327,7 +328,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

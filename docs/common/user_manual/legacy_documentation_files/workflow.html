@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Workflow &mdash; BRAILS 3.0.0 documentation</title>
+  <title>Workflow &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -192,7 +193,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="workflow">
-<span id="lbl-workflow-tutorial"></span><h1>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-workflow-tutorial"></span><h1>Workflow<a class="headerlink" href="#workflow" title="Permalink to this heading">¶</a></h1>
 <p>The workflow is designed to facilitate the creation of regional building inventories.</p>
 <p>It is implemented in a class, CityBuilder.</p>
 <blockquote>
@@ -252,7 +253,7 @@
 </dd>
 </dl>
 <div class="section" id="specify-attributes-to-be-collected">
-<h2>Specify attributes to be collected<a class="headerlink" href="#specify-attributes-to-be-collected" title="Permalink to this headline">¶</a></h2>
+<h2>Specify attributes to be collected<a class="headerlink" href="#specify-attributes-to-be-collected" title="Permalink to this heading">¶</a></h2>
 <p>Use the key ‘attributes’ to specify a list of attributes you intend to collect for each building.
 Available ones in the current version include:
 [‘roofshape’,
@@ -272,7 +273,7 @@ These attributes will be inferred from images using specific <a class="reference
 </ul>
 </div>
 <div class="section" id="limit-the-number-of-buildings-to-be-collected">
-<span id="limitthenumber"></span><h2>Limit the number of buildings to be collected<a class="headerlink" href="#limit-the-number-of-buildings-to-be-collected" title="Permalink to this headline">¶</a></h2>
+<span id="limitthenumber"></span><h2>Limit the number of buildings to be collected<a class="headerlink" href="#limit-the-number-of-buildings-to-be-collected" title="Permalink to this heading">¶</a></h2>
 <p>The workflow will download a street view image and a satellite view image for each building.
 The images are downloaded from Google Maps using  your personal <a class="reference external" href="https://developers.google.com/maps/documentation/embed/get-api-key">Google API Keys</a>.
 The price of the API calls can be found <a class="reference external" href="https://cloud.google.com/maps-platform/pricing">here</a>.
@@ -281,25 +282,25 @@ Each Google account has $200 free monthly usage. Exceeding that limit will resul
 <p>You can use the key ‘numBldg’ to limit the number of buildings to be generated.</p>
 </div>
 <div class="section" id="control-the-selection-randomness">
-<h2>Control the selection randomness<a class="headerlink" href="#control-the-selection-randomness" title="Permalink to this headline">¶</a></h2>
+<h2>Control the selection randomness<a class="headerlink" href="#control-the-selection-randomness" title="Permalink to this heading">¶</a></h2>
 <p>In a region, numBldg of buildings will be generated.
 You can use the key ‘random’ to specify if you want to randomly select numBldg buildings from the database.
 If its value is False, BIM will be generated for the first numBldg buildings found in the footprint database.</p>
 </div>
 <div class="section" id="define-the-region-of-interest">
-<h2>Define the region of interest<a class="headerlink" href="#define-the-region-of-interest" title="Permalink to this headline">¶</a></h2>
+<h2>Define the region of interest<a class="headerlink" href="#define-the-region-of-interest" title="Permalink to this heading">¶</a></h2>
 <p>There are two options to define the region of interest: ‘bbox’ or ‘place’.</p>
 <p>If ‘bbox’ is provided, the workflow will retrieve numBldg buildings within the bounding box defined by ‘bbox’.</p>
 <p>If ‘bbox’ is empty and ‘place’ is provided, the workflow will search the database based on ‘place’.</p>
 </div>
 <div class="section" id="footprints-options">
-<h2>Footprints options<a class="headerlink" href="#footprints-options" title="Permalink to this headline">¶</a></h2>
+<h2>Footprints options<a class="headerlink" href="#footprints-options" title="Permalink to this heading">¶</a></h2>
 <p>Use the key ‘footPrints’ to specify the source of building footprints to be used in the workflow.
 Currently, the workflow supports ‘
 <a class="reference external" href="https://www.openstreetmap.org/">OSM</a>’ and ‘<a class="reference external" href="https://github.com/microsoft/USBuildingFootprints">Microsoft</a>’.</p>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h2>
 <p>Check the <a class="reference internal" href="../examples.html#lbl-examples"><span class="std std-ref">Examples</span></a>.</p>
 </div>
 </div>
@@ -314,7 +315,7 @@ Currently, the workflow supports ‘
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

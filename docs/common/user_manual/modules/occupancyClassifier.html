@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.4. Occupancy Classifier &mdash; BRAILS 3.0.0 documentation</title>
+  <title>2.2.4. Occupancy Classifier &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -218,7 +219,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="occupancy-classifier">
-<span id="lbl-occupancyclassifier"></span><h1><span class="section-number">2.2.4. </span>Occupancy Classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-occupancyclassifier"></span><h1><span class="section-number">2.2.4. </span>Occupancy Classifier<a class="headerlink" href="#occupancy-classifier" title="Permalink to this heading">¶</a></h1>
 <p>The Occupancy Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module. It’s purpose is to label a building based on occupancy class. The occupancy classifier takes a list of street view images as the input and will classify the building into one of three categories: RES1, RES3, COM1.</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -241,7 +242,7 @@ Since the classifier is trained to classify only a specific category of images,
 its prediction is meaningful only if the input image belongs to the category the model is trained for.</p>
 </div>
 <div class="section" id="use-the-module">
-<h2><span class="section-number">2.2.4.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.4.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this heading">¶</a></h2>
 <p>Suppose you had a number of images in a folder named image_examples/Occupancy.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -311,7 +312,7 @@ Results written in file tmp/occupancy_preds.csv
 </div>
 </div>
 <div class="section" id="retrain-the-model">
-<h2><span class="section-number">2.2.4.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.4.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this heading">¶</a></h2>
 <p>You can retrain the existing model with your own data. To do so, you would place each of your labeled images (images of type .png) into one three seperate folders.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>my_occupancy_images
 │── RES1
@@ -369,7 +370,7 @@ predictions = occupancyModel.predict(imgs)
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

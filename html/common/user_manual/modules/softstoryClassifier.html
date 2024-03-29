@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>2.2.10. Soft-story Building Classifier &mdash; BRAILS 3.0.0 documentation</title>
+  <title>2.2.10. Soft-story Building Classifier &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -218,13 +219,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="soft-story-building-classifier">
-<span id="lbl-softstoryclassifier"></span><h1><span class="section-number">2.2.10. </span>Soft-story Building Classifier<a class="headerlink" href="#soft-story-building-classifier" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-softstoryclassifier"></span><h1><span class="section-number">2.2.10. </span>Soft-story Building Classifier<a class="headerlink" href="#soft-story-building-classifier" title="Permalink to this heading">¶</a></h1>
 <p>The Soft-story Building Classifier is a module built upon the <a class="reference internal" href="genericImageClassifier.html#lbl-genericimageclassifier"><span class="std std-ref">Generic Image Classifier</span></a> module.</p>
 <p>The module is shipped with BRAILS,
 so you don’t have to install it standalone if you’ve installed BRAILS following the <a class="reference internal" href="../installation.html#lbl-install"><span class="std std-ref">Installation</span></a> instruction.</p>
 <p>It takes a list of street view images of buildings as the input, and classify the buildings into two categories: soft-story building and  other building.</p>
 <div class="section" id="use-the-module">
-<h2><span class="section-number">2.2.10.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.10.1. </span>Use the module<a class="headerlink" href="#use-the-module" title="Permalink to this heading">¶</a></h2>
 <p>A pretrained model is shipped with BRAILS. So you can use it directly without training your own model.</p>
 <p>The first time you initialize this model, it will download the model from the internet to your local computer.</p>
 <p>The images used in the example can be downloaded from <a class="reference external" href="https://zenodo.org/record/4562949/files/image_examples.zip">here</a>.</p>
@@ -276,7 +277,7 @@ its prediction is meaningful only if the input image belongs to the category the
 </div>
 </div>
 <div class="section" id="retrain-the-model">
-<h2><span class="section-number">2.2.10.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.2.10.2. </span>Retrain the model<a class="headerlink" href="#retrain-the-model" title="Permalink to this heading">¶</a></h2>
 <p>You can retrain the existing model with your own data.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Load images from a folder
 ssModel.loadData(&#39;folder-of-images&#39;)
@@ -308,7 +309,7 @@ ssModel.save(&#39;myCoolNewModelv0.1&#39;)
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>PyTorch Roof Type Classifier &mdash; BRAILS 3.0.0 documentation</title>
+  <title>PyTorch Roof Type Classifier &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -192,7 +193,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="pytorch-roof-type-classifier">
-<span id="lbl-pytorchrooftypeclassifier"></span><h1>PyTorch Roof Type Classifier<a class="headerlink" href="#pytorch-roof-type-classifier" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-pytorchrooftypeclassifier"></span><h1>PyTorch Roof Type Classifier<a class="headerlink" href="#pytorch-roof-type-classifier" title="Permalink to this heading">¶</a></h1>
 <p>The PyTorch Roof Type Image Classifier is a subclass of PyTorch generic image classifier. It can be used for inference and fine-tuning.</p>
 <div class="toggle docutils container">
 <div class="header docutils container">
@@ -251,11 +252,11 @@
 </ol>
 </div>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>This class implements a roof type classifier which is a subsclass of PyTorch generic classifier. It will download the pretrained model for inference. It can also be used for fine-tuning the pre-trained model if training data is provided.</p>
 </div>
 <div class="section" id="example">
-<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this heading">¶</a></h2>
 <p>The following is an example, in which a roof type classifier is created.</p>
 <p>The image dataset for this example contains satellite images categorized according to roof type.</p>
 <p>The dataset can be downloaded <a class="reference external" href="https://zenodo.org/record/6231341/files/roofType.zip">here</a>.</p>
@@ -273,7 +274,7 @@
 </div>
 </div>
 <div class="section" id="construct-the-image-classifier">
-<h2>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this headline">¶</a></h2>
+<h2>Construct the image classifier<a class="headerlink" href="#construct-the-image-classifier" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># import the module
 
 from brails.modules.PytorchRoofTypeClassifier.RoofTypeClassifier import PytorchRoofClassifier
@@ -285,7 +286,7 @@ roofClassifier = PytorchRoofClassifier(modelName=&#39;transformer_rooftype_v1&#3
 </div>
 </div>
 <div class="section" id="classify-images-based-on-model">
-<h2>Classify Images Based on Model<a class="headerlink" href="#classify-images-based-on-model" title="Permalink to this headline">¶</a></h2>
+<h2>Classify Images Based on Model<a class="headerlink" href="#classify-images-based-on-model" title="Permalink to this heading">¶</a></h2>
 <p>Now you can use the trained model to predict the (roofType) class for a given image.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># If you are running the inference from another place, you need to initialize the classifier firstly:
 
@@ -304,7 +305,7 @@ predictions_dataframe = roofClassifier.predictMultipleImages(imgs)
 <p>The predictions will be written in preds.csv under the working directory.</p>
 </div>
 <div class="section" id="fine-tune-the-model-for-transfer-learning-transfer-learning-is-a-technique-to-overcome-the-distribution-shift-and-adapt-the-model-for-the-new-task-https-ftp-cs-wisc-edu-machine-learning-shavlik-group-torrey-handbook09-pdf-you-need-to-provide-the-training-data">
-<h2>Fine-tune the model for transfer learning. Transfer learning is a technique to overcome the distribution shift and adapt the model for the new task (<a class="reference external" href="https://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf">https://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf</a>). You need to provide the training data.<a class="headerlink" href="#fine-tune-the-model-for-transfer-learning-transfer-learning-is-a-technique-to-overcome-the-distribution-shift-and-adapt-the-model-for-the-new-task-https-ftp-cs-wisc-edu-machine-learning-shavlik-group-torrey-handbook09-pdf-you-need-to-provide-the-training-data" title="Permalink to this headline">¶</a></h2>
+<h2>Fine-tune the model for transfer learning. Transfer learning is a technique to overcome the distribution shift and adapt the model for the new task (<a class="reference external" href="https://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf">https://ftp.cs.wisc.edu/machine-learning/shavlik-group/torrey.handbook09.pdf</a>). You need to provide the training data.<a class="headerlink" href="#fine-tune-the-model-for-transfer-learning-transfer-learning-is-a-technique-to-overcome-the-distribution-shift-and-adapt-the-model-for-the-new-task-https-ftp-cs-wisc-edu-machine-learning-shavlik-group-torrey-handbook09-pdf-you-need-to-provide-the-training-data" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>from brails.modules.PytorchRoofTypeClassifier.RoofTypeClassifier import PytorchRoofClassifier
 
 roofClassifier = PytorchRoofClassifier(modelName=&#39;transformer_rooftype_v1&#39;, download=True, imgDir=&#39;./roofType/&#39;)
@@ -329,7 +330,7 @@ roofClassifier.fine_tuning(lr=0.001, batch_size=64, epochs=5)
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

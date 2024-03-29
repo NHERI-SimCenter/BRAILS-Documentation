@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>1.1. Framework &mdash; BRAILS 3.0.0 documentation</title>
+  <title>1.1. Framework &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -206,7 +207,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="framework">
-<span id="lbl-framework"></span><h1><span class="section-number">1.1. </span>Framework<a class="headerlink" href="#framework" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-framework"></span><h1><span class="section-number">1.1. </span>Framework<a class="headerlink" href="#framework" title="Permalink to this heading">¶</a></h1>
 <p>This section presents a framework that works as an abstraction providing generic functionalities and can be selectively
 changed by additional user-written codes with user-provided input data,
 thus providing a region-specific building information harvesting tool.
@@ -236,7 +237,7 @@ records are missing from administrative databases. The incompleteness issue is
 common for almost all data sources. In this framework, the missing values will
 be filled by modellings performed based on the incomplete initial database.</p>
 <div class="section" id="extracting-building-information-from-images">
-<h2>Extracting building information from images<a class="headerlink" href="#extracting-building-information-from-images" title="Permalink to this headline">¶</a></h2>
+<h2>Extracting building information from images<a class="headerlink" href="#extracting-building-information-from-images" title="Permalink to this heading">¶</a></h2>
 <p>An initial building inventory, containing basic indexing information such as addresses or coordinates of individual buildings,
 and other basic descriptions such as year built and structure type, has been created in the previous section.
 Based on the indexing information, satellite or street view images of each building can be retrieved using Google Maps API.
@@ -274,7 +275,7 @@ predictions from ConvNet are not always with acceptable confidence. To tackle th
 a machine learning based approach will be employed to enhance the database.</p>
 </div>
 <div class="section" id="data-fusion">
-<h2>Data fusion<a class="headerlink" href="#data-fusion" title="Permalink to this headline">¶</a></h2>
+<h2>Data fusion<a class="headerlink" href="#data-fusion" title="Permalink to this heading">¶</a></h2>
 <p>In order to combine building information obtained form different sources,
 a data fusion process is designed, as shown in <a class="reference internal" href="#brailsfusion"><span class="std std-numref">Fig. 1.1.2</span></a>.
 There are two starting points of the data flow pipeline: one is the address list and the other one is the building footprints.</p>
@@ -299,7 +300,7 @@ Merging the predicted values into the data stream results in the initial buildin
 </div>
 </div>
 <div class="section" id="data-enhancement">
-<span id="enhance"></span><h2>Data enhancement<a class="headerlink" href="#data-enhancement" title="Permalink to this headline">¶</a></h2>
+<span id="enhance"></span><h2>Data enhancement<a class="headerlink" href="#data-enhancement" title="Permalink to this heading">¶</a></h2>
 <p>Note that, after the fusion, the initial building database is still incomplete.
 Some of the reasons are:
 firstly no data source is perfect and there are usually a considerable amount of missing items in them;
@@ -465,7 +466,7 @@ Details about how to do this can be found in the documentation of <a class="refe
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

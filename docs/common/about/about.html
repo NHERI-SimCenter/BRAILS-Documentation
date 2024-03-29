@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>1. About &mdash; BRAILS 3.0.0 documentation</title>
+  <title>1. About &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -49,7 +50,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Acknowledgements" href="acknowledgements.html" />
-    <link rel="prev" title="Building Recognition using AI at Large-Scale (BRAILS)" href="../../index.html" />
+    <link rel="prev" title="Building and Infrastructure Recognition using AI at Large-Scale (BRAILS)" href="../../index.html" />
 <script src="https://cdn.jsdelivr.net/npm/vega@5.12.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.13.1"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.8.0"></script>
@@ -194,7 +195,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="about">
-<span id="lblabout"></span><h1><span class="section-number">1. </span>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
+<span id="lblabout"></span><h1><span class="section-number">1. </span>About<a class="headerlink" href="#about" title="Permalink to this heading">¶</a></h1>
 <p>BRAILS is an open-source software framework hosted on the <a class="reference external" href="https://github.com/NHERI-SimCenter/BRAILS">BRAILS Github page</a>, and released under the <strong>2-Clause BSD License</strong> (see <a class="reference internal" href="license.html#lbllicense"><span class="std std-ref">Copyright and License</span></a> ). The primary objective of BRAILS is to provide an easy-to-use programming interface for obtaining regional-scale building inventories from the publicly-available image, polygon, and other property data. BRAILS’s capabilities, however, are not limited to image-based inventory generation for buildings. BRAILS also contains simple automated utilities for image recognition tasks, which enable training custom image classification, object detection, and semantic segmentation in a few lines of code.</p>
 <p>For obtaining inventory information at a regional-scale, BRAILS software framework provides an end-to-end workflow. Once the user defines the region for which the inventory information is required, the workflow runs an array of scripts to download the location/footprint information and image data and predict the requested attributes for all buildings within the defined region. All workflow components, including the pre-trained machine learning models predicting building attributes, are fully customizable. This permits creating custom workflow using BRAILS tools as well as further training and testing of the machine learning models included with BRAILS. This documentation contains several <span class="xref std std-ref">lbl-examples:</span> demonstrating the use of the BRAILS framework. <a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a> <a class="reference external" href="https://nheri-simcenter.github.io/R2D-Documentation/">testbeds</a> are also a great resource showcasing how BRAILS can be used for generating inventory information at a large scale and can be coupled with other <a class="reference external" href="https://simcenter.designsafe-ci.org/">SimCenter</a> applications. Later versions of <a class="reference external" href="https://simcenter.designsafe-ci.org/research-tools/r2dtool/">R2D</a> are also planned to include BRAILS for a streamlined user experience.</p>
 <p>BRAILS also contains automated machine learning frameworks for classification, object detection, and semantic segmentation of images. These tools are equipped with a suite of features, such as automatic architecture selection, image augmentation, adaptive learning rate computations, and early termination, to provide a simple and easily operated interface for developing custom machine learning models. In their simplest forms, these frameworks only require a dataset of images, and their corresponding labels defined in a prescribed format, to train an image recognition model.</p>
@@ -211,14 +212,14 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="acknowledgements.html" class="btn btn-neutral float-right" title="2. Acknowledgements" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../../index.html" class="btn btn-neutral float-left" title="Building Recognition using AI at Large-Scale (BRAILS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../index.html" class="btn btn-neutral float-left" title="Building and Infrastructure Recognition using AI at Large-Scale (BRAILS)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>

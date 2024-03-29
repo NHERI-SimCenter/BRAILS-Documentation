@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>7. Release Notes &mdash; BRAILS 3.0.0 documentation</title>
+  <title>7. Release Notes &mdash; BRAILS 3.1.1 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
         <script src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
@@ -197,9 +198,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="release-notes">
-<span id="lbl-release"></span><h1><span class="section-number">7. </span>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
+<span id="lbl-release"></span><h1><span class="section-number">7. </span>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this heading">¶</a></h1>
 <div class="section" id="major-version-3">
-<h2><span class="section-number">7.1. </span>Major Version 3<a class="headerlink" href="#major-version-3" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>Major Version 3<a class="headerlink" href="#major-version-3" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -207,15 +208,58 @@
 </div>
 <details class="sphinx-bs dropdown card mb-3" open="open">
 <summary class="summary-title card-header">
-Version 3.1.0 (<span class="blue">Current</span>)<div class="summary-down docutils">
+<strong>Version 3.1.1</strong> (<span class="blue">Current</span>)<div class="summary-down docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="summary-up docutils">
 <svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="summary-content card-body docutils">
-<p class="card-text"><strong>Release date:</strong> September. 2022</p>
-<ol class="arabic simple">
-<li><p class="card-text">Coming soon</p></li>
+<p class="card-text"><strong>Release date:</strong> February 2024</p>
+<p class="card-text"><strong>Highlights</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p class="card-text">Enabled rapidtools feature to extract building-level imagery from NHERI RAPID aerial and street-level image data</p></li>
+<li><p class="card-text">Added the capability to pull National Structure Inventory as baseline building inventory</p></li>
+<li><p class="card-text">Updated TranspInventoryGenerator for more stable API queries</p></li>
+<li><p class="card-text">Updated FacadeParser for more effective memory utilization</p></li>
 </ol>
+</div></blockquote>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>Version 3.1.0</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text"><strong>Release date:</strong> December 2023</p>
+<p class="card-text"><strong>Highlights</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p class="card-text">Enabled Transportation inventory generation for roadways, bridges, tunnels, and railroads,</p></li>
+<li><p class="card-text">Revised FacadeParser to calculate dimensions from depth maps (as opposed to ray tracing from camera coordinates) for more robust dimension predictions,</p></li>
+<li><p class="card-text">Added FEMA USA Structures as an additional building footprint source.</p></li>
+</ol>
+</div></blockquote>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+<strong>Version 3.0.0</strong><div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<p class="card-text"><strong>Release date:</strong> September 2022</p>
+<p class="card-text"><strong>Highlights</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p class="card-text">Added new modules for predicting building height, building window area, first-floor height, existence of chimneys, and existence of garages, roof cover type, roof eave height, roof pitch,</p></li>
+<li><p class="card-text">Streamlined location inputs by resolving the input through Nominatim API,</p></li>
+<li><p class="card-text">Enabled on-the-fly footprint parsing from Microsoft Footprint Database and OpenStreetMaps,</p></li>
+<li><p class="card-text">Added the capability to remove neighboring buildings from street-level and satellite imagery,</p></li>
+<li><p class="card-text">Enabled inventory output creation in a CSV format compatible with R2D,</p></li>
+<li><p class="card-text">Added pipelines for generalized image classification and semantic segmentation models.</p></li>
+</ol>
+</div></blockquote>
 </div>
 </details></div></blockquote>
 </div>
@@ -235,7 +279,7 @@ Version 3.1.0 (<span class="blue">Current</span>)<div class="summary-down docuti
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2022, The Regents of the University of California.
+        &#169; Copyright 2024, The Regents of the University of California.
 
     </p>
   </div>
